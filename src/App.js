@@ -30,13 +30,21 @@ class App extends Component {
 
   componentDidMount() {
     console.log('mounted');
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://api.osrsbox.com/weapons?where=equipment.ranged_strength>50')
       .then(response => response.json())
       .then(json => {
-        this.props.dispatch({
-          type: 'LOAD_POSTS',
-          payload: json
-        })
+        console.log(json._items);
+        for(let i = 0; i < json._items.length; i++){
+          console.log(json._items[i].name);
+          this.props.dispatch({
+            type: 'LOAD_POSTS',
+            payload: {id: i+ 2, title: json._items[i].name}
+          })
+        }
+/*           this.props.dispatch({
+            type: 'LOAD_POSTS',
+            payload: json._items
+          }) */
       })
   }
 
