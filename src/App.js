@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
+import Container from './components/Container'
 
 class App extends Component {
   constructor() {
@@ -34,42 +35,20 @@ class App extends Component {
       .then(response => response.json())
       .then(json => {
         console.log(json._items);
-        for(let i = 0; i < json._items.length; i++){
+        for (let i = 0; i < json._items.length; i++) {
           console.log(json._items[i].name);
           this.props.dispatch({
             type: 'LOAD_POSTS',
-            payload: {id: i+ 2, title: json._items[i].name}
+            payload: { id: i + 2, title: json._items[i].name }
           })
         }
-/*           this.props.dispatch({
-            type: 'LOAD_POSTS',
-            payload: json._items
-          }) */
       })
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-            <div>
-              <button type="submit" onClick={this.handleSubmit}>
-                Submit
-              </button>
-            </div>
-          </form>
-          <ul>
-            {this.props.posts.map((post, index) => (
-              <li key={index}>{post.title}</li>
-            ))}
-          </ul>
-        </header>
+       <Container></Container>
       </div>
     )
   }

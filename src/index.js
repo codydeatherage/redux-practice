@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import store from './Store';
 window.store = store;
-
+document.body.style.backgroundColor = '#2c2f33';
 ReactDOM.render(
   <Provider store={store}>
     <App />
