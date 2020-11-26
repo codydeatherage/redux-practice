@@ -24,6 +24,30 @@
   left: calc(50% - 160px);
 }
 
+li{
+  border-top: 1px solid black;
+  color: white;
+
+}
+
+li:hover{
+  background-color: rgb(85, 85, 255);
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 150px;
+  overflow-x: hidden;
+  background-color: currentColor;
+}
+
+
+.btn{
+  border: 5px solid rgb(175, 127, 82);
+  height: 100px;
+  width: 100%;
+}
+
 #helm, #legs{
   left: calc(50% - 60px);
 }
