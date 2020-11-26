@@ -29,20 +29,24 @@ class App extends Component {
     this.setState({ postId: this.state.postId + 1 })
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('mounted');
-    fetch('https://api.osrsbox.com/weapons?where=equipment.ranged_strength>50')
-      .then(response => response.json())
-      .then(json => {
-        console.log(json._items);
-        for (let i = 0; i < json._items.length; i++) {
-          console.log(json._items[i].name);
-          this.props.dispatch({
-            type: 'LOAD_POSTS',
-            payload: { id: i + 2, title: json._items[i].name }
-          })
-        }
-      })
+    let pageNumber = 1;
+    const MAX_PAGES = 35;
+    for(let i = pageNumber; i <= MAX_PAGES;i++){
+      await fetch(`https://api.osrsbox.com/weapons?page=${i}`)
+        .then(response => response.json())
+        .then(json => {
+          console.log('meta info', json._meta);
+          console.log('"next" field', json._links.next);
+          for (let i = 0; i < json._items.length; i++) {
+            this.props.dispatch({
+              type: 'ADD_WEAPON',
+              payload: { name: json._items[i].name, stats: json._items[i].equipment }
+            })
+          }
+        })
+    }
   }
 
   render() {
@@ -55,7 +59,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { posts: state.posts }
+  return { allWeapons: state.allWeapons }
 }
 
 const mapDispatchToProps = dispatch => {

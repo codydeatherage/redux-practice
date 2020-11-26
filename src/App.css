@@ -10,6 +10,8 @@
   width: 500px;
   height: 50%;
   left: calc(50% - 250px);
+  background-color: #616263;
+  border: none;
 }
 
 .equip-slot{
