@@ -12,33 +12,97 @@
   left: calc(50% - 250px);
 }
 
+.equip-slot{
+  background-color: #616263;
+  width: 100px;
+  height: 100px;
+}
+
+.row-2, .row-3{
+  left: calc(50% - 160px);
+}
+
 #helm, #legs{
   left: calc(50% - 60px);
 }
 
-.row-2, .row-3{
-  left: calc(50% - 180px);
+#weapon, #gloves{
+  left: 60px;
 }
+
+#offhand, #ring{
+  left: 140px;
+}
+
+#helm{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/3/35/Head_slot.png?b0c39');
+}
+
+#cape{
+  left: 80px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/b/ba/Cape_slot.png?2cf1e');
+}
+
+#neck{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/b/b4/Neck_slot.png?5b85d');
+}
+
+#ammo{
+  left: 120px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/6/64/Ammo_slot.png?95ab9');
+}
+
+#weapon{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/d/d1/Weapon_slot.png?ffed1');
+}
+
+#body{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/9/9f/Body_slot.png?5e649');
+}
+
+#offhand{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/d/d9/Shield_slot.png?595b4');
+}
+
+#legs{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/2/25/Legs_slot.png?d132b');
+}
+
+#gloves{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/d/d5/Hands_slot.png?7e1b5');
+ }
 
 #boots{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki//images/8/84/Feet_slot.png?93de2');
 }
-#weapon, #gloves{
-  left: 35px;
-}
-#offhand, #ring{
-  left: 125px;
-}
-#cape{
- left: 60px;
-}
-#ammo{
-  left: 100px;
-}
-.equip-slot{
-  background-color: #616263;
-  width: 120px;
-  height: 100px;
-}
+
+#ring{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/9/9f/Ring_slot.png?37dd8');
+ }
+
+
+
+
+
