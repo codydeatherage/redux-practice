@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
                             ...state,
                             allWeapons: state.allWeapons.concat(payload)
                           }
-      case 'ADD_HELM': return{
+      case 'ADD_HEAD': return{
                             ...state,
                             allHelms: state.allHelms.concat(payload)
                           }
@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
                             ...state,
                             allBodies: state.allBodies.concat(payload)
                           }
-      case 'ADD_OFFHAND': return{
+      case 'ADD_SHIELD': return{
                             ...state,
                             allOffhands: state.allOffhands.concat(payload)
                           }
@@ -57,7 +57,7 @@ const reducer = (state = initialState, action) => {
                             ...state,
                             allHands: state.allHands.concat(payload)
                           }  
-      case 'ADD_BOOTS': return{
+      case 'ADD_FEET': return{
                             ...state,
                             allFeet: state.allFeet.concat(payload)
                           } 

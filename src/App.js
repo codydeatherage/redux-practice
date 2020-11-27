@@ -11,8 +11,9 @@ class App extends Component {
       postId: 2
     }
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.dispatcher = this.dispatcher.bind(this);
   }
 
   handleChange(event) {
@@ -28,124 +29,51 @@ class App extends Component {
 
     this.setState({ postId: this.state.postId + 1 })
   }
-  dispatcher(slot, item){
-    this.props.dispatch({
-      type: `ADD_${slot}`,
-      payload: {
-        name: item,
-        stats: item,
-        slot: item
-      }
-    });
+  dispatcher(slot, payload){
+    if(slot === 'weapon' || slot === '2h'){
+      this.props.dispatch({
+        type: 'ADD_WEAPON',
+        payload: payload
+      })
+    }
+    else{
+      this.props.dispatch({
+        type: `ADD_${slot.toUpperCase()}`,
+        payload: payload
+      });
+    }
   }
 //store.getState().allWeapons[store.getState().allWeapons.findIndex(i=>i.name === 'Elder maul')].stats
   async componentDidMount() {
     console.log('mounted');
     let pageNumber = 1;
     const eMax_Pages = 146;
+    let a = new Date();
+    console.log('Beginning fetch....');
     for(let i = pageNumber; i <= eMax_Pages; i++){
       await fetch(`https://api.osrsbox.com/equipment?page=${i}`)
         .then(response => response.json())
         .then(json => {
           for (let j = 0; j < json._items.length; j++) {
             const {name, equipment} = json._items[j];
-            switch(json._items[j].equipment.slot){
-              case '2h':
-              case 'weapon': this.props.dispatch({
-                              type: 'ADD_WEAPON',
-                              payload: {
-                                name: name,
-                                stats: equipment,
-                                slot: equipment.slot
-                              }
-                            });
-                            break;
-              case 'head': this.props.dispatch({
-                            type: 'ADD_HELM',
-                            payload: {
-                              name: json._items[j].name,
-                              stats: json._items[j].equipment
-                            }
-                          });
-                          break;
-              case 'cape' : this.props.dispatch({
-                              type: 'ADD_CAPE',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'body' : this.props.dispatch({
-                              type: 'ADD_BODY',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'legs' : this.props.dispatch({
-                              type: 'ADD_LEGS',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'hands' : this.props.dispatch({
-                              type: 'ADD_HANDS',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'feet' : this.props.dispatch({
-                              type: 'ADD_BOOTS',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'shield' : this.props.dispatch({
-                                type: 'ADD_OFFHAND',
-                                payload: {
-                                  name: json._items[j].name,
-                                  stats: json._items[j].equipment
-                                }
-                              });
-                              break;   
-              case 'neck' : this.props.dispatch({
-                              type: 'ADD_NECK',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            });
-                            break;
-              case 'ring' : this.props.dispatch({
-                              type: 'ADD_RING',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            })
-                            break;
-              case 'ammo' : this.props.dispatch({
-                              type: 'ADD_AMMO',
-                              payload: {
-                                name: json._items[j].name,
-                                stats: json._items[j].equipment
-                              }
-                            })
-                            break;                                
-              default: console.log('NO MATCH FOUND', json._items[j].equipment.slot); break;   
+            if(equipment.slot === 'weapon' || equipment.slot === '2h'){
+              this.dispatcher(
+                equipment.slot,
+                {name: name, stats: equipment, slot: equipment.slot}
+              );
             }
-
+            else{
+              this.dispatcher(
+                equipment.slot,
+                {name: name, stats: equipment}
+              ); 
+            }
           }
         })
     }
+    let b = new Date();
+    console.log('DATA FETCH COMPLETE!');
+    console.log('Time to Complete(ms)', b - a );
   }
 
   render() {
