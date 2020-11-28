@@ -1,53 +1,52 @@
 import React, {Component} from 'react';
 import EquipmentDropDown from './EquipmentDropDown';
 
-class Container extends Component{
+class PlayerInfoCard extends Component{
 /*For future reference:
 * https://oldschool.runescape.wiki/w/Legs_slot_table
 */
-
     render(){
         return(
-            <div className="card">
+            <div className="card player-card">
                 <div className = "row row-1">
-                    <div className = "card equip-slot" id="helm">
+                    <div className = "card-slot equip-slot" id="helm">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
                 </div>
                 <div className = "row">
-                    <div className = "card equip-slot row-2" id="cape">
+                    <div className = "card-slot equip-slot row-2" id="cape">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-2" id="neck">
+                    <div className = "card-slot equip-slot row-2" id="neck">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-2" id="ammo">
+                    <div className = "card-slot equip-slot row-2" id="ammo">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
                 </div>
                 <div className = "row">
-                    <div className = "card equip-slot row-3" id="weapon">
+                    <div className = "card-slot equip-slot row-3" id="weapon">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-3" id="body">
+                    <div className = "card-slot equip-slot row-3" id="body">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-3" id="offhand">
+                    <div className = "card-slot equip-slot row-3" id="offhand">
                         <EquipmentDropDown></EquipmentDropDown></div>                                                 
                 </div>                
                 <div className = "row">
-                    <div className = "card equip-slot" id="legs">
+                    <div className = "card-slot equip-slot" id="legs">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>                    
                 </div>                
                 <div className = "row">
-                    <div className = "card equip-slot row-3" id="gloves">
+                    <div className = "card-slot equip-slot row-3" id="gloves">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-3" id="boots">
+                    <div className = "card-slot equip-slot row-3" id="boots">
                         <EquipmentDropDown></EquipmentDropDown>
                     </div>
-                    <div className = "card equip-slot row-3" id="ring">
+                    <div className = "card-slot equip-slot row-3" id="ring">
                     <   EquipmentDropDown></EquipmentDropDown></div>                                                 
                 </div>
 
@@ -58,4 +57,4 @@ class Container extends Component{
     }
 }
 
-export default Container;
+export default PlayerInfoCard;

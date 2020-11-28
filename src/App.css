@@ -1,25 +1,78 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* padding: 25px; */
+  top: 150px;
 }
 
-.row{
-  padding: 5px;
-}
+/* .row{
+  padding: 5%;
+} */
 
 .card{
-  width: 500px;
-  height: 50%;
-  left: calc(50% - 250px);
+  /*   width: 250px; */
+  width:auto;
+  top: 15%;
+  /* left: 1%; */
+  height: 400px;
   background-color: #616263;
-  border: none;
+  border: 5px solid black;
 }
+
+@media only screen and (max-width: 991px){
+/*   .App{
+    display: block;
+  } */
+  .card{
+    left: 15%;
+    width: 70%;
+    background-color: brown;
+  }
+}
+
+/* @media only screen and (max-width: 768px){
+
+  .card{
+    left: 0;
+    min-width: 450px;
+    width: 70%;
+    background-color: brown;
+  }
+} */
+/* .panel-card, .monster-card, .player-card{
+
+} */
+
+
+.panel-card{
+ background-color: blueviolet;
+ height: 200px;
+/*  left: calc((30% + 200px)); */
+}
+/* 
+.monster-card{
+  left: calc((30% - 300px));
+}
+
+.player-card{
+  left: 10%;
+} */
 
 .equip-slot{
-  background-color: #616263;
-  width: 100px;
-  height: 100px;
+  position: relative;
+  background-color: #61626300;
+/*   width: 50px;
+  height: 50px; */
+  height: 80px;
+  width:20%;
 }
 
+.card-slot{
+  width: 80px;
+  height: 80px;
+}
 .row-2, .row-3{
   left: calc(50% - 160px);
 }
@@ -44,12 +97,12 @@ li:hover{
 
 .btn{
   border: 5px solid rgb(175, 127, 82);
-  height: 100px;
+  height: 80px;
   width: 100%;
 }
 
 #helm, #legs{
-  left: calc(50% - 60px);
+  left: calc(50%);
 }
 
 #weapon, #gloves{

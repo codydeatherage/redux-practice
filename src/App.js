@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
-import Container from './components/Container'
+import PlayerInfoCard from './components/PlayerInfoCard'
+import MonsterInfoCard from './components/MonsterInfoCard'
+import DataPanel from './components/DataPanel'
 
 class App extends Component {
   constructor() {
@@ -79,7 +81,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Container></Container>
+        <div className="col-lg-4">
+          <DataPanel></DataPanel>
+        </div>
+        <div className="col-lg-4">
+          <PlayerInfoCard></PlayerInfoCard>
+        </div>
+        <div className="col-lg-4">
+          <MonsterInfoCard></MonsterInfoCard>
+        </div>
+
+
+
       </div>
     )
   }
