@@ -59,22 +59,38 @@
 .player-card{
   left: 10%;
 } */
+.player-equip-card{
+  position: absolute;
+  
+  justify-content: center;
+  height: 100%;
+  width: 96%;
+  background-color: cornflowerblue;
+  left: 2%;
+}
 
 .equip-slot{
   position: relative;
   background-color: #61626300;
 /*   width: 50px;
   height: 50px; */
-  height: 80px;
+  height: 75px;
   width:20%;
 }
 
 .card-slot{
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
+}
+.row-1{
+  justify-content: center;
 }
 .row-2, .row-3{
-  left: calc(50% - 160px);
+  justify-content: space-between;
+  margin-left: 1%;
+  margin-right: 1%; 
+  background-color: crimson;
+  left: 17%;
 }
 
 li{
@@ -97,21 +113,21 @@ li:hover{
 
 .btn{
   border: 5px solid rgb(175, 127, 82);
-  height: 80px;
+  height: 75px;
   width: 100%;
 }
 
-#helm, #legs{
-  left: calc(50%);
-}
+/* #helm, #legs{
+  left: calc(45%);
+} */
 
-#weapon, #gloves{
+/* #weapon, #gloves{
   left: 60px;
 }
 
 #offhand, #ring{
   left: 140px;
-}
+} */
 
 #helm{
   background-repeat: no-repeat;
@@ -121,7 +137,6 @@ li:hover{
 }
 
 #cape{
-  left: 80px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/b/ba/Cape_slot.png?2cf1e');
@@ -134,7 +149,6 @@ li:hover{
 }
 
 #ammo{
-  left: 120px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/6/64/Ammo_slot.png?95ab9');
