@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import EquipmentDropDown from './EquipmentDropDown';
 
+
 class PlayerInfoCard extends Component{
 /*For future reference:
 * https://oldschool.runescape.wiki/w/Legs_slot_table
@@ -27,7 +28,7 @@ class PlayerInfoCard extends Component{
                     </div>
                     <div className = "row">
                         <div className = "card-slot equip-slot" id="weapon">
-                            <EquipmentDropDown></EquipmentDropDown>
+                            <EquipmentDropDown listType="weapon"></EquipmentDropDown>
                         </div>
                         <div className = "card-slot equip-slot md-gap" id="body">
                             <EquipmentDropDown></EquipmentDropDown>
