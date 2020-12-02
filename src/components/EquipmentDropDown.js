@@ -50,8 +50,9 @@ class EquipmentDropDown extends Component{
             <div>
                 <button type="button equip-slot" className="btn btn-default" data-toggle="dropdown"></button>
                 {this.state.image ? <img className="test" src={`data:image/png;base64,${this.state.image}`} alt=""></img> : null}
+            
                 <ul className="dropdown-menu scrollable-menu" role="menu">
-                    <input type="search" className=""></input>
+                    <input type="search" className="search-bar"></input>
                     {
                     this.listType === 'weapon' ?
                         this.props[`all${this.listType.charAt(0).toUpperCase() + this.listType.slice(1)}s`].map((weapon, index) =>{

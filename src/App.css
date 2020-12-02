@@ -98,6 +98,12 @@ li:hover{
   width: 100%;
 }
 
+/* .search-bar{
+  position: relative;
+  top: 70px;
+  left: 0px;
+  width: 100%;
+} */
 #helm{
   background-repeat: no-repeat;
   background-size: cover;

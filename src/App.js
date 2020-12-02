@@ -31,16 +31,15 @@ class App extends Component {
 
     this.setState({ postId: this.state.postId + 1 })
   }
-  dispatcher(slot, payload){
+  dispatcher(slot, payload, icon){
     if(slot === 'weapon' || slot === '2h'){
-      if(!this.props.allWeapons.find(item => item.name === payload.name) && 
-         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3))
-         && !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -4))
-         && !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -5))){
-        this.props.dispatch({
-          type: 'ADD_WEAPON',
-          payload: payload
-        })
+      if(!this.props.allWeapons.find(item => item.name === payload.name) &&
+         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3)) &&
+         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -4))){
+            this.props.dispatch({
+              type: 'ADD_WEAPON',
+              payload: payload
+            })
       }
       else if(this.props.allWeapons.find(item => 
         item.name === payload.name
@@ -52,7 +51,8 @@ class App extends Component {
       case 'ring':
           if(!this.props.allRings.find(item => 
             item.name === payload.name
-            ) && !this.props.allRings.find(item=>item.name.slice(0, -3) === payload.name.slice(0, -3))){
+            ) /* && !this.props.allRings.find(item=>item.name.slice(0, -3) === payload.name.slice(0, -3) */
+              && !this.props.allRings.find(item=>item.icon === icon)){
 
               this.props.dispatch({
                 type: `ADD_${slot.toUpperCase()}`,
@@ -67,7 +67,7 @@ class App extends Component {
       case 'cape':
           if(!this.props.allCapes.find(item => 
             item.name === payload.name
-            )){
+            ) && !payload.name.includes('Team-') && !payload.name.includes('Fremennik ')){
               this.props.dispatch({
                 type: `ADD_${slot.toUpperCase()}`,
                 payload: payload
@@ -94,7 +94,7 @@ class App extends Component {
         .then(response => response.json())
         .then(json => {
           for (let j = 0; j < json._items.length; j++) {
-            const {name, equipment, id} = json._items[j];
+            const {name, equipment, id, icon} = json._items[j];
             if(json._items[j].equipable_by_player === false || json._items[j].equipable === false){
                  console.log('UNEQUIPPABLE:::>> ', name);
                }
@@ -105,16 +105,19 @@ class App extends Component {
                || equipment.defence_ranged > 0 || equipment.melee_strength > 0|| equipment.ranged_strength > 0
                || equipment.magic_damage > 0
               ){
+                
                 if(equipment.slot === 'weapon' || equipment.slot === '2h'){
                   this.dispatcher(
                     equipment.slot,
-                    {name: name, slot: equipment.slot, id: id}
+                    {name: name, slot: equipment.slot, id: id},
+                    icon
                   );
                 }
                 else{
                   this.dispatcher(
                     equipment.slot,
-                    {name: name, id:id}
+                    {name: name, id:id},
+                    icon
                   ); 
                 }
               }
