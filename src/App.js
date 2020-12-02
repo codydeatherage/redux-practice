@@ -33,16 +33,53 @@ class App extends Component {
   }
   dispatcher(slot, payload){
     if(slot === 'weapon' || slot === '2h'){
-      this.props.dispatch({
-        type: 'ADD_WEAPON',
-        payload: payload
-      })
+      if(!this.props.allWeapons.find(item => item.name === payload.name) && 
+         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3))
+         && !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -4))
+         && !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -5))){
+        this.props.dispatch({
+          type: 'ADD_WEAPON',
+          payload: payload
+        })
+      }
+      else if(this.props.allWeapons.find(item => 
+        item.name === payload.name
+        ) || this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3))){
+         /*  console.log('DUPLICATE WEAPON FOUND: ', payload.name )*/
+        } 
     }
-    else{
-      this.props.dispatch({
-        type: `ADD_${slot.toUpperCase()}`,
-        payload: payload
-      });
+    switch(slot){
+      case 'ring':
+          if(!this.props.allRings.find(item => 
+            item.name === payload.name
+            ) && !this.props.allRings.find(item=>item.name.slice(0, -3) === payload.name.slice(0, -3))){
+
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              });
+            }
+          else if(this.props.allRings.find(item => 
+            item.name === payload.name
+            ) || this.props.allRings.find(item=>item.name.slice(0, -3) === payload.name.slice(0, -3))){
+             /*  console.log('DUPLICATE RING FOUND: ', payload.name) */
+            } break;
+      case 'cape':
+          if(!this.props.allCapes.find(item => 
+            item.name === payload.name
+            )){
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              });
+            }
+          else if(this.props.allCapes.find(item => 
+            item.name === payload.name
+            )){
+              /* console.log('DUPLICATE CAPE FOUND: ', payload.name) */
+            } break;
+      default: 
+      
     }
   }
 //store.getState().allWeapons[store.getState().allWeapons.findIndex(i=>i.name === 'Elder maul')].stats
@@ -58,19 +95,35 @@ class App extends Component {
         .then(json => {
           for (let j = 0; j < json._items.length; j++) {
             const {name, equipment, id} = json._items[j];
-            if(equipment.slot === 'weapon' || equipment.slot === '2h'){
-              this.dispatcher(
-                equipment.slot,
-                {name: name, slot: equipment.slot, id: id}
-              );
-            }
-            else{
-              this.dispatcher(
-                equipment.slot,
-                {name: name, id:id}
-              ); 
-            }
+            if(json._items[j].equipable_by_player === false || json._items[j].equipable === false){
+                 console.log('UNEQUIPPABLE:::>> ', name);
+               }
+            //filter out items that do not give any bonus *prayer is omitted*
+            if(equipment.attack_stab > 0 || equipment.attack_slash > 0 || equipment.attack_crush > 0
+               || equipment.attack_magic > 0 || equipment.attack_ranged > 0 || equipment.defence_stab > 0
+               || equipment.defence_slash > 0 || equipment.defence_crush > 0 || equipment.defence_magic > 0
+               || equipment.defence_ranged > 0 || equipment.melee_strength > 0|| equipment.ranged_strength > 0
+               || equipment.magic_damage > 0
+              ){
+                if(equipment.slot === 'weapon' || equipment.slot === '2h'){
+                  this.dispatcher(
+                    equipment.slot,
+                    {name: name, slot: equipment.slot, id: id}
+                  );
+                }
+                else{
+                  this.dispatcher(
+                    equipment.slot,
+                    {name: name, id:id}
+                  ); 
+                }
+              }
+/*               else{
+                console.log('---DISCARDED STATLESS ITEM---', name);
+              } */
+
           }
+     
         })
     }
     let b = new Date();
@@ -96,7 +149,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { allWeapons: state.allWeapons }
+  return { allWeapons: state.allWeapons,
+           allRings: state.allRings,
+           allCapes: state.allCapes }
 }
 
 const mapDispatchToProps = dispatch => {
