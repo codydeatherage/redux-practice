@@ -90,9 +90,6 @@ class App extends Component {
         <div className="col-lg-4">
           <MonsterInfoCard></MonsterInfoCard>
         </div>
-
-
-
       </div>
     )
   }

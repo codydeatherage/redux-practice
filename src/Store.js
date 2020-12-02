@@ -16,16 +16,16 @@ const initialState = {
   loginModal: {
     open: false
   },
-  equippedHead: {name:""/* , icon:"" */},
-  equippedCape: {name:""/* , icon:"" */},
-  equippedNeck: {name:""/* , icon:"" */},
-  equippedAmmo: {name:""/* , icon:"" */},
-  equippedWeapon: {name:""/* , icon:"" */},
-  equippedOffhand: {name:""/* , icon:"" */},
-  equippedLegs: {name:""/* , icon:"" */},
-  equippedHands: {name:""/* , icon:"" */},
-  equippedFeet: {name:""/* , icon:"" */},
-  equippedRing: {name:""/* , icon:"" */},
+  equippedHead: {name:"", icon:""},
+  equippedCape: {name:"", icon:""},
+  equippedNeck: {name:"", icon:""},
+  equippedAmmo: {name:"", icon:""},
+  equippedWeapon: {name:"", icon:""},
+  equippedOffhand: {name:"", icon:""},
+  equippedLegs: {name:"", icon:""},
+  equippedHands: {name:"", icon:""},
+  equippedFeet: {name:"", icon:""},
+  equippedRing: {name:"", icon:""},
 }
 
 const reducer = (state = initialState, action) => {

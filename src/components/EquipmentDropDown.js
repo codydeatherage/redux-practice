@@ -1,55 +1,55 @@
 import React, {Component} from 'react';
-import base64 from 'base-64';
 import {connect} from 'react-redux';
-import { isCompositeComponent } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 class EquipmentDropDown extends Component{
     constructor(props){
         super(props);
         this.state = {
-            head: '',
-            cape: '',
-            neck: '',
-            ammo: '',
-            weapon: '',
-            body: '',
-            offhand: '',
-            legs: '',
-            hands: '',
-            feet: '',
-            ring: ''
+            head: {name: '', id: ''},
+            cape: {name: '', id: ''},
+            neck: {name: '', id: ''},
+            ammo: {name: '', id: ''},
+            weapon: {name: '', id: ''},
+            body: {name: '', id: ''},
+            offhand: {name: '', id: ''},
+            legs: {name: '', id: ''},
+            hands: {name: '', id: ''},
+            feet: {name: '', id: ''},
+            ring: {name: '', id: ''},
+            image: ''
         }
         this.listType = props.listType;
         this.handleChange = this.handleChange.bind(this);
     }
 
     async handleChange(event){
-    /*     console.log('Prev state:', this.state.weapon); */
-        await this.setState({weapon: event.target.innerText}); //await important
- /*        console.log('New state:', this.state.weapon);
-        console.log(event.target.innerText); */
-        
-     /*    console.log(this.props.allWeapons[`${this.state.weapon}`]); */
-  /*       await fetch(`https://api.osrsbox.com/equipment/`)
-        .then(response => response.json())
-        .then(json => {
-        
-        
-        }) */
+        console.log('ID:::::', this.props.allWeapons.
+            find((item)=>
+                item.name === event.target.innerText
+            ).id
+        );
+        const itemID = this.props.allWeapons.find(item => item.name === event.target.innerText).id;
+    
+        await this.setState({weapon: {name: event.target.innerText, id: itemID}});
+        await fetch(`https://api.osrsbox.com/equipment/${this.state.weapon.id}`)
+            .then(response => response.json())
+            .then(async json => {
+                const {equipment, icon} = json;
+                await this.setState({image: icon});
+                console.log(this.state.image);
+            }
+        ) 
 
-        
         this.props.dispatch({
             type: 'CHANGE_WEAPON',
-            payload: {name: this.state.weapon}
+            payload: {name: this.state.weapon.name, icon: this.state.weapon.id}
         })
-
     }
     render(){
-       /*  const {listType} = this.props; */
         return(
             <div>
                 <button type="button equip-slot" className="btn btn-default" data-toggle="dropdown"></button>
-                
+                {this.state.image ? <img className="test" src={`data:image/png;base64,${this.state.image}`} alt=""></img> : null}
                 <ul className="dropdown-menu scrollable-menu" role="menu">
                     <input type="search" className=""></input>
                     {

@@ -7,29 +7,25 @@
   top: 150px;
 }
 
-/* .row{
-  padding: 5%;
-} */
 .test{
   position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: cyan;
+  top: 10%;
+  left: 5px;
+  height: 80%;
+  width: 80%;
+  background-color: rgba(0, 255, 255, 0);
+  pointer-events: none;
 }
+
 .card{
-  /*   width: 250px; */
   width:auto;
   top: 15%;
-  /* left: 1%; */
   height: 420px;
   background-color: #383131;
   border: 5px solid black;
 }
 
 @media only screen and (max-width: 991px){
-/*   .App{
-    display: block;
-  } */
   .card{
     left: 15%;
     width: 70%;
@@ -40,7 +36,6 @@
 .panel-card{
  background-color: blueviolet;
  height: 200px;
-/*  left: calc((30% + 200px)); */
 }
 
 .player-equip-card{
@@ -55,8 +50,6 @@
 .equip-slot{
   position: relative;
   background-color: #61626300;
-/*   width: 50px;
-  height: 50px; */
   height: 75px;
   width:20%;
   border: 1px solid rgb(128, 64, 4); 
@@ -66,11 +59,11 @@
   width: 75px;
   height: 75px;
 }
+
 .row{
   padding-bottom: 1%;
   justify-content: center;
 }
-
 
 .small-gap{
   margin-right: 3%;
@@ -99,7 +92,6 @@ li:hover{
   background-color: currentColor;
 }
 
-
 .btn{
   border: 5px solid rgb(175, 127, 82); 
   height: 75px;
@@ -109,7 +101,6 @@ li:hover{
 #helm{
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-image: url('blank-equip2.png'); */
   background-image: url('https://oldschool.runescape.wiki/images/3/35/Head_slot.png?b0c39');
 }
 
