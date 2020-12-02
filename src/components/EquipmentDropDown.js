@@ -24,10 +24,11 @@ class EquipmentDropDown extends Component{
     }
 
     async handleChange(event){
-        console.log('Prev state:', this.state.weapon);
+    /*     console.log('Prev state:', this.state.weapon); */
         await this.setState({weapon: event.target.innerText}); //await important
-        console.log('New state:', this.state.weapon);
-        console.log(event.target.innerText);
+ /*        console.log('New state:', this.state.weapon);
+        console.log(event.target.innerText); */
+        
      /*    console.log(this.props.allWeapons[`${this.state.weapon}`]); */
   /*       await fetch(`https://api.osrsbox.com/equipment/`)
         .then(response => response.json())
@@ -37,10 +38,10 @@ class EquipmentDropDown extends Component{
         }) */
 
         
-/*         this.props.dispatch({
-            type: 'CHANGE_EQUIP',
-            payload: {name: this.state.head, icon:""}
-        }) */
+        this.props.dispatch({
+            type: 'CHANGE_WEAPON',
+            payload: {name: this.state.weapon}
+        })
 
     }
     render(){

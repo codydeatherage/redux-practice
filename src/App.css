@@ -10,7 +10,12 @@
 /* .row{
   padding: 5%;
 } */
-
+.test{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: cyan;
+}
 .card{
   /*   width: 250px; */
   width:auto;
@@ -96,7 +101,7 @@ li:hover{
 
 
 .btn{
-/*   border: 5px solid rgb(175, 127, 82); */ 
+  border: 5px solid rgb(175, 127, 82); 
   height: 75px;
   width: 100%;
 }
@@ -130,6 +135,12 @@ li:hover{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/d/d1/Weapon_slot.png?ffed1');
+}
+
+#blank{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('./blank-equip2.png');
 }
 
 #body{

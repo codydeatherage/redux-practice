@@ -31,6 +31,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     const {type, payload} = action;
     switch(type){
+      case 'CHANGE_WEAPON': return{
+                              ...state,
+                              equippedWeapon: payload
+                            }
       case 'ADD_WEAPON': return{
                             ...state,
                             allWeapons: state.allWeapons.concat(payload)
