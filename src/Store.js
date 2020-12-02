@@ -2,20 +2,30 @@ import { createStore } from 'redux'
 
 const initialState = {
   posts: [{id: 1, title: 'Test Post'}],
-  allWeapons: [{name: '', stats:{str: 1, atk: 1}, slot:'weapon'}],
-  allHelms: [{name: '', stats:{def: 1}}],
-  allNecks: [{name: '', stats:{neck: 1}}],
-  allCapes: [{name: '', stats:{cape: 1}}],
-  allAmmo: [{name: '', stats:{ammo: 1}}],
-  allBodies: [{name: '', stats:{body: 1}}],
-  allOffhands: [{name: '', stats:{offhand: 1}}],
-  allLegs: [{name: '', stats:{legs: 1}}],
-  allHands: [{name: '', stats:{hands: 1}}],
-  allFeet: [{name: '', stats:{feet: 1}}],
-  allRings: [{name: '', stats:{ring: 1}}],
+  allWeapons: [{name: '',  slot:'weapon', id: ''}],
+  allHelms: [{name: '', id: ''}],
+  allNecks: [{name: '', id: ''}],
+  allCapes: [{name: '', id: ''}],
+  allAmmo: [{name: '', id: ''}],
+  allBodies: [{name: '', id: ''}],
+  allOffhands: [{name: '', id: ''}],
+  allLegs: [{name: '', id: ''}],
+  allHands: [{name: '', id: ''}],
+  allFeet: [{name: '', id: ''}],
+  allRings: [{name: '', id: ''}],
   loginModal: {
     open: false
-  }
+  },
+  equippedHead: {name:""/* , icon:"" */},
+  equippedCape: {name:""/* , icon:"" */},
+  equippedNeck: {name:""/* , icon:"" */},
+  equippedAmmo: {name:""/* , icon:"" */},
+  equippedWeapon: {name:""/* , icon:"" */},
+  equippedOffhand: {name:""/* , icon:"" */},
+  equippedLegs: {name:""/* , icon:"" */},
+  equippedHands: {name:""/* , icon:"" */},
+  equippedFeet: {name:""/* , icon:"" */},
+  equippedRing: {name:""/* , icon:"" */},
 }
 
 const reducer = (state = initialState, action) => {

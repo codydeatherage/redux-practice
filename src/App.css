@@ -32,33 +32,12 @@
   }
 }
 
-/* @media only screen and (max-width: 768px){
-
-  .card{
-    left: 0;
-    min-width: 450px;
-    width: 70%;
-    background-color: brown;
-  }
-} */
-/* .panel-card, .monster-card, .player-card{
-
-} */
-
-
 .panel-card{
  background-color: blueviolet;
  height: 200px;
 /*  left: calc((30% + 200px)); */
 }
-/* 
-.monster-card{
-  left: calc((30% - 300px));
-}
 
-.player-card{
-  left: 10%;
-} */
 .player-equip-card{
   position: absolute;
   top: 1%;
@@ -75,6 +54,7 @@
   height: 50px; */
   height: 75px;
   width:20%;
+  border: 1px solid rgb(128, 64, 4); 
 }
 
 .card-slot{
@@ -116,7 +96,7 @@ li:hover{
 
 
 .btn{
- /*  border: 5px solid rgb(175, 127, 82); */
+/*   border: 5px solid rgb(175, 127, 82); */ 
   height: 75px;
   width: 100%;
 }

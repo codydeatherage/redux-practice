@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     this.props.dispatch({
       type: 'ADD_POST',
       payload: { id: this.state.postId, title: this.state.value }
@@ -57,17 +57,17 @@ class App extends Component {
         .then(response => response.json())
         .then(json => {
           for (let j = 0; j < json._items.length; j++) {
-            const {name, equipment} = json._items[j];
+            const {name, equipment, id} = json._items[j];
             if(equipment.slot === 'weapon' || equipment.slot === '2h'){
               this.dispatcher(
                 equipment.slot,
-                {name: name, stats: equipment, slot: equipment.slot}
+                {name: name, slot: equipment.slot, id: id}
               );
             }
             else{
               this.dispatcher(
                 equipment.slot,
-                {name: name, stats: equipment}
+                {name: name, id:id}
               ); 
             }
           }
