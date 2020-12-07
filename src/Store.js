@@ -7,7 +7,7 @@ const initialState = {
   allNecks: [{name: '', id: ''}],
   allCapes: [{name: '', id: ''}],
   allAmmo: [{name: '', id: ''}],
-  allBodys: [{name: '', id: ''}],
+  allBodies: [{name: '', id: ''}],
   allShields: [{name: '', id: ''}],
   allLegs: [{name: '', id: ''}],
   allHands: [{name: '', id: ''}],
@@ -35,6 +35,18 @@ const reducer = (state = initialState, action) => {
                               ...state,
                               equippedWeapon: payload
                             }
+      case 'CHANGE_CAPE': return{
+                              ...state,
+                              equippedCape: payload
+                            }      
+      case 'CHANGE_RING': return{
+                              ...state,
+                              equippedRing: payload
+                            }           
+      case 'CHANGE_HELM': return{
+                              ...state,
+                              equippedHead: payload
+                            }    
       case 'ADD_WEAPON': return{
                             ...state,
                             allWeapons: state.allWeapons.concat(payload)

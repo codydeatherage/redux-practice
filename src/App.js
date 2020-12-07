@@ -78,6 +78,13 @@ class App extends Component {
             )){
               /* console.log('DUPLICATE CAPE FOUND: ', payload.name) */
             } break;
+      case 'head':
+        if(!this.props.allHelms.find(item => item.name === payload.name)){
+          this.props.dispatch({
+            type: `ADD_${slot.toUpperCase()}`,
+            payload: payload
+          }); break;
+        }
       default: 
       
     }
@@ -116,7 +123,7 @@ class App extends Component {
                 else{
                   this.dispatcher(
                     equipment.slot,
-                    {name: name, id:id},
+                    {name: name.toLowerCase(), id:id},
                     icon
                   ); 
                 }
@@ -154,7 +161,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return { allWeapons: state.allWeapons,
            allRings: state.allRings,
-           allCapes: state.allCapes }
+           allCapes: state.allCapes,
+           allHelms: state.allHelms }
 }
 
 const mapDispatchToProps = dispatch => {

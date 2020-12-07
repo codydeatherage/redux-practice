@@ -12,14 +12,27 @@ class PlayerInfoCard extends Component{
             <div className="card player-card">
                 <div className="player-equip-card">
                     <div className = "row">
-                        <div className = "card-slot equip-slot" id="helm">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
+                    {this.props.equippedHead.name === '' ?  
+                            <div className = "card-slot equip-slot" id="helm">
+                                <EquipmentDropDown listType="helm"></EquipmentDropDown>
+                            </div>
+                            :
+                            <div className = "card-slot equip-slot" id="blank">
+                                <EquipmentDropDown listType="helm"></EquipmentDropDown>
+                            </div>     
+                        } 
                     </div>
                     <div className = "row">
-                        <div className = "card-slot equip-slot" id="cape">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
+                        {this.props.equippedCape.name === '' ?  
+                            <div className = "card-slot equip-slot" id="cape">
+                                <EquipmentDropDown listType="cape"></EquipmentDropDown>
+                            </div>
+                            :
+                            <div className = "card-slot equip-slot" id="blank">
+                                <EquipmentDropDown listType="cape"></EquipmentDropDown>
+                            </div>     
+                        } 
+
                         <div className = "card-slot equip-slot small-gap" id="neck">
                             <EquipmentDropDown></EquipmentDropDown>
                         </div>
@@ -28,18 +41,15 @@ class PlayerInfoCard extends Component{
                         </div>
                     </div>
                     <div className = "row">
-                        {
-                            this.props.equippedWeapon.name === '' ? console.log('equipped: NO')
-                                                           : console.log('equipped: YES')
-                        }
+
                          {this.props.equippedWeapon.name === '' ?  
-                                    <div className = "card-slot equip-slot" id="weapon">
-                                        <EquipmentDropDown listType="weapon"></EquipmentDropDown>
-                                    </div>
-                                    :
-                                    <div className = "card-slot equip-slot" id="blank">
-                                        <EquipmentDropDown listType="weapon"></EquipmentDropDown>
-                                    </div>     
+                            <div className = "card-slot equip-slot" id="weapon">
+                                <EquipmentDropDown listType="weapon"></EquipmentDropDown>
+                            </div>
+                            :
+                            <div className = "card-slot equip-slot" id="blank">
+                                <EquipmentDropDown listType="weapon"></EquipmentDropDown>
+                            </div>     
                         } 
                         <div className = "card-slot equip-slot md-gap" id="body">
                             <EquipmentDropDown></EquipmentDropDown>
@@ -60,7 +70,7 @@ class PlayerInfoCard extends Component{
                             <EquipmentDropDown></EquipmentDropDown>
                         </div>
                         <div className = "card-slot equip-slot" id="ring">
-                        <   EquipmentDropDown></EquipmentDropDown></div>                                                 
+                        <EquipmentDropDown listType="ring"></EquipmentDropDown></div>                                                 
                     </div>
                 </div>
             </div>

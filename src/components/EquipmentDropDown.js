@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import DropDownListItem from './DropDownListItem'
+import DropDownList from './DropDownList'
+import SingleSlot from './SingleSlot'
 
 class EquipmentDropDown extends Component{
     constructor(props){
@@ -21,19 +22,74 @@ class EquipmentDropDown extends Component{
             displayItems: []
         }
         this.listType = props.listType;
-        this.handleChange = this.handleChange.bind(this);
+        this.currList = [];
+        let icon = '';
+        switch(this.props.listType){
+            case 'weapon' : this.currList = this.props.allWeapons; 
+                            icon = this.props.equippedWeapon.icon;
+                            break;
+            case 'helm' : this.currList = this.props.allHelms; 
+                            icon = this.props.equippedHead.icon;
+                            break;
+            case 'cape' : this.currList = this.props.allCapes; 
+                            icon = this.props.equippedCape.icon;
+                            break;
+            case 'neck' : this.currList = this.props.allNecks; 
+                            icon = this.props.equippedNeck.icon;
+                            break;
+            case 'ammo' : this.currList = this.props.allAmmo; 
+                            icon = this.props.equippedAmmo.icon;
+                            break;
+            case 'body' : this.currList = this.props.allBodies; 
+                            icon = this.props.equippedBody.icon;
+                            break;
+            case 'offhand' : this.currList = this.props.allShields; 
+                            icon = this.props.equippedOffhand.icon;
+                            break;
+            case 'legs' : this.currList = this.props.allLegs; 
+                            icon = this.props.equippedLegs.icon;
+                            break;
+            case 'hands' : this.currList = this.props.allHands; 
+                            icon = this.props.equippedHands.icon;
+                            break;
+            case 'feet' : this.currList = this.props.allFeet; 
+                            icon = this.props.equippedFeet.icon;
+                            break;
+            case 'ring' : this.currList = this.props.allRings; 
+                            icon = this.props.equippedRing.icon;
+                            break;
+            default: this.currList = []; icon = '';
+        }
+        this.setState({image: icon});
+        console.log('ICON:::', this.state.image, ':::');
         this.filterList = this.filterList.bind(this);
+        this.setState({displayItems: this.props.currList});
     }
 
     async filterList(event){
-        const currList = this.props[`all${this.props.listType.charAt(0).toUpperCase() + this.props.listType.slice(1)}s`];
+        console.log('HEAD FILTER::', this.props.listType);
+        let currList = [];
+        switch(this.props.listType){
+            case 'weapon' : currList = this.props.allWeapons; break;
+            case 'helm' : currList = this.props.allHelms; break;
+            case 'cape' : currList = this.props.allCapes; break;
+            case 'neck' : currList = this.props.allNecks; break;
+            case 'ammo' : currList = this.props.allAmmo; break;
+            case 'body' : currList = this.props.allBodies; break;
+            case 'offhand' : currList = this.props.allShields; break;
+            case 'legs' : currList = this.props.allLegs; break;
+            case 'hands' : currList = this.props.allHands; break;
+            case 'feet' : currList = this.props.allFeet; break;
+            case 'ring' : currList = this.props.allRings; break;
+            default: currList = [];
+        }
         let newList = [];
+        //console.log('LISTED', currList);
         for(let item of currList){
             newList.push(item.name);
         }
        // console.log(newList);
         let displayList = [];
-        /* let newList = this.props[`all${this.props.listType.charAt(0).toUpperCase() + this.props.listType.slice(1)}s`]; */
         for(let item of newList){
             if(item.includes(event.target.value.toLowerCase())){
                 displayList.push(item);
@@ -41,60 +97,110 @@ class EquipmentDropDown extends Component{
         }
         //console.log('Results: ', displayList);
         await this.setState({displayItems: displayList});
-        console.log('STATE ::', this.state.displayItems);
+        //console.log('STATE ::', this.state.displayItems);
     }
 
-    async handleChange(event){
-        console.log('ID:::::', this.props.allWeapons.
-            find((item)=>
-                item.name === event.target.innerText
-            ).id
-        );
-        const itemID = this.props.allWeapons.find(item => item.name === event.target.innerText).id;
-    
-        await this.setState({weapon: {name: event.target.innerText, id: itemID}});
-        await fetch(`https://api.osrsbox.com/equipment/${this.state.weapon.id}`)
-            .then(response => response.json())
-            .then(async json => {
-                const {equipment, icon} = json;
-                await this.setState({image: icon});
-                console.log(this.state.image);
-            }
-        ) 
-
-        this.props.dispatch({
-            type: 'CHANGE_WEAPON',
-            payload: {name: this.state.weapon.name, icon: this.state.weapon.id}
-        })
-    }
     render(){
-        return(
-            <div>
-                <button type="button equip-slot" className="btn btn-default" data-toggle="dropdown"></button>
-                {this.state.image ? <img className="test" src={`data:image/png;base64,${this.state.image}`} alt=""></img> : null}
-               
-                <ul className="dropdown-menu scrollable-menu" role="menu">
-                    <input type="search" onChange={this.filterList} className="search-bar"></input>
-                    {    
-                        <DropDownListItem items={this.state.displayItems}></DropDownListItem>
-                        /* this.props[`all${this.listType.charAt(0).toUpperCase() + this.listType.slice(1)}s`]. */
-                      /*   this.state.displayItems.map((weapon, index) =>{
-                            return(<li onClick={this.handleChange} key={index}>{weapon.name}</li>)
-                        })  */
-                    }
-
-                </ul>
-            </div>
-        );
+        switch(this.props.listType){
+            case 'weapon' :         
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedWeapon.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'helm' :
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedHead.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'cape' :             
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedCape.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'neck' : 
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedNeck.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'ammo' :
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedAmmo.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'body' :            
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedBody.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'offhand' :              
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedOffhand.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'legs' :              
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedLegs.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'hands' :              
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedHands.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'feet' :              
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedFeet.icon} 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+            case 'ring' :          
+            return(
+                <SingleSlot 
+                    icon={this.props.equippedRing.icon} 
+                    listType="ring">
+                </SingleSlot>
+            );
+            default: 
+            return(
+                <SingleSlot 
+                    icon="' '" 
+                    listType={this.props.listType}>
+                </SingleSlot>
+            );
+        }
     }
 }
+
 const mapStateToProps = state => {
     return { 
         allWeapons: state.allWeapons,
+        allCapes: state.allCapes,
+        allHelms: state.allHelms,
+        allRings: state.allRings,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
         equippedAmmo: state.equippedAmmo,
+        equippedBody: state.equippedBody,
         equippedWeapon: state.equippedWeapon,
         equippedOffhand: state.equippedOffhand,
         equippedLegs: state.equippedLegs,
