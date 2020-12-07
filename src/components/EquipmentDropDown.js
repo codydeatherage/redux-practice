@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import DropDownListItem from './DropDownListItem'
 
 class EquipmentDropDown extends Component{
     constructor(props){
@@ -16,10 +17,31 @@ class EquipmentDropDown extends Component{
             hands: {name: '', id: ''},
             feet: {name: '', id: ''},
             ring: {name: '', id: ''},
-            image: ''
+            image: '',
+            displayItems: []
         }
         this.listType = props.listType;
         this.handleChange = this.handleChange.bind(this);
+        this.filterList = this.filterList.bind(this);
+    }
+
+    async filterList(event){
+        const currList = this.props[`all${this.props.listType.charAt(0).toUpperCase() + this.props.listType.slice(1)}s`];
+        let newList = [];
+        for(let item of currList){
+            newList.push(item.name);
+        }
+       // console.log(newList);
+        let displayList = [];
+        /* let newList = this.props[`all${this.props.listType.charAt(0).toUpperCase() + this.props.listType.slice(1)}s`]; */
+        for(let item of newList){
+            if(item.includes(event.target.value.toLowerCase())){
+                displayList.push(item);
+            }
+        }
+        //console.log('Results: ', displayList);
+        await this.setState({displayItems: displayList});
+        console.log('STATE ::', this.state.displayItems);
     }
 
     async handleChange(event){
@@ -50,14 +72,15 @@ class EquipmentDropDown extends Component{
             <div>
                 <button type="button equip-slot" className="btn btn-default" data-toggle="dropdown"></button>
                 {this.state.image ? <img className="test" src={`data:image/png;base64,${this.state.image}`} alt=""></img> : null}
-            
+               
                 <ul className="dropdown-menu scrollable-menu" role="menu">
-                    <input type="search" className="search-bar"></input>
-                    {
-                    this.listType === 'weapon' ?
-                        this.props[`all${this.listType.charAt(0).toUpperCase() + this.listType.slice(1)}s`].map((weapon, index) =>{
+                    <input type="search" onChange={this.filterList} className="search-bar"></input>
+                    {    
+                        <DropDownListItem items={this.state.displayItems}></DropDownListItem>
+                        /* this.props[`all${this.listType.charAt(0).toUpperCase() + this.listType.slice(1)}s`]. */
+                      /*   this.state.displayItems.map((weapon, index) =>{
                             return(<li onClick={this.handleChange} key={index}>{weapon.name}</li>)
-                        }) : null
+                        })  */
                     }
 
                 </ul>

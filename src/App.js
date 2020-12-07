@@ -109,7 +109,7 @@ class App extends Component {
                 if(equipment.slot === 'weapon' || equipment.slot === '2h'){
                   this.dispatcher(
                     equipment.slot,
-                    {name: name, slot: equipment.slot, id: id},
+                    {name: name.toLowerCase(), slot: equipment.slot, id: id},
                     icon
                   );
                 }
