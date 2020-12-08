@@ -33,9 +33,16 @@ class PlayerInfoCard extends Component{
                             </div>     
                         } 
 
-                        <div className = "card-slot equip-slot small-gap" id="neck">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
+                        {this.props.equippedNeck.name === '' ?  
+                            <div className = "card-slot equip-slot small-gap" id="neck">
+                                <EquipmentDropDown listType="neck"></EquipmentDropDown>
+                            </div>
+                            :
+                            <div className = "card-slot equip-slot small-gap" id="blank">
+                                <EquipmentDropDown listType="neck"></EquipmentDropDown>
+                            </div>     
+                        } 
+                        
                         <div className = "card-slot equip-slot" id="ammo">
                             <EquipmentDropDown></EquipmentDropDown>
                         </div>

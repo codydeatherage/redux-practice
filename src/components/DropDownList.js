@@ -61,6 +61,7 @@ const mapStateToProps = state => {
         allCapes: state.allCapes,
         allRings: state.allRings,
         allHelms: state.allHelms,
+        allNecks: state.allNecks,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,

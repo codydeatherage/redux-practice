@@ -85,6 +85,15 @@ class App extends Component {
             payload: payload
           }); break;
         }
+      case 'neck':
+        if(!this.props.allNecks.find(item => item.name === payload.name)){
+          if(!payload.name.includes('(') || payload.name.includes('(e)') || payload.name.includes('(ei)')){ 
+            this.props.dispatch({
+              type: `ADD_${slot.toUpperCase()}`,
+              payload: payload
+            }); break;
+          }
+        }
       default: 
       
     }
@@ -159,10 +168,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { allWeapons: state.allWeapons,
-           allRings: state.allRings,
-           allCapes: state.allCapes,
-           allHelms: state.allHelms }
+  return {
+    allWeapons: state.allWeapons,
+    allRings: state.allRings,
+    allCapes: state.allCapes,
+    allHelms: state.allHelms,
+    allNecks: state.allNecks 
+  }
 }
 
 const mapDispatchToProps = dispatch => {

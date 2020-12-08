@@ -46,7 +46,21 @@ const reducer = (state = initialState, action) => {
       case 'CHANGE_HELM': return{
                               ...state,
                               equippedHead: payload
-                            }    
+                            }
+      case 'CHANGE_NECK': return{
+                              ...state,
+                              equippedNeck: payload
+                            } 
+      case 'CHANGE_AMMO': return{
+                              ...state,
+                              equippedAmmo: payload
+                            }
+      case 'CHANGE_BODY': return{
+                              ...state,
+                              equippedBody: payload
+                            }                           
+                            
+
       case 'ADD_WEAPON': return{
                             ...state,
                             allWeapons: state.allWeapons.concat(payload)
@@ -59,7 +73,7 @@ const reducer = (state = initialState, action) => {
                             ...state,
                             allCapes: state.allCapes.concat(payload)
                           }
-      case 'ADD_NECKS': return{
+      case 'ADD_NECK': return{
                             ...state,
                             allNecks: state.allNecks.concat(payload)
                           }
