@@ -48,7 +48,6 @@ class EquipmentDropDown extends Component{
             default: this.currList = []; icon = '';
         }
         this.setState({image: icon});
-        console.log('ICON:::', this.state.image, ':::');
         this.filterList = this.filterList.bind(this);
         this.setState({displayItems: this.props.currList});
     }
@@ -71,20 +70,16 @@ class EquipmentDropDown extends Component{
             default: currList = [];
         }
         let newList = [];
-        //console.log('LISTED', currList);
         for(let item of currList){
             newList.push(item.name);
         }
-       // console.log(newList);
         let displayList = [];
         for(let item of newList){
             if(item.includes(event.target.value.toLowerCase())){
                 displayList.push(item);
             }
         }
-        //console.log('Results: ', displayList);
         await this.setState({displayItems: displayList});
-        //console.log('STATE ::', this.state.displayItems);
     }
 
     render(){
