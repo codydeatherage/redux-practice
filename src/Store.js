@@ -16,6 +16,7 @@ const initialState = {
   loginModal: {
     open: false
   },
+  equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},
   equippedCape: {name:"", icon:""},
   equippedNeck: {name:"", icon:""},
@@ -50,7 +51,11 @@ const reducer = (state = initialState, action) => {
       case 'CHANGE_NECK': return{
                               ...state,
                               equippedNeck: payload
-                            } 
+                            }
+      case 'CHANGE_OFFHAND': return{
+                              ...state,
+                              equippedOffhand: payload
+                            }                          
       case 'CHANGE_AMMO': return{
                               ...state,
                               equippedAmmo: payload
@@ -58,7 +63,19 @@ const reducer = (state = initialState, action) => {
       case 'CHANGE_BODY': return{
                               ...state,
                               equippedBody: payload
-                            }                           
+                            }
+      case 'CHANGE_LEGS': return{
+                              ...state,
+                              equippedLegs: payload
+                            }
+      case 'CHANGE_HAND': return{
+                              ...state,
+                              equippedHands: payload
+                            }
+      case 'CHANGE_FEET': return{
+                              ...state,
+                              equippedFeet: payload
+                            }                                                        
                             
 
       case 'ADD_WEAPON': return{
@@ -87,7 +104,7 @@ const reducer = (state = initialState, action) => {
                           }
       case 'ADD_SHIELD': return{
                             ...state,
-                            allOffhands: state.allOffhands.concat(payload)
+                            allShields: state.allShields.concat(payload)
                           }
       case 'ADD_LEGS': return{
                             ...state,

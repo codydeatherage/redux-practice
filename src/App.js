@@ -33,20 +33,22 @@ class App extends Component {
   }
   dispatcher(slot, payload, icon){
     if(slot === 'weapon' || slot === '2h'){
-      if(!this.props.allWeapons.find(item => item.name === payload.name) &&
+      if(!this.props.allWeapons.find(item => item.name === payload.name)){ /* &&
          !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3)) &&
-         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -4))){
+         !this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -4)) */
+          if(!payload.name.includes('(p)') && !payload.name.includes('(p+)') && !payload.name.includes('(p++)')
+            && !payload.name.includes('(nz)') && !payload.name.includes('(kp)') && !payload.name.includes('corrupted')
+            && !payload.name.includes('crystal staff') && !payload.name.includes('(basic)') && !payload.name.includes('(attuned)')
+            && !payload.name.includes('(perfected)')){   
             this.props.dispatch({
-              type: 'ADD_WEAPON',
-              payload: payload
-            })
+                type: 'ADD_WEAPON',
+                payload: payload
+              })
+          }
       }
-      else if(this.props.allWeapons.find(item => 
-        item.name === payload.name
-        ) || this.props.allWeapons.find(item=>item.name === payload.name.slice(0, -3))){
-         /*  console.log('DUPLICATE WEAPON FOUND: ', payload.name )*/
-        } 
+      
     }
+
     switch(slot){
       case 'ring':
           if(!this.props.allRings.find(item => 
@@ -65,9 +67,8 @@ class App extends Component {
              /*  console.log('DUPLICATE RING FOUND: ', payload.name) */
             } break;
       case 'cape':
-          if(!this.props.allCapes.find(item => 
-            item.name === payload.name
-            ) && !payload.name.includes('Team-') && !payload.name.includes('Fremennik ')){
+          if(!this.props.allCapes.find(item =>item.name === payload.name) 
+            && !payload.name.includes('team-') && !payload.name.includes('fremennik ')){
               this.props.dispatch({
                 type: `ADD_${slot.toUpperCase()}`,
                 payload: payload
@@ -94,6 +95,61 @@ class App extends Component {
             }); break;
           }
         }
+      case 'ammo':
+        if(!this.props.allAmmo.find(item => item.name === payload.name)){
+          if(!payload.name.includes('(') || payload.name.includes('(e)' 
+            || payload.name.includes('fire') || payload.name.includes('brutal'))){ 
+            this.props.dispatch({
+              type: `ADD_${slot.toUpperCase()}`,
+              payload: payload
+            }); break;
+          }
+        }
+      case 'body':
+        if(!this.props.allBodies.find(item => item.name === payload.name)){
+          /* if(!payload.name.includes('(') || payload.name.includes('(e)' 
+            || payload.name.includes('fire') || payload.name.includes('brutal'))){  */
+            this.props.dispatch({
+              type: `ADD_${slot.toUpperCase()}`,
+              payload: payload
+            }); break;   
+        }
+        case 'legs':
+          if(!this.props.allLegs.find(item => item.name === payload.name)){
+            /* if(!payload.name.includes('(') || payload.name.includes('(e)' 
+              || payload.name.includes('fire') || payload.name.includes('brutal'))){  */
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              }); break;   
+          }
+        case 'shield':
+          if(!this.props.allShields.find(item => item.name === payload.name)){
+            /* if(!payload.name.includes('(') || payload.name.includes('(e)' 
+              || payload.name.includes('fire') || payload.name.includes('brutal'))){  */
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              }); break;   
+          }
+        case 'hands':
+          if(!this.props.allHands.find(item => item.name === payload.name)){
+            /* if(!payload.name.includes('(') || payload.name.includes('(e)' 
+              || payload.name.includes('fire') || payload.name.includes('brutal'))){  */
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              }); break;   
+          }
+        case 'feet':
+          if(!this.props.allFeet.find(item => item.name === payload.name)){
+            /* if(!payload.name.includes('(') || payload.name.includes('(e)' 
+              || payload.name.includes('fire') || payload.name.includes('brutal'))){  */
+              this.props.dispatch({
+                type: `ADD_${slot.toUpperCase()}`,
+                payload: payload
+              }); break;   
+          }             
       default: 
       
     }
@@ -114,12 +170,12 @@ class App extends Component {
             if(json._items[j].equipable_by_player === false || json._items[j].equipable === false){
                  console.log('UNEQUIPPABLE:::>> ', name);
                }
-            //filter out items that do not give any bonus *prayer is omitted*
-            if(equipment.attack_stab > 0 || equipment.attack_slash > 0 || equipment.attack_crush > 0
-               || equipment.attack_magic > 0 || equipment.attack_ranged > 0 || equipment.defence_stab > 0
-               || equipment.defence_slash > 0 || equipment.defence_crush > 0 || equipment.defence_magic > 0
-               || equipment.defence_ranged > 0 || equipment.melee_strength > 0|| equipment.ranged_strength > 0
-               || equipment.magic_damage > 0
+            //filter out items that give minimal bonuses *prayer is omitted*
+            if(equipment.attack_stab > 5 || equipment.attack_slash > 5 || equipment.attack_crush > 5
+               || equipment.attack_magic > 5 || equipment.attack_ranged > 5 || equipment.defence_stab > 5
+               || equipment.defence_slash > 5 || equipment.defence_crush > 5 || equipment.defence_magic > 5
+               || equipment.defence_ranged > 5 || equipment.melee_strength > 5|| equipment.ranged_strength > 5
+               || equipment.magic_damage > 5
               ){
                 
                 if(equipment.slot === 'weapon' || equipment.slot === '2h'){
@@ -170,10 +226,16 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     allWeapons: state.allWeapons,
-    allRings: state.allRings,
+    allAmmo: state.allAmmo,
+    allBodies: state.allBodies,
     allCapes: state.allCapes,
+    allNecks: state.allNecks,
+    allShields: state.allShields,
+    allLegs: state.allLegs,
+    allHands: state.allHands,
+    allFeet: state.allFeet,
+    allRings: state.allRings,
     allHelms: state.allHelms,
-    allNecks: state.allNecks 
   }
 }
 

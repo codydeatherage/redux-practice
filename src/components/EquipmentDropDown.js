@@ -1,27 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import DropDownList from './DropDownList'
 import SingleSlot from './SingleSlot'
 
 class EquipmentDropDown extends Component{
     constructor(props){
         super(props);
         this.state = {
-            head: {name: '', id: ''},
-            cape: {name: '', id: ''},
-            neck: {name: '', id: ''},
-            ammo: {name: '', id: ''},
-            weapon: {name: '', id: ''},
-            body: {name: '', id: ''},
-            offhand: {name: '', id: ''},
-            legs: {name: '', id: ''},
-            hands: {name: '', id: ''},
-            feet: {name: '', id: ''},
-            ring: {name: '', id: ''},
             image: '',
             displayItems: []
         }
-        this.listType = props.listType;
         this.currList = [];
         let icon = '';
         switch(this.props.listType){
@@ -49,7 +36,7 @@ class EquipmentDropDown extends Component{
             case 'legs' : this.currList = this.props.allLegs; 
                             icon = this.props.equippedLegs.icon;
                             break;
-            case 'hands' : this.currList = this.props.allHands; 
+            case 'hand' : this.currList = this.props.allHands; 
                             icon = this.props.equippedHands.icon;
                             break;
             case 'feet' : this.currList = this.props.allFeet; 
@@ -78,7 +65,7 @@ class EquipmentDropDown extends Component{
             case 'body' : currList = this.props.allBodies; break;
             case 'offhand' : currList = this.props.allShields; break;
             case 'legs' : currList = this.props.allLegs; break;
-            case 'hands' : currList = this.props.allHands; break;
+            case 'hand' : currList = this.props.allHands; break;
             case 'feet' : currList = this.props.allFeet; break;
             case 'ring' : currList = this.props.allRings; break;
             default: currList = [];
@@ -158,7 +145,7 @@ class EquipmentDropDown extends Component{
                     listType={this.props.listType}>
                 </SingleSlot>
             );
-            case 'hands' :              
+            case 'hand' :              
             return(
                 <SingleSlot 
                     icon={this.props.equippedHands.icon} 
@@ -193,9 +180,16 @@ class EquipmentDropDown extends Component{
 const mapStateToProps = state => {
     return { 
         allWeapons: state.allWeapons,
+        allAmmo: state.allAmmo,
+        allBodies: state.allBodies,
         allCapes: state.allCapes,
-        allHelms: state.allHelms,
+        allNecks: state.allNecks,
+        allShields: state.allShields,
+        allLegs: state.allLegs,
+        allHands: state.allHands,
+        allFeet: state.allFeet,
         allRings: state.allRings,
+        allHelms: state.allHelms,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,

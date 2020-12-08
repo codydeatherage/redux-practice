@@ -1,93 +1,41 @@
 import React, {Component} from 'react';
-import EquipmentDropDown from './EquipmentDropDown';
+import EquipSlotCard from './EquipSlotCard'
 import {connect} from 'react-redux';
 
 class PlayerInfoCard extends Component{
-/*For future reference:
-* https://oldschool.runescape.wiki/w/Legs_slot_table
-*/ 
     render(){
-        console.log(`equipped Weapon: ${this.props.equippedWeapon.name}`);
         return(
             <div className="card player-card">
                 <div className="player-equip-card">
                     <div className = "row">
-                    {this.props.equippedHead.name === '' ?  
-                            <div className = "card-slot equip-slot" id="helm">
-                                <EquipmentDropDown listType="helm"></EquipmentDropDown>
-                            </div>
-                            :
-                            <div className = "card-slot equip-slot" id="blank">
-                                <EquipmentDropDown listType="helm"></EquipmentDropDown>
-                            </div>     
-                        } 
+                        <EquipSlotCard list={this.props.equippedHead} type="helm"></EquipSlotCard>
                     </div>
                     <div className = "row">
-                        {this.props.equippedCape.name === '' ?  
-                            <div className = "card-slot equip-slot" id="cape">
-                                <EquipmentDropDown listType="cape"></EquipmentDropDown>
-                            </div>
-                            :
-                            <div className = "card-slot equip-slot" id="blank">
-                                <EquipmentDropDown listType="cape"></EquipmentDropDown>
-                            </div>     
-                        } 
-
-                        {this.props.equippedNeck.name === '' ?  
-                            <div className = "card-slot equip-slot small-gap" id="neck">
-                                <EquipmentDropDown listType="neck"></EquipmentDropDown>
-                            </div>
-                            :
-                            <div className = "card-slot equip-slot small-gap" id="blank">
-                                <EquipmentDropDown listType="neck"></EquipmentDropDown>
-                            </div>     
-                        } 
-                        
-                        <div className = "card-slot equip-slot" id="ammo">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
+                        <EquipSlotCard list={this.props.equippedCape} type="cape"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedNeck} type="neck"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedAmmo} type="ammo"></EquipSlotCard>
                     </div>
                     <div className = "row">
-
-                         {this.props.equippedWeapon.name === '' ?  
-                            <div className = "card-slot equip-slot" id="weapon">
-                                <EquipmentDropDown listType="weapon"></EquipmentDropDown>
-                            </div>
-                            :
-                            <div className = "card-slot equip-slot" id="blank">
-                                <EquipmentDropDown listType="weapon"></EquipmentDropDown>
-                            </div>     
-                        } 
-                        <div className = "card-slot equip-slot md-gap" id="body">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
-                        <div className = "card-slot equip-slot" id="offhand">
-                            <EquipmentDropDown></EquipmentDropDown></div>                                                 
+                        <EquipSlotCard list={this.props.equippedWeapon} type="weapon"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedBody} type="body"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedOffhand} type="offhand"></EquipSlotCard>
+                    </div>             
+                    <div className = "row">
+                        <EquipSlotCard list={this.props.equippedLegs} type="legs"></EquipSlotCard>          
                     </div>                
                     <div className = "row">
-                        <div className = "card-slot equip-slot" id="legs">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>                    
-                    </div>                
-                    <div className = "row">
-                        <div className = "card-slot equip-slot" id="gloves">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
-                        <div className = "card-slot equip-slot md-gap" id="boots">
-                            <EquipmentDropDown></EquipmentDropDown>
-                        </div>
-                        <div className = "card-slot equip-slot" id="ring">
-                        <EquipmentDropDown listType="ring"></EquipmentDropDown></div>                                                 
+                        <EquipSlotCard list={this.props.equippedHands} type="hand"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedFeet} type="feet"></EquipSlotCard>
+                        <EquipSlotCard list={this.props.equippedRing} type="ring"></EquipSlotCard>
                     </div>
                 </div>
             </div>
-
-
         )
     }
 }
 const mapStateToProps = state => {
     return {
+        equippedBody: state.equippedBody,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,

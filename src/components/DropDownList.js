@@ -22,7 +22,7 @@ class DropDownList extends Component{
             case 'body' : itemList = this.props.allBodies; break;
             case 'offhand' : itemList = this.props.allShields; break;
             case 'legs' : itemList = this.props.allLegs; break;
-            case 'hands' : itemList = this.props.allHands; break;
+            case 'hand' : itemList = this.props.allHands; break;
             case 'feet' : itemList = this.props.allFeet; break;
             case 'ring' : itemList = this.props.allRings; break;
             default: itemList = [];
@@ -30,7 +30,7 @@ class DropDownList extends Component{
         const itemID = itemList.find(item => item.name === event.target.innerText).id;
     
         await this.setState({equipped: event.target.innerText});
-        console.log('NEW ITEM SELECTED:', this.state.equipped);
+        console.log('NEW ITEM SELECTED:', this.state.equipped, itemID);
         await fetch(`https://api.osrsbox.com/equipment/${itemID}`)
             .then(response => response.json())
             .then(json => {
@@ -58,10 +58,16 @@ class DropDownList extends Component{
 const mapStateToProps = state => {
     return { 
         allWeapons: state.allWeapons,
+        allAmmo: state.allAmmo,
+        allBodies: state.allBodies,
         allCapes: state.allCapes,
+        allNecks: state.allNecks,
+        allShields: state.allShields,
+        allLegs: state.allLegs,
+        allHands: state.allHands,
+        allFeet: state.allFeet,
         allRings: state.allRings,
         allHelms: state.allHelms,
-        allNecks: state.allNecks,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
