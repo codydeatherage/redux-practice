@@ -8,25 +8,69 @@ class PlayerInfoCard extends Component{
             <div className="card player-card">
                 <div className="player-equip-card">
                     <div className = "row">
-                        <EquipSlotCard list={this.props.equippedHead} type="helm"></EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedHead}
+                            listAll={this.props.allHelms}
+                            type="helm"> 
+                        </EquipSlotCard>
                     </div>
                     <div className = "row">
-                        <EquipSlotCard list={this.props.equippedCape} type="cape"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedNeck} type="neck"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedAmmo} type="ammo"></EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedCape}
+                            listAll={this.props.allCapes}
+                            type="cape"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedNeck}
+                            listAll={this.props.allNecks}
+                            type="neck"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedAmmo}
+                            listAll={this.props.allAmmo}
+                            type="ammo"> 
+                        </EquipSlotCard>
                     </div>
                     <div className = "row">
-                        <EquipSlotCard list={this.props.equippedWeapon} type="weapon"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedBody} type="body"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedOffhand} type="offhand"></EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedWeapon}
+                            listAll={this.props.allWeapons}
+                            type="weapon"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedBody}
+                            listAll={this.props.allBodies}
+                            type="body"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedOffhand}
+                            listAll={this.props.allShields}
+                            type="offhand"> 
+                        </EquipSlotCard>
                     </div>             
                     <div className = "row">
-                        <EquipSlotCard list={this.props.equippedLegs} type="legs"></EquipSlotCard>          
+                        <EquipSlotCard 
+                            list={this.props.equippedLegs}
+                            listAll={this.props.allLegs}
+                            type="legs"> 
+                        </EquipSlotCard>
                     </div>                
                     <div className = "row">
-                        <EquipSlotCard list={this.props.equippedHands} type="hand"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedFeet} type="feet"></EquipSlotCard>
-                        <EquipSlotCard list={this.props.equippedRing} type="ring"></EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedHands}
+                            listAll={this.props.allHands}
+                            type="hand"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedFeet}
+                            listAll={this.props.allFeet}
+                            type="feet"> 
+                        </EquipSlotCard>
+                        <EquipSlotCard 
+                            list={this.props.equippedRing}
+                            listAll={this.props.allRings}
+                            type="ring"> 
+                        </EquipSlotCard>         
                     </div>
                 </div>
             </div>
@@ -35,11 +79,22 @@ class PlayerInfoCard extends Component{
 }
 const mapStateToProps = state => {
     return {
-        equippedBody: state.equippedBody,
+        allWeapons: state.allWeapons,
+        allAmmo: state.allAmmo,
+        allBodies: state.allBodies,
+        allCapes: state.allCapes,
+        allNecks: state.allNecks,
+        allShields: state.allShields,
+        allLegs: state.allLegs,
+        allHands: state.allHands,
+        allFeet: state.allFeet,
+        allRings: state.allRings,
+        allHelms: state.allHelms,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
         equippedAmmo: state.equippedAmmo,
+        equippedBody: state.equippedBody,
         equippedWeapon: state.equippedWeapon,
         equippedOffhand: state.equippedOffhand,
         equippedLegs: state.equippedLegs,

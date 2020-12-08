@@ -8,11 +8,11 @@ class EquipSlotCard extends Component{
                 <>
                     {this.props.list.name === '' ?  
                         <div className = "card-slot equip-slot small-gap" id={this.props.type}>
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div>
                     :
                         <div className = "card-slot equip-slot small-gap" id="blank">
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div> 
                     }
                 </>    
@@ -23,11 +23,11 @@ class EquipSlotCard extends Component{
                 <>
                     {this.props.list.name === '' ?  
                         <div className = "card-slot equip-slot md-gap" id={this.props.type}>
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div>
                     :
                         <div className = "card-slot equip-slot md-gap" id="blank">
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div> 
                     }
                 </>
@@ -38,11 +38,11 @@ class EquipSlotCard extends Component{
                 <>
                     {this.props.list.name === '' ?  
                         <div className = "card-slot equip-slot" id={this.props.type}>
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div>
                     :
                         <div className = "card-slot equip-slot" id="blank">
-                            <EquipmentDropDown listType={this.props.type}></EquipmentDropDown>
+                            <EquipmentDropDown listAll={this.props.listAll} list={this.props.list} listType={this.props.type}></EquipmentDropDown>
                         </div> 
                         }
                 </>     

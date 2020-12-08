@@ -3,85 +3,6 @@ import {connect} from 'react-redux';
 import SingleSlot from './SingleSlot'
 
 class EquipmentDropDown extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            image: '',
-            displayItems: []
-        }
-        this.currList = [];
-        let icon = '';
-        switch(this.props.listType){
-            case 'weapon' : this.currList = this.props.allWeapons; 
-                            icon = this.props.equippedWeapon.icon;
-                            break;
-            case 'helm' : this.currList = this.props.allHelms; 
-                            icon = this.props.equippedHead.icon;
-                            break;
-            case 'cape' : this.currList = this.props.allCapes; 
-                            icon = this.props.equippedCape.icon;
-                            break;
-            case 'neck' : this.currList = this.props.allNecks; 
-                            icon = this.props.equippedNeck.icon;
-                            break;
-            case 'ammo' : this.currList = this.props.allAmmo; 
-                            icon = this.props.equippedAmmo.icon;
-                            break;
-            case 'body' : this.currList = this.props.allBodies; 
-                            icon = this.props.equippedBody.icon;
-                            break;
-            case 'offhand' : this.currList = this.props.allShields; 
-                            icon = this.props.equippedOffhand.icon;
-                            break;
-            case 'legs' : this.currList = this.props.allLegs; 
-                            icon = this.props.equippedLegs.icon;
-                            break;
-            case 'hand' : this.currList = this.props.allHands; 
-                            icon = this.props.equippedHands.icon;
-                            break;
-            case 'feet' : this.currList = this.props.allFeet; 
-                            icon = this.props.equippedFeet.icon;
-                            break;
-            case 'ring' : this.currList = this.props.allRings; 
-                            icon = this.props.equippedRing.icon;
-                            break;
-            default: this.currList = []; icon = '';
-        }
-        this.setState({image: icon});
-        this.filterList = this.filterList.bind(this);
-        this.setState({displayItems: this.props.currList});
-    }
-
-    async filterList(event){
-        console.log('HEAD FILTER::', this.props.listType);
-        let currList = [];
-        switch(this.props.listType){
-            case 'weapon' : currList = this.props.allWeapons; break;
-            case 'helm' : currList = this.props.allHelms; break;
-            case 'cape' : currList = this.props.allCapes; break;
-            case 'neck' : currList = this.props.allNecks; break;
-            case 'ammo' : currList = this.props.allAmmo; break;
-            case 'body' : currList = this.props.allBodies; break;
-            case 'offhand' : currList = this.props.allShields; break;
-            case 'legs' : currList = this.props.allLegs; break;
-            case 'hand' : currList = this.props.allHands; break;
-            case 'feet' : currList = this.props.allFeet; break;
-            case 'ring' : currList = this.props.allRings; break;
-            default: currList = [];
-        }
-        let newList = [];
-        for(let item of currList){
-            newList.push(item.name);
-        }
-        let displayList = [];
-        for(let item of newList){
-            if(item.includes(event.target.value.toLowerCase())){
-                displayList.push(item);
-            }
-        }
-        await this.setState({displayItems: displayList});
-    }
-
     render(){
         switch(this.props.listType){
             case 'weapon' :         
@@ -168,23 +89,12 @@ class EquipmentDropDown extends Component{
                     listType={this.props.listType}>
                 </SingleSlot>
             );
-        }
+        } 
     }
 }
 
 const mapStateToProps = state => {
-    return { 
-        allWeapons: state.allWeapons,
-        allAmmo: state.allAmmo,
-        allBodies: state.allBodies,
-        allCapes: state.allCapes,
-        allNecks: state.allNecks,
-        allShields: state.allShields,
-        allLegs: state.allLegs,
-        allHands: state.allHands,
-        allFeet: state.allFeet,
-        allRings: state.allRings,
-        allHelms: state.allHelms,
+    return {
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
@@ -197,15 +107,6 @@ const mapStateToProps = state => {
         equippedFeet: state.equippedFeet,
         equippedRing: state.equippedRing 
     }
-  }
+}
 
-  const mapDispatchToProps = dispatch => {
-    return {
-      dispatch
-    }
-  }
-  
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(EquipmentDropDown)
+  export default connect(mapStateToProps)(EquipmentDropDown)
