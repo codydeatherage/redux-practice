@@ -22,7 +22,7 @@ class SingleSlot extends Component{
             case 'body' : currList = this.props.allBodies; break;
             case 'offhand' : currList = this.props.allShields; break;
             case 'legs' : currList = this.props.allLegs; break;
-            case 'hand' : currList = this.props.allHands; break;
+            case 'hands' : currList = this.props.allHands; break;
             case 'feet' : currList = this.props.allFeet; break;
             case 'ring' : currList = this.props.allRings; break;
             default: currList = [];

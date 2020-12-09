@@ -98,6 +98,37 @@ li:hover{
   width: 100%;
 }
 
+.boss-select{
+  border: 5px solid rgb(175, 127, 82);
+  width: 95%;
+  height: 50px;
+  background: red;
+  color: rgb(253, 249, 30);
+  font-weight: 600;
+  font-family:"Comic Sans MS", "Comic Sans", cursive;
+}
+
+.boss-img-card{
+  width: 55%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  border: 2px solid blue;
+
+}
+.boss-img{
+  width: 95%;
+  height: 95%;
+  border: 2px solid yellow;
+}
+
+.section-label{
+  top: -25px;
+}
 /* .search-bar{
   position: relative;
   top: 70px;

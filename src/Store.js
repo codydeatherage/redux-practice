@@ -13,9 +13,11 @@ const initialState = {
   allHands: [{name: '', id: ''}],
   allFeet: [{name: '', id: ''}],
   allRings: [{name: '', id: ''}],
+  allBosses: [{name: '', id: ''}],
   loginModal: {
     open: false
   },
+  selectedBoss: {name:"", cmblvl: '1'},
   equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},
   equippedCape: {name:"", icon:""},
@@ -32,6 +34,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     const {type, payload} = action;
     switch(type){
+      case 'SELECTED_BOSS': return{
+                              ...state,
+                              selectedBoss: payload
+                            }
       case 'CHANGE_WEAPON': return{
                               ...state,
                               equippedWeapon: payload
@@ -126,6 +132,10 @@ const reducer = (state = initialState, action) => {
                             ...state,
                             allNecks: state.allNecks.concat(payload)
                           }
+      case 'ADD_BOSS': return{
+                          ...state, 
+                          allBosses: state.allBosses.concat(payload)
+      }
       default: console.log('NO REDUCER MATCH:', payload);                                                                                                                                                         
       
     }
