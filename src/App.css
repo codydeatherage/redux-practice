@@ -1,3 +1,9 @@
+@font-face{
+  font-family: 'RsFont';
+  src: url('./onlinefontconverter.com/converted-files/RuneScape-UF.woff') format('woff'),
+       url('./onlinefontconverter.com/converted-files/runescape_uf.woff2') format('woff2'),
+       url('./onlinefontconverter.com/converted-files/runescape_uf.ttf') format('truetype');
+}
 .App {
   text-align: center;
   display: flex;
@@ -19,8 +25,9 @@
 
 .card{
   width:auto;
-  top: 15%;
-  height: 420px;
+  max-width: 400px;
+ /*  top: 15%; */
+  height: 500px;
   background-color: #383131;
   border: 5px solid black;
 }
@@ -101,11 +108,12 @@ li:hover{
 .boss-select{
   border: 5px solid rgb(175, 127, 82);
   width: 95%;
-  height: 50px;
+  height: 40px;
   background: red;
   color: rgb(253, 249, 30);
-  font-weight: 600;
-  font-family:"Comic Sans MS", "Comic Sans", cursive;
+  font-weight: normal;
+  font-family: 'RsFont';
+/*   font-family:"Comic Sans MS", "Comic Sans", cursive; */
 }
 
 .boss-img-card{
@@ -120,6 +128,12 @@ li:hover{
   border: 2px solid blue;
 
 }
+.font-test{
+  font-family: 'RsFont';
+  color: yellow;
+  font-weight: normal;
+  font-style: normal;
+}
 .boss-img{
   width: 95%;
   height: 95%;
@@ -128,6 +142,50 @@ li:hover{
 
 .section-label{
   top: -25px;
+}
+/* 
+.stats-row{
+  margin-top: -15%;
+  background-color: cornsilk;
+  padding-top: 0;
+  border: 2px rgb(0, 255, 42) solid;
+  bottom: -15px;
+} */
+
+.form-card{
+  position: relative;
+  display:flex;
+/*   grid-template-columns: repeat(auto-fit, minmax(25%, auto));
+  grid-gap: 5px;
+  grid-row-gap: 5px; */
+/*   flex-wrap: wrap; */
+  margin-top: -15%;
+  left: 0;
+  height: 165px;
+  width: 90%;
+  border: 2px black solid;
+}
+.stat-icon{
+  height: 25px;
+  width: 30%;
+  border: 1px solid white;
+}
+.boss-stat-input{
+  width: 60%;
+  height: 25px;
+  border: 1px black solid;
+}
+.form-input{
+  border: 1px black solid;
+  height: 50px;
+  width: 30%;
+  position: relative;
+  display: flex;
+  left: 0;
+  font-family: 'RsFont';
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('./blank-skill-bg.png');
 }
 /* .search-bar{
   position: relative;

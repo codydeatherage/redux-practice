@@ -82,9 +82,31 @@ class MonsterInfoCard extends Component{
                         <img className="boss-img" src={image} alt=""></img>
                     </div>
                 </div>
-                <div className="row">
-                    <h2 className="section-label">Stats</h2>
-                </div>   
+{/*             "hitpoints": 255, "defence_level": 300, "magic_level": 150,
+                "attack_magic": 0, "defence_stab": 50,"defence_slash": 50, 
+                "defence_crush": 10, "defence_magic": 100, "defence_ranged": 100 */}
+                <div className="row stats-row">
+                        <div className="card form-card">
+                            <div className="row">
+                                <div className="form-input">
+                                    <div className="stat-icon"></div>
+                                    <input className="boss-stat-input" type="search"></input>
+                                </div>
+                                <div className="form-input"></div>
+                                <div className="form-input"></div>
+                            </div>
+                            <div className="row">
+                                <div className="form-input"></div>
+                                <div className="form-input"></div>
+                                <div className="form-input"></div>
+                            </div>                            
+                            <div className="row">
+                                <div className="form-input"></div>
+                                <div className="form-input"></div>
+                                <div className="form-input"></div>
+                            </div>
+                        </div>
+                </div>
             </div>
         )
     }
