@@ -83,27 +83,51 @@ class MonsterInfoCard extends Component{
                     </div>
                 </div>
 {/*             "hitpoints": 255, "defence_level": 300, "magic_level": 150,
-                "attack_magic": 0, "defence_stab": 50,"defence_slash": 50, 
-                "defence_crush": 10, "defence_magic": 100, "defence_ranged": 100 */}
+                 "defence_stab": 50,"defence_slash": 50,"defence_crush": 10, 
+                 "defence_magic": 100, "defence_ranged": 100 */}
                 <div className="row stats-row">
                         <div className="card form-card">
                             <div className="row">
                                 <div className="form-input">
-                                    <div className="stat-icon"></div>
-                                    <input className="boss-stat-input" type="search"></input>
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>
                                 </div>
-                                <div className="form-input"></div>
-                                <div className="form-input"></div>
+                                <div className="form-input stats-mid">
+                                    <div className="stat-icon my-auto mx-1" id="defence_level"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
+                                <div className="form-input " >
+                                    <div className="stat-icon my-auto mx-1" id="magic_level"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
                             </div>
                             <div className="row">
-                                <div className="form-input"></div>
-                                <div className="form-input"></div>
-                                <div className="form-input"></div>
+                            <div className="form-input">
+                                    <div className="stat-icon my-auto mx-1" id="magic_defence"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
+                                <div className="form-input  stats-mid">
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
+                                <div className="form-input">
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
                             </div>                            
                             <div className="row">
-                                <div className="form-input"></div>
-                                <div className="form-input"></div>
-                                <div className="form-input"></div>
+                            <div className="form-input">
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
+                                <div className="form-input  stats-mid">
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
+                                <div className="form-input">
+                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
+                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
+                                </div>
                             </div>
                         </div>
                 </div>
