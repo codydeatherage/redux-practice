@@ -41,8 +41,39 @@
 }
 
 .panel-card{
- background-color:  rgb(20, 20, 20);;
- height: 200px;
+ background-color:  rgb(20, 20, 20);
+ height: 300px;
+}
+
+.panel-card > .row > .form-input{
+  min-width: 150px;
+}
+
+.player-stat{
+  display: flex;
+  justify-content: space-between;
+ /*  text-align: left; */
+ /*  margin-left: 25%; */
+}
+
+.radio-potion{
+  display: inline-flex;
+ /*  border: 2px solid yellow; */
+  width: 30%;
+  margin-left: 15%;
+
+}
+.form-check-input{
+  position: relative;
+  height: 15px;
+  width: 15px;
+  left: 5%;
+  top: 20%;
+ /*  padding-right: 5%; */
+}
+.panel-card > .row{
+  border: 2px solid red;
+  width: 100%;
 }
 
 .player-equip-card{
@@ -116,8 +147,8 @@ li:hover{
   color: rgb(253, 249, 30);
   font-weight: normal;
   font-family: 'RsFont';
-/*   font-family:"Comic Sans MS", "Comic Sans", cursive; */
 }
+
 
 .boss-img-card{
   width: 55%;
@@ -129,8 +160,8 @@ li:hover{
   left: 0;
   overflow: hidden;
  /*  border: 2px solid blue; */
-
 }
+
 .font-test{
   font-family: 'RsFont';
   color: yellow;
@@ -141,30 +172,16 @@ li:hover{
 .boss-img{
   width: 95%;
   height: 100%;
-  /* border: 2px solid yellow; */
 }
 
 .section-label{
   top: -25px;
 }
-/* 
-.stats-row{
-  margin-top: -15%;
-  background-color: cornsilk;
-  padding-top: 0;
-  border: 2px rgb(0, 255, 42) solid;
-  bottom: -15px;
-} */
 
 .form-card{
   position: relative;
   display:flex;
-  background-color:  rgb(20, 20, 20);;
-/*   grid-template-columns: repeat(auto-fit, minmax(25%, auto));
-  grid-gap: 5px;
-  grid-row-gap: 5px; */
-/*   flex-wrap: wrap; */
-
+  background-color:  rgb(20, 20, 20);
   justify-content: space-between;
   margin-top: -10%;
   left: 0;
@@ -172,6 +189,8 @@ li:hover{
   width: 90%;
   border: none;
 }
+
+
 .stat-icon{
   height: 30px;
   width: 30px;
@@ -181,7 +200,7 @@ li:hover{
   /* border: 1px solid white; */
 }
 .monster-card{
-  background-color:  rgb(20, 20, 20);;
+  background-color:  rgb(27, 27, 27);;
 }
 
 .stats-mid{
@@ -210,30 +229,44 @@ li:hover{
   background-size: 100% 100%;
   background-image: url('./blank-skill-bg.png');
 }
+.checkbox-image{
+  position: relative;
+  width: 35px;
+  top: 15%;
+  left:10%;
+/* padding-left: 5%; */
+  height: 37px;
+/*   border: 2px solid white; */
+}
+
+.stat-slash{
+  font-family: monospace;
+}
+
 #defence_stab{
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/stab.png');
+  background-image: url('./assets/bossSkills/stab-defence2.png');
 }
 #defence_slash{
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/slash.png');
+  background-image: url('./assets/bossSkills/slash-defence2.png');
 }
 #defence_crush{
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/crush.png');
+  background-image: url('./assets/bossSkills/crush-defence3.png');
 }
 #defence_magic{
   background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('./assets/bossSkills/magic_defence2.png');
+  background-size: contain;
+  background-image: url('./assets/bossSkills/magic-defence6.png');
 }
 #defence_ranged{
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('./assets/bossSkills/ranged.png');
+  background-image: url('./assets/bossSkills/ranged-defence2.png');
 }
 #defence_level{
   background-repeat: no-repeat;
@@ -250,16 +283,34 @@ li:hover{
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/9/96/Hitpoints_icon.png?a4819');
 }
-#magic_level{
+#atk_level{
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/5/5c/Magic_icon.png?334cf');
+  background-image: url('https://oldschool.runescape.wiki/images/f/fe/Attack_icon.png?b4bce');
 }
+
+#str_level{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/1/1b/Strength_icon.png?e6e0c');
+}
+
 
 #magic_defence{
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('./assets/bossSkills/magic_defence2.png');
+}
+
+#ranged_level{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/1/19/Ranged_icon.png?01b0e');
+}
+#magic_level{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/5/5c/Magic_icon.png?334cf');
 }
 #cape{
   background-repeat: no-repeat;
@@ -277,6 +328,12 @@ li:hover{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/6/64/Ammo_slot.png?95ab9');
+}
+#scb-image{
+  width: 15%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c');
 }
 
 #weapon{

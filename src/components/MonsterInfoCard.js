@@ -13,6 +13,7 @@ class MonsterInfoCard extends Component{
         this.filterList = this.filterList.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
+    
     async componentDidMount(){
         let pageNumber = 1;
         let eMax_Pages = 57;
