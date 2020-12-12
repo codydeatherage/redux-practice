@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import image from './../zulrah.png'
+import MonsterSkillSlot from './MonsterSkillSlot'
 
 class MonsterInfoCard extends Component{
     constructor(props){
@@ -41,10 +42,34 @@ class MonsterInfoCard extends Component{
         await fetch(`https://api.osrsbox.com/monsters/${itemID}`)
             .then(response => response.json())
             .then(json => {
-                const {hitpoints, combat_level} = json;
+                const {
+                    name,
+                    hitpoints, 
+                    combat_level, 
+                    id,        
+                    defence_level, 
+                    magic_level, 
+                    defence_stab,           
+                    defence_slash, 
+                    defence_crush, 
+                    defence_magic,              
+                    defence_ranged
+                } = json;
                 this.props.dispatch({
                     type: `SELECTED_BOSS`,
-                    payload: {name: this.state.selected, cmblvl: combat_level}
+                    payload: {                    
+                        name: name,
+                        hitpoints: hitpoints,  
+                        combat_level: combat_level, 
+                        id: id,     
+                        defence_level: defence_level, 
+                        magic_level: magic_level, 
+                        defence_stab: defence_stab,           
+                        defence_slash: defence_slash, 
+                        defence_crush: defence_crush, 
+                        defence_magic: defence_magic,              
+                        defence_ranged: defence_ranged
+                    }
                 })
             }
         ) 
@@ -66,10 +91,13 @@ class MonsterInfoCard extends Component{
     }
 
     render(){
+        let firstRow = ['hitpoints', 'defence_level', 'magic_level'];
+        let secondRow = ['defence_stab', 'defence_slash', 'defence_crush'];
+        let thirdRow = ['defence_magic', 'defence_ranged'];
         return(
             <div className="card monster-card">
                 <div className="row">      
-                    <button type="button" className="boss-select btn-default" data-toggle="dropdown">{this.state.selected}</button>
+                    <button type="button" className="boss-select btn-default" data-toggle="dropdown">{this.props.selectedBoss.name}</button>
                     <ul className="dropdown-menu scrollable-menu" role="menu">
                         <input type="search" onChange={this.filterList} className="search-bar"></input>  
                             {this.state.displayItems.map((item, index) =>{
@@ -82,55 +110,25 @@ class MonsterInfoCard extends Component{
                         <img className="boss-img" src={image} alt=""></img>
                     </div>
                 </div>
-{/*             "hitpoints": 255, "defence_level": 300, "magic_level": 150,
-                 "defence_stab": 50,"defence_slash": 50,"defence_crush": 10, 
-                 "defence_magic": 100, "defence_ranged": 100 */}
                 <div className="row stats-row">
                         <div className="card form-card">
                             <div className="row">
-                                <div className="form-input">
-                                    <div className="stat-icon my-auto mx-1" id="hitpoints"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>
-                                </div>
-                                <div className="form-input stats-mid">
-                                    <div className="stat-icon my-auto mx-1" id="defence_level"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
-                                <div className="form-input " >
-                                    <div className="stat-icon my-auto mx-1" id="magic_level"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
+                                {firstRow.map((stat, index)=>{
+                                    return(<MonsterSkillSlot stat={stat} key={index}></MonsterSkillSlot>)
+                                })}
                             </div>
                             <div className="row">
-                            <div className="form-input">
-                                    <div className="stat-icon my-auto mx-1" id="stab_defence"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
-                                <div className="form-input  stats-mid">
-                                    <div className="stat-icon my-auto mx-1" id="slash_defence"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
-                                <div className="form-input">
-                                    <div className="stat-icon my-auto mx-1" id="crush_defence"></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
+                                {secondRow.map((stat, index)=>{
+                                    return(<MonsterSkillSlot stat={stat} key={index}></MonsterSkillSlot>)
+                                })}
                             </div>                            
-                            <div className="row"> 
-                            <div className="form-input">
-                                    <div className="stat-icon my-auto mx-1" /* id="hitpoints" */></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
-                                <div className="form-input  stats-mid">
-                                    <div className="stat-icon my-auto mx-1" /* id="hitpoints" */></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
-                                <div className="form-input">
-                                    <div className="stat-icon my-auto mx-1" /* id="hitpoints" */></div>
-                                    <div className="boss-stat-input my-auto mx-1">300</div>                                    
-                                </div>
+                            <div className="row">
+                                {thirdRow.map((stat, index)=>{
+                                    return(<MonsterSkillSlot stat={stat} key={index}></MonsterSkillSlot>)
+                                })}
                             </div>
                         </div>
-                </div>
+                    </div>
             </div>
         )
     }

@@ -17,7 +17,22 @@ const initialState = {
   loginModal: {
     open: false
   },
-  selectedBoss: {name:"", cmblvl: '1'},
+  /*             "hitpoints": 255, "defence_level": 300, "magic_level": 150,
+                 "defence_stab": 50,"defence_slash": 50,"defence_crush": 10, 
+                 "defence_magic": 100, "defence_ranged": 100 */
+  selectedBoss: {
+    name:"Select A Boss", 
+    cmblvl: '1', 
+    id: '', 
+    hitpoints: '-',         
+    defence_level: '-', 
+    magic_level: '-', 
+    defence_stab: '-',           
+    defence_slash: '-', 
+    defence_crush: '-', 
+    defence_magic: '-',              
+    defence_ranged: '-'
+  },
   equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},
   equippedCape: {name:"", icon:""},

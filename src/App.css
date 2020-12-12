@@ -107,8 +107,8 @@ li:hover{
 }
 
 .boss-select{
-  border: 5px solid rgb(175, 127, 82);
-  width: 95%;
+  border: 1px solid rgb(255, 255, 255);
+  width: 94%;
   height: 40px;
   background:  rgb(20, 20, 20);
   font-size: 40px;
@@ -128,7 +128,7 @@ li:hover{
   top: 0;
   left: 0;
   overflow: hidden;
-  border: 2px solid blue;
+ /*  border: 2px solid blue; */
 
 }
 .font-test{
@@ -141,7 +141,7 @@ li:hover{
 .boss-img{
   width: 95%;
   height: 100%;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
 }
 
 .section-label{
@@ -170,7 +170,7 @@ li:hover{
   left: 0;
   height: 165px;
   width: 90%;
-  border: 2px black solid;
+  border: none;
 }
 .stat-icon{
   height: 30px;
@@ -183,10 +183,12 @@ li:hover{
 .monster-card{
   background-color:  rgb(20, 20, 20);;
 }
+
 .stats-mid{
   margin-right: 1%;
   margin-left: 1%;
 }
+
 .boss-stat-input{
   width: 60%;
   height: 25px;
@@ -208,20 +210,30 @@ li:hover{
   background-size: 100% 100%;
   background-image: url('./blank-skill-bg.png');
 }
-#stab_defence{
+#defence_stab{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url('./assets/bossSkills/stab.png');
 }
-#slash_defence{
+#defence_slash{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url('./assets/bossSkills/slash.png');
 }
-#crush_defence{
+#defence_crush{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url('./assets/bossSkills/crush.png');
+}
+#defence_magic{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('./assets/bossSkills/magic_defence2.png');
+}
+#defence_ranged{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('./assets/bossSkills/ranged.png');
 }
 #defence_level{
   background-repeat: no-repeat;

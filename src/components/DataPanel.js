@@ -13,6 +13,8 @@ class DataPanel extends Component{
     render(){
         return(
             <div className="card panel-card">
+                
+                <h1>PLAYER STATS</h1>
             </div>
         )
     }
