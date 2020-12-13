@@ -186,15 +186,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="col-lg-4">
-          <DataPanel></DataPanel>
+        <div className="player-container">
+          <div className="player-info">
+              <DataPanel></DataPanel>       
+              <PlayerInfoCard></PlayerInfoCard>       
+          </div>
         </div>
-        <div className="col-lg-4">
-          <PlayerInfoCard></PlayerInfoCard>
-        </div>
-        <div className="col-lg-4">
-          <MonsterInfoCard></MonsterInfoCard>
-        </div>
+          <div className="col-lg-4">
+            <MonsterInfoCard></MonsterInfoCard>
+          </div>
       </div>
     )
   }

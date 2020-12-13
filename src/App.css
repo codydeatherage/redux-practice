@@ -8,10 +8,15 @@
 .App {
   text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  top: 150px;
+  flex-wrap: wrap;/* 
+  justify-content: flex-start; */
+ /*  top: 150px; */
 }
+
+/* .player-info > .card{
+  width: 40%;
+  background-color: white;
+} */
 
 .test{
   position: absolute;
@@ -19,32 +24,32 @@
   left: 10px;
   height: 80%;
   width: 80%;
-  background-color: rgba(0, 255, 255, 0);
+  background-color: rgba(27, 27, 27, 0);
   pointer-events: none;
 }
 
 .card{
-  width:auto;
-  max-width: 400px;
+  width:100%;
+  max-width: 500px;
   height: 500px;
-  background-color: rgb(20, 20, 20);;
-  border: 2px solid  rgb(219, 219, 219);;
+  left: 0;
+  background-color: rgb(27, 27, 27);
+ /*  border: 2px solid  rgb(219, 219, 219); */
 }
 
-@media only screen and (max-width: 991px){
+/* @media only screen and (max-width: 991px){
   .card{
-    left: 15%;
-    width: 70%;
-    background-color: rgb(20, 20, 20);
+     left: 15%; 
+     width: 70%; 
   }
-}
+} */
 
 .player-equip-card{
   position: absolute;
   top: 1%;
-  background-color: rgb(20, 20, 20);;
+  background-color: rgb(27, 27, 27);
   justify-content: center;
-  height: 100%;
+  height: 98%;
   width: 96%;
   left: 2%;
 }
@@ -54,7 +59,6 @@
   background-color: #61626300;
   height: 75px;
   width:20%;
-  border: 1px solid rgb(128, 64, 4); 
 }
 
 .card-slot{
@@ -95,7 +99,6 @@ li:hover{
 }
 
 .btn{
-  border: 5px solid rgb(175, 127, 82); 
   height: 75px;
   width: 100%;
 }
@@ -135,8 +138,6 @@ li:hover{
   pointer-events: none;
   align-content: center;
 }
-
-
 
 .form-input{
   border: 1px rgba(0, 0, 0, 0) solid;
