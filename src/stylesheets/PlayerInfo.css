@@ -1,0 +1,95 @@
+.boosted-stat{
+    position: absolute;
+    font-size: 30px;
+    font-weight: 300;
+    width: 40px;
+    left: 35%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.player-stat-input{
+    padding: auto;
+    position: absolute;
+    color: yellow;
+    border-radius: 10%;
+    background-color: rgba(27, 27, 27, 100);
+    border: 1px solid rgb(255, 251, 0);
+    width: 35px;
+    height: 30px;
+    right: 11%;
+    padding-top: 3%;
+    top: 18px;
+    font-size: 30px;
+}
+
+.panel-card{
+    background-color:  rgb(20, 20, 20);
+    height: 300px;
+}
+
+.panel-card > .row > .form-input{
+    min-width: 150px;
+}
+
+.panel-card > .row{
+ /*    border: 2px solid red; */
+    width: 100%;
+    margin-left: 0;
+}
+
+.player-stat{
+    display: flex;
+}
+
+.radio-potion{
+    display: inline-flex;
+    width: 30%;
+    margin-left: 15%;
+}
+
+.checkbox-image{
+    position: relative;
+    width: 35px;
+    top: 15%;
+    left:10%;
+    height: 37px;
+}
+
+.form-check-input{
+    position: relative;
+    height: 15px;
+    width: 15px;
+    left: 5%;
+    top: 20%;
+  }
+.stat-slash{
+    font-style: italic;
+    font-family: monospace;
+    position: absolute;
+    left: 50%;
+    font-size:50px;
+    flex-basis: 5px;
+    line-height: 50px;
+    pointer-events: none;
+    color: rgb(255, 251, 0);
+}
+
+
+#ranged_level{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://oldschool.runescape.wiki/images/1/19/Ranged_icon.png?01b0e');
+}
+
+#atk_level{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://oldschool.runescape.wiki/images/f/fe/Attack_icon.png?b4bce');
+}
+  
+#str_level{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://oldschool.runescape.wiki/images/1/1b/Strength_icon.png?e6e0c');
+}

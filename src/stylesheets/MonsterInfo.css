@@ -1,0 +1,67 @@
+.boss-select{
+    border: 1px solid rgb(255, 255, 255);
+    width: 94%;
+    height: 40px;
+    background:  rgb(20, 20, 20);
+    font-size: 40px;
+    line-height: 20px;
+    color: rgb(253, 249, 30);
+    font-weight: normal;
+    font-family: 'RsFont';
+  }
+  
+  
+  .boss-img-card{
+    width: 55%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .monster-card{
+    background-color:  rgb(27, 27, 27);;
+  }
+  
+  .stats-mid{
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+  
+  .boss-stat-input{
+    width: 60%;
+    height: 25px;
+    line-height: 25px;
+  }
+#defence_stab{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url('./../assets/bossSkills/stab-defence2.png');
+}
+#defence_slash{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url('./../assets/bossSkills/slash-defence2.png');
+}
+#defence_crush{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url('./../assets/bossSkills/crush-defence3.png');
+}
+#defence_magic{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('./../assets/bossSkills/magic-defence6.png');
+}
+#defence_ranged{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('./../assets/bossSkills/ranged-defence2.png');
+}
+#defence_level{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('https://oldschool.runescape.wiki/images/b/b7/Defence_icon.png?ca0cd');
+}

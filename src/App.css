@@ -4,12 +4,12 @@
        url('./onlinefontconverter.com/converted-files/runescape_uf.woff2') format('woff2'),
        url('./onlinefontconverter.com/converted-files/runescape_uf.ttf') format('truetype');
 }
+
 .App {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* padding: 25px; */
   top: 150px;
 }
 
@@ -26,7 +26,6 @@
 .card{
   width:auto;
   max-width: 400px;
- /*  top: 15%; */
   height: 500px;
   background-color: rgb(20, 20, 20);;
   border: 2px solid  rgb(219, 219, 219);;
@@ -38,71 +37,6 @@
     width: 70%;
     background-color: rgb(20, 20, 20);
   }
-}
-
-.panel-card{
- background-color:  rgb(20, 20, 20);
- height: 300px;
-}
-
-.panel-card > .row > .form-input{
-  min-width: 150px;
-}
-.player-stat-input{
-  padding: auto;
-  position: absolute;
-  color: yellow;
-  border-radius: 10%;
-  background-color: rgba(27, 27, 27, 100);
-  border: 1px solid rgb(255, 251, 0);
-  width: 35px;
-  height: 30px;
-  right: 11%;
-  padding-top: 3%;
-  top: 18px;
-  font-size: 30px;
- /*  border:none; */
-}
-.boosted-stat{
-  position: absolute;
-/*   border: 1px solid rgb(230, 24, 24); */
-  font-size: 30px;
-  font-weight: 300;
-  width: 40px;
-  left: 35%;
-/*   box-sizing: border-box;
-  margin-left: 5px; */
-  height: 30px;
-  line-height: 30px;
-}
-.player-stat{
-  display: flex;
-  border: 1px solid rgb(230, 24, 24);/* 
-    border: 1px solid rgb(230, 24, 24);
-  justify-content: space-between; */
- /*  text-align: left; */
- /*  margin-left: 25%; */
-}
-
-.radio-potion{
-  display: inline-flex;
- /*  border: 2px solid yellow; */
-  width: 30%;
-  margin-left: 15%;
-
-}
-.form-check-input{
-  position: relative;
-  height: 15px;
-  width: 15px;
-  left: 5%;
-  top: 20%;
- /*  padding-right: 5%; */
-}
-.panel-card > .row{
-  border: 2px solid red;
-  width: 100%;
-  margin-left: 0;
 }
 
 .player-equip-card{
@@ -166,31 +100,6 @@ li:hover{
   width: 100%;
 }
 
-.boss-select{
-  border: 1px solid rgb(255, 255, 255);
-  width: 94%;
-  height: 40px;
-  background:  rgb(20, 20, 20);
-  font-size: 40px;
-  line-height: 20px;
-  color: rgb(253, 249, 30);
-  font-weight: normal;
-  font-family: 'RsFont';
-}
-
-
-.boss-img-card{
-  width: 55%;
-  height: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  overflow: hidden;
- /*  border: 2px solid blue; */
-}
-
 .font-test{
   font-family: 'RsFont';
   color: yellow;
@@ -219,30 +128,16 @@ li:hover{
   border: none;
 }
 
-
 .stat-icon{
   height: 30px;
   width: 30px;
   top: 5%;
   pointer-events: none;
   align-content: center;
-  /* border: 1px solid white; */
-}
-.monster-card{
-  background-color:  rgb(27, 27, 27);;
 }
 
-.stats-mid{
-  margin-right: 1%;
-  margin-left: 1%;
-}
 
-.boss-stat-input{
-  width: 60%;
-  height: 25px;
-  line-height: 25px;/* 
-  border: 1px black solid; */
-}
+
 .form-input{
   border: 1px rgba(0, 0, 0, 0) solid;
   padding: 1px;
@@ -258,63 +153,8 @@ li:hover{
   background-size: 100% 100%;
   background-image: url('./blank-skill-bg.png');
 }
-.checkbox-image{
-  position: relative;
-  width: 35px;
-  top: 15%;
-  left:10%;
-/* padding-left: 5%; */
-  height: 37px;
-/*   border: 2px solid white; */
-}
 
-.player-stat-info{
-  display: flex;
-  
- /*  padding-left: 10%; */
-}
-.stat-slash{
-  font-style: italic;
-  font-family: monospace;
-  position: absolute;
-  left: 50%;
-  font-size:50px;
-  flex-basis: 5px;
-  line-height: 50px;
-  pointer-events: none;
-  color: rgb(255, 251, 0);
-}
 
-#defence_stab{
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/stab-defence2.png');
-}
-#defence_slash{
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/slash-defence2.png');
-}
-#defence_crush{
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-image: url('./assets/bossSkills/crush-defence3.png');
-}
-#defence_magic{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('./assets/bossSkills/magic-defence6.png');
-}
-#defence_ranged{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('./assets/bossSkills/ranged-defence2.png');
-}
-#defence_level{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/b/b7/Defence_icon.png?ca0cd');
-}
 #helm{
   background-repeat: no-repeat;
   background-size: cover;
@@ -325,35 +165,15 @@ li:hover{
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/9/96/Hitpoints_icon.png?a4819');
 }
-#atk_level{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/f/fe/Attack_icon.png?b4bce');
-}
-
-#str_level{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/1/1b/Strength_icon.png?e6e0c');
-}
 
 
-#magic_defence{
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('./assets/bossSkills/magic_defence2.png');
-}
 
-#ranged_level{
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/1/19/Ranged_icon.png?01b0e');
-}
 #magic_level{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/5/5c/Magic_icon.png?334cf');
 }
+
 #cape{
   background-repeat: no-repeat;
   background-size: contain;
@@ -370,12 +190,6 @@ li:hover{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/6/64/Ammo_slot.png?95ab9');
-}
-#scb-image{
-  width: 15%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url('https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c');
 }
 
 #weapon{
@@ -424,7 +238,7 @@ li:hover{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('https://oldschool.runescape.wiki/images/9/9f/Ring_slot.png?37dd8');
- }
+}
 
 
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import image from './../zulrah.png'
 import MonsterSkillSlot from './MonsterSkillSlot'
+import './../stylesheets/MonsterInfo.css'
 
 class MonsterInfoCard extends Component{
     constructor(props){

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import './../stylesheets/PlayerInfo.css'
 
 class DataPanel extends Component{
     constructor(props){
