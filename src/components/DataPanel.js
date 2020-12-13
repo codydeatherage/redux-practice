@@ -18,7 +18,12 @@ class DataPanel extends Component{
                 <div className="row">
                     <div className="form-input player-stat">
                         <div className="stat-icon my-auto" id="atk_level"></div>
-                        <div className="boss-stat-input my-auto stat-slash">/</div>
+                        <div className="player-stat-info">
+                            <div className="boosted-stat">86</div>
+                            <div className="stat-slash">/</div>
+                            <input type="text" className="player-stat-input"></input>
+                        </div>
+
                     </div>
                     <div className="radio-potion">
                         <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
@@ -26,9 +31,13 @@ class DataPanel extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="form-input">
-                        <div className="stat-icon my-auto mx-1" id="str_level"></div>
-                        <div className="boss-stat-input my-auto mx-1 stat-slash">/</div>
+                    <div className="form-input player-stat">
+                        <div className="stat-icon my-auto" id="str_level"></div>
+                        <div className="player-stat-info">
+                            <div className="boosted-stat">-</div>
+                            <div className="stat-slash">/</div>
+                            <input type="text" className="player-stat-input"></input>
+                        </div>
                     </div>
                     <div className="radio-potion">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
@@ -36,9 +45,13 @@ class DataPanel extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="form-input">
-                        <div className="stat-icon my-auto mx-1" id="magic_level">/</div>
-                        <div className="boss-stat-input my-auto mx-1 stat-slash">{this.props.selectedBoss[`${this.props.stat}`]}</div>
+                    <div className="form-input player-stat">
+                        <div className="stat-icon my-auto" id="magic_level"></div>
+                        <div className="player-stat-info">
+                            <div className="boosted-stat">-</div>
+                            <div className="stat-slash">/</div>
+                            <input type="text" className="player-stat-input"></input>
+                        </div>
                     </div>
                     <div className="radio-potion">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
@@ -46,9 +59,13 @@ class DataPanel extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="form-input">
-                        <div className="stat-icon my-auto mx-1" id="ranged_level">/</div>
-                        <div className="boss-stat-input my-auto mx-1 stat-slash">{this.props.selectedBoss[`${this.props.stat}`]}</div>
+                    <div className="form-input player-stat">
+                        <div className="stat-icon my-auto" id="ranged_level"></div>
+                        <div className="player-stat-info">
+                            <div className="boosted-stat">-</div>
+                            <div className="stat-slash">/</div>
+                            <input type="text" className="player-stat-input"></input>
+                        </div>
                     </div>
                     <div className="radio-potion">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
