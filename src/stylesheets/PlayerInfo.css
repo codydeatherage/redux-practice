@@ -124,19 +124,7 @@
     width: 90%;
     justify-content: space-between;
 }
-/* .player-info > .col-lg-4{
-    width: 350px;
-    border: 2px solid gold;
-    background-color: gold;
-}
- */
-/* .dps-output{
-    position: absolute;
-    left: 105px;
-    height: 80px;
-    width:calc(98% - 100px);
-    border: 2px solid greenyellow;
-} */
+
 .atk-bonus{
     width: 100px;
     height: 40px;
