@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import DropDownList from './DropDownList'
 import {connect} from 'react-redux';
+import allHelms from '../items/head_data.json'
 
 class SingleSlot extends Component{
     constructor(props){
@@ -15,7 +16,7 @@ class SingleSlot extends Component{
         console.log('SINGLE SLOT FUILTER', this.props.listType);
         switch(this.props.listType){
             case 'weapon' : currList = this.props.allWeapons; break;
-            case 'helm' : currList = this.props.allHelms; break;
+            case 'helm' : currList = allHelms.items; break;
             case 'cape' : currList = this.props.allCapes; break;
             case 'neck' : currList = this.props.allNecks; break;
             case 'ammo' : currList = this.props.allAmmo; break;
