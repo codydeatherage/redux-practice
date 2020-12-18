@@ -12,21 +12,7 @@ class DropDownList extends Component{
     }
 
     async handleChange(event){
-        let itemList = [];
-        switch(this.props.type){
-            case 'weapon' : itemList = this.props.allWeapons; break;
-            case 'helm' : itemList = this.props.allHelms; break;
-            case 'cape' : itemList = this.props.allCapes; break;
-            case 'neck' : itemList = this.props.allNecks; break;
-            case 'ammo' : itemList = this.props.allAmmo; break;
-            case 'body' : itemList = this.props.allBodies; break;
-            case 'offhand' : itemList = this.props.allShields; break;
-            case 'legs' : itemList = this.props.allLegs; break;
-            case 'hand' : itemList = this.props.allHands; break;
-            case 'feet' : itemList = this.props.allFeet; break;
-            case 'ring' : itemList = this.props.allRings; break;
-            default: itemList = [];
-        }
+        let itemList = this.props.listAll;
         const itemID = itemList.find(item => item.name === event.target.innerText).id;
     
         await this.setState({equipped: event.target.innerText});
@@ -56,18 +42,7 @@ class DropDownList extends Component{
 }
 
 const mapStateToProps = state => {
-    return { 
-        allWeapons: state.allWeapons,
-        allAmmo: state.allAmmo,
-        allBodies: state.allBodies,
-        allCapes: state.allCapes,
-        allNecks: state.allNecks,
-        allShields: state.allShields,
-        allLegs: state.allLegs,
-        allHands: state.allHands,
-        allFeet: state.allFeet,
-        allRings: state.allRings,
-        allHelms: state.allHelms,
+    return {
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,

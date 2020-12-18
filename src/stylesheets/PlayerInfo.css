@@ -90,11 +90,7 @@
     left: 0;
     padding-left: 0;
 }
-.player-card{
-  
-    /* left: calc(50% - 200px); */
-    /* padding-left: 10px; */
-}
+
 .player-info{
     justify-content: space-between;
     display: flex;

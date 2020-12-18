@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import DropDownList from './DropDownList'
 import {connect} from 'react-redux';
-import allHelms from '../items/head_data.json'
 
 class SingleSlot extends Component{
     constructor(props){
@@ -11,38 +10,23 @@ class SingleSlot extends Component{
         }
         this.filterList = this.filterList.bind(this);
     }
-    async filterList(event){
-        let currList = [];
-        console.log('SINGLE SLOT FUILTER', this.props.listType);
-        switch(this.props.listType){
-            case 'weapon' : currList = this.props.allWeapons; break;
-            case 'helm' : currList = allHelms.items; break;
-            case 'cape' : currList = this.props.allCapes; break;
-            case 'neck' : currList = this.props.allNecks; break;
-            case 'ammo' : currList = this.props.allAmmo; break;
-            case 'body' : currList = this.props.allBodies; break;
-            case 'offhand' : currList = this.props.allShields; break;
-            case 'legs' : currList = this.props.allLegs; break;
-            case 'hands' : currList = this.props.allHands; break;
-            case 'feet' : currList = this.props.allFeet; break;
-            case 'ring' : currList = this.props.allRings; break;
-            default: currList = [];
-        }
+
+    filterList(event){
+        console.log('SINGLE SLOT FILTER', this.props.listType);
+        let currList = this.props.listAll;
+        console.log(this.props.listAll);
         let newList = [];
-        //console.log('LISTED', currList);
         for(let item of currList){
             newList.push(item.name);
         }
-       // console.log(newList);
+
         let displayList = [];
         for(let item of newList){
             if(item.includes(event.target.value.toLowerCase())){
                 displayList.push(item);
             }
         }
-        //console.log('Results: ', displayList);
-        await this.setState({displayItems: displayList});
-        //console.log('STATE ::', this.state.displayItems);
+        this.setState({displayItems: displayList});
     }
 
     render(){
@@ -52,7 +36,11 @@ class SingleSlot extends Component{
             {this.props.icon ? <img className="test" src={`data:image/png;base64,${this.props.icon}`} alt=""></img> : null}
             <ul className="dropdown-menu scrollable-menu" role="menu">
                 <input type="search" onChange={this.filterList} className="search-bar"></input>  
-                    <DropDownList type={this.props.listType} items={this.state.displayItems}></DropDownList>
+                    <DropDownList 
+                        type={this.props.listType} 
+                        items={this.state.displayItems} 
+                        listAll={this.props.listAll}>
+                    </DropDownList>
             </ul> 
         </div>
         );
@@ -61,17 +49,6 @@ class SingleSlot extends Component{
 
 const mapStateToProps = state => {
     return {
-        allWeapons: state.allWeapons,
-        allAmmo: state.allAmmo,
-        allBodies: state.allBodies,
-        allCapes: state.allCapes,
-        allNecks: state.allNecks,
-        allShields: state.allShields,
-        allLegs: state.allLegs,
-        allHands: state.allHands,
-        allFeet: state.allFeet,
-        allRings: state.allRings,
-        allHelms: state.allHelms,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
@@ -86,6 +63,6 @@ const mapStateToProps = state => {
     }
   }
 
-  export default connect(
+export default connect(
     mapStateToProps
-  )(SingleSlot)
+)(SingleSlot)
