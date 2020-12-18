@@ -192,9 +192,9 @@ class App extends Component {
               <PlayerInfoCard></PlayerInfoCard>       
           </div>
         </div>
-          <div className="col-lg-4">
+{/*           <div className="col-lg-4">
             <MonsterInfoCard></MonsterInfoCard>
-          </div>
+          </div> */}
       </div>
     )
   }
