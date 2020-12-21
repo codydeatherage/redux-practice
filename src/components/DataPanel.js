@@ -47,9 +47,6 @@ class DataPanel extends Component{
                     <h1>Attack Bonuses</h1>
                 </div>
                 <div className="atk-bonus-container">
-              {/*       <div className="dps-output">
-
-                    </div> */}
                     <div className="row">
                         <div className="atk-bonus">STAB</div>
                         <div className="atk-bonus">SLASH</div>

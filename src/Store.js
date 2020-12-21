@@ -1,21 +1,6 @@
 import { createStore } from 'redux'
 
 const initialState = {
-/*   allWeapons: [{name: '',  slot:'weapon', id: ''}],
-  allHelms: [{name: '', id: ''}],
-  allNecks: [{name: '', id: ''}],
-  allCapes: [{name: '', id: ''}],
-  allAmmo: [{name: '', id: ''}],
-  allBodies: [{name: '', id: ''}],
-  allShields: [{name: '', id: ''}],
-  allLegs: [{name: '', id: ''}],
-  allHands: [{name: '', id: ''}],
-  allFeet: [{name: '', id: ''}],
-  allRings: [{name: '', id: ''}],
-  allBosses: [{name: '', id: ''}], */
-  /*             "hitpoints": 255, "defence_level": 300, "magic_level": 150,
-                 "defence_stab": 50,"defence_slash": 50,"defence_crush": 10, 
-                 "defence_magic": 100, "defence_ranged": 100 */
   selectedBoss: {
     name:"Select A Boss", 
     cmblvl: '1', 
