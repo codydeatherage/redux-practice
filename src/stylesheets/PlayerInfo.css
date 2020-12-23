@@ -83,6 +83,17 @@
     margin-left: 0;
 }
 
+.monster-select{
+    position: absolute;
+    height: 40px;
+    width:100%;
+    bottom: 5%;
+    background-color: aqua;
+}
+.monster-select > .boss-select{
+    height: 100%;
+    width: 100%;
+}
 .player-card, .panel-card{
     min-width: 400px;
     width: 50%;

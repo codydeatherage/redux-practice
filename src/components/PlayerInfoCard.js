@@ -12,9 +12,27 @@ import allLegs from '../items/legs_data.json'
 import allHands from '../items/hands_data.json'
 import allFeet from '../items/feet_data.json'
 import allRings from '../items/ring_data.json'
+import allBosses from '../monsters/boss_data.json'
 
 
 class PlayerInfoCard extends Component{
+    constructor(props){
+        super(props);
+        let bossList = [];
+        for(let boss of allBosses.monsters){
+            bossList.push(boss.name);
+        }
+        this.state = {selected: '', list: bossList}
+   
+
+        this.handleChange = this.handleChange.bind(this);
+        
+    }
+    async handleChange(event){
+        await this.setState({selected: event.target.innerText});
+        console.log(this.state.selected);     
+    }
+
     render(){
         return(
             <div className="card player-card">
@@ -84,6 +102,16 @@ class PlayerInfoCard extends Component{
                             type="ring"> 
                         </EquipSlotCard>         
                     </div>
+                </div>
+                <div className="monster-select">    
+                        <button type="button" className="boss-select btn-default" data-toggle="dropdown">Select A Boss</button>
+                        <ul className="dropdown-menu scrollable-menu" role="menu">
+                            <input type="search" onChange={this.filterList} className="search-bar"></input>  
+                                {this.state.list.map((item, index) =>{
+                                    return(<li onClick={this.handleChange} key={index}>{item}</li>)
+                                }) }
+                        </ul>
+                 
                 </div>
             </div>
         )
