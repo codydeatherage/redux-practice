@@ -30,6 +30,10 @@ class PlayerInfoCard extends Component{
     }
     async handleChange(event){
         await this.setState({selected: event.target.innerText});
+        this.props.dispatch({
+            type : "SELECTED_BOSS",
+            payload: {name: event.target.innerText, id: 3213}
+        });
         console.log(this.state.selected);     
     }
 
@@ -104,7 +108,7 @@ class PlayerInfoCard extends Component{
                     </div>
                 </div>
                 <div className="monster-select">    
-                        <button type="button" className="boss-select btn-default" data-toggle="dropdown">Select A Boss</button>
+                        <button type="button" className="boss-select btn-default" data-toggle="dropdown">{this.props.selectedBoss.name}</button>
                         <ul className="dropdown-menu scrollable-menu" role="menu">
                             <input type="search" onChange={this.filterList} className="search-bar"></input>  
                                 {this.state.list.map((item, index) =>{
@@ -119,6 +123,7 @@ class PlayerInfoCard extends Component{
 }
 const mapStateToProps = state => {
     return {
+        selectedBoss: state.selectedBoss,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,

@@ -2,17 +2,8 @@ import { createStore } from 'redux'
 
 const initialState = {
   selectedBoss: {
-    name:"Select A Boss", 
-    cmblvl: '1', 
-    id: '', 
-    hitpoints: '-',         
-    defence_level: '-', 
-    magic_level: '-', 
-    defence_stab: '-',           
-    defence_slash: '-', 
-    defence_crush: '-', 
-    defence_magic: '-',              
-    defence_ranged: '-'
+    name:"Select A Boss",  
+    id: '',
   },
   equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},
