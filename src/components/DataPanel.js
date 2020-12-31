@@ -47,21 +47,34 @@ class DataPanel extends Component{
                     <h1>Attack Bonuses</h1>
                 </div>
                 <div className="atk-bonus-container">
-                    <div className="row">
-                        <div className="atk-bonus">STAB</div>
-                        <div className="atk-bonus">SLASH</div>
+                    <div className="equip-bonus-container">
+                        <div className="row">
+                            <div className="atk-bonus">STAB</div>
+                            <div className="atk-bonus">SLASH</div>
+                        </div>
+                        <div className="row">
+                            <div className="atk-bonus">CRUSH</div>
+                            <div className="atk-bonus">MELEE_STR</div>
+                        </div>
+                        <div className="row">
+                            <div className="atk-bonus">MAGIC</div>
+                            <div className="atk-bonus">MAGIC_DMG</div>
+                        </div>
+                        <div className="row">
+                            <div className="atk-bonus">RANGED</div>
+                            <div className="atk-bonus">RANGED_STR</div>
+                        </div>
                     </div>
-                    <div className="row">
-                        <div className="atk-bonus">CRUSH</div>
-                        <div className="atk-bonus">MELEE_STR</div>
-                    </div>
-                    <div className="row">
-                        <div className="atk-bonus">MAGIC</div>
-                        <div className="atk-bonus">MAGIC_DMG</div>
-                    </div>
-                    <div className="row">
-                        <div className="atk-bonus">RANGED</div>
-                        <div className="atk-bonus">RANGED_STR</div>
+                    <div className="equip-bonus-container mx-0">
+                        <div className="row">
+                            <div className="atk-bonus">MAX HIT</div>
+                        </div>
+                        <div className="row">
+                            <div className="atk-bonus">ACCURACY</div>
+                        </div>
+                        <div className="row">
+                            <div className="atk-bonus">DPS</div>
+                        </div>
                     </div>
                 </div>
             </div>

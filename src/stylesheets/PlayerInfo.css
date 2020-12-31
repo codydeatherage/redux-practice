@@ -74,6 +74,7 @@
     color: rgb(255, 251, 0);
 }
 .atk-bonus-container{
+    display: flex;
     border: 2px solid salmon;
     text-align: left;
 }
@@ -139,6 +140,11 @@
     color: white;
 }
 
+.equip-bonus-container{
+    border: 2px solid red;
+    height: 100%;
+    width: 50%;
+}
 #ranged_level{
     background-repeat: no-repeat;
     background-size: contain;
