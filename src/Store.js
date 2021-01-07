@@ -4,6 +4,8 @@ const initialState = {
   selectedBoss: {
     name:"Select A Boss",  
     id: '',
+    hitpoints: '',
+    
   },
   equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},

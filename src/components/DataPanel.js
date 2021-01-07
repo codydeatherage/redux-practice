@@ -65,7 +65,7 @@ class DataPanel extends Component{
                             <div className="atk-bonus">RANGED_STR: </div>
                         </div>
                     </div>
-                    <div className="equip-bonus-container mx-0">
+                    <div className="equip-bonus-container data-output">
                         <div className="row">
                             <div className="atk-bonus">MAX HIT: </div>
                         </div>

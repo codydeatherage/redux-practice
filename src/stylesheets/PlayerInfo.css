@@ -73,6 +73,14 @@
     pointer-events: none;
     color: rgb(255, 251, 0);
 }
+.data-output > .row{
+    padding-left: 0;
+    margin-left: 0;
+    justify-content: left;
+}
+.data-output{
+    justify-content: space-around;
+}
 .atk-bonus-container{
     display: flex;
     border: 2px solid salmon;
@@ -141,7 +149,8 @@
 }
 
 .equip-bonus-container{
-    border: 2px solid red;
+    border: 2px solid green;
+    text-align: left;
     height: 100%;
     width: 50%;
 }
