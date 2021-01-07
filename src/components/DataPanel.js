@@ -6,12 +6,9 @@ import './../stylesheets/PlayerInfo.css'
 class DataPanel extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            player_atk: '',
-            player_str: '',
-            player_ranged: '',
-            player_magic:''
-        }
+        const {level, potion, prayer, style, other} = this.props.bonuses;
+        let effective_strength = Math.floor(((level + potion) * prayer * other) + style);
+        this.maxHit = 0;
     }
     render(){
         return(
@@ -83,7 +80,8 @@ class DataPanel extends Component{
 }
 const mapStateToProps = state => {
     return {
-        selectedBoss: state.selectedBoss
+        selectedBoss: state.selectedBoss,
+        bonuses: state.bonuses
     }
   }
   

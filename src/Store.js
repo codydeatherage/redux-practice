@@ -5,7 +5,9 @@ const initialState = {
     name:"Select A Boss",  
     id: '',
     hitpoints: '',
-    
+    defence_level: '',
+    magic_level:'',
+    magic_defence_level: ''
   },
   equippedBody: {name:"", icon:""},
   equippedHead: {name:"", icon:""},
@@ -18,11 +20,17 @@ const initialState = {
   equippedHands: {name:"", icon:""},
   equippedFeet: {name:"", icon:""},
   equippedRing: {name:"", icon:""},
+  playerStats:{atk: 1, str: 1, magic: 1, range: 1},
+  bonuses:{potion: '', prayer: '', style: '', other: ''}
 }
 
 const reducer = (state = initialState, action) => {
     const {type, payload} = action;
     switch(type){
+      case 'CHANGE_PLAYER_STAT' : return{
+                                  ...state,
+                                  playerStats: payload
+                                }
       case 'SELECTED_BOSS': return{
                               ...state,
                               selectedBoss: payload
