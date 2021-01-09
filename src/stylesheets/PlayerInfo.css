@@ -79,6 +79,7 @@
     justify-content: left;
 }
 .data-output{
+    width: 30%;
     justify-content: space-around;
 }
 .atk-bonus-container{
@@ -86,12 +87,15 @@
     border: 2px solid salmon;
     text-align: left;
 }
-.atk-bonus-container > .row{
+.atk-bonus-container > .equip-bonus-container > .row{
     text-align: left;
     justify-content: left;
     margin-left: 0;
+    padding-left: 0;
 }
-
+.atk-bonus-container > .equip-bonus-container > .row > .atk-bonus{
+    width: calc(50% - 8px);
+}
 .monster-select{
     position: absolute;
     height: 40px;
@@ -142,7 +146,7 @@
 }
 
 .atk-bonus{
-    width: 100px;
+    width: 110px;
     height: 40px;
     border: 2px solid rgb(44, 185, 190);
     color: white;
@@ -152,7 +156,20 @@
     border: 2px solid green;
     text-align: left;
     height: 100%;
-    width: 50%;
+    width: 70%;
+}
+.equip-bonus-container > .row > .atk-bonus{
+    text-align: left;
+    margin-left: 0;
+    left: 0;
+}
+
+.equip-bonus-container > .data-output{
+    border: 2px solid green;
+    background-color: blueviolet;
+    text-align: left;
+    height: 100%;
+    width: 30%;
 }
 #ranged_level{
     background-repeat: no-repeat;

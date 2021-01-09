@@ -26,7 +26,7 @@ class DropDownList extends Component{
                 this.setState({icon: icon});
                 this.props.dispatch({
                     type: `CHANGE_${dispatchType}`,
-                    payload: {name: this.state.equipped, icon: icon}
+                    payload: {name: this.state.equipped, icon: icon, stats: equipment}
                 })
             }
         ) 
@@ -43,6 +43,7 @@ class DropDownList extends Component{
 
 const mapStateToProps = state => {
     return {
+        equippedBody: state.equippedBody,
         equippedHead: state.equippedHead,
         equippedCape: state.equippedCape,
         equippedNeck: state.equippedNeck,
@@ -52,7 +53,7 @@ const mapStateToProps = state => {
         equippedLegs: state.equippedLegs,
         equippedHands: state.equippedHands,
         equippedFeet: state.equippedFeet,
-        equippedRing: state.equippedRing 
+        equippedRing: state.equippedRing, 
     }
   }
 

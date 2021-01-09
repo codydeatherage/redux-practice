@@ -9,19 +9,19 @@ const initialState = {
     magic_level:'',
     magic_defence_level: ''
   },
-  equippedBody: {name:"", icon:""},
-  equippedHead: {name:"", icon:""},
-  equippedCape: {name:"", icon:""},
-  equippedNeck: {name:"", icon:""},
-  equippedAmmo: {name:"", icon:""},
-  equippedWeapon: {name:"", icon:""},
-  equippedOffhand: {name:"", icon:""},
-  equippedLegs: {name:"", icon:""},
-  equippedHands: {name:"", icon:""},
-  equippedFeet: {name:"", icon:""},
-  equippedRing: {name:"", icon:""},
+  equippedBody: {name:"", icon:"", stats: ""},
+  equippedHead: {name:"", icon:"", stats: ""},
+  equippedCape: {name:"", icon:"", stats: ""},
+  equippedNeck: {name:"", icon:"", stats: ""},
+  equippedAmmo: {name:"", icon:"", stats: ""},
+  equippedWeapon: {name:"", icon:"", stats: ""},
+  equippedOffhand: {name:"", icon:"", stats: ""},
+  equippedLegs: {name:"", icon:"", stats: ""},
+  equippedHands: {name:"", icon:"", stats: ""},
+  equippedFeet: {name:"", icon:"", stats: ""},
+  equippedRing: {name:"", icon:"", stats: ""},
   playerStats:{atk: 1, str: 1, magic: 1, range: 1},
-  bonuses:{potion: '', prayer: '', style: '', other: ''}
+  bonuses:{potion: 1, prayer:1, style: 1, other: 1}
 }
 
 const reducer = (state = initialState, action) => {
