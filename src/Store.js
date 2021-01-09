@@ -21,7 +21,7 @@ const initialState = {
   equippedFeet: {name:"", icon:"", stats: ""},
   equippedRing: {name:"", icon:"", stats: ""},
   playerStats:{atk: 1, str: 1, magic: 1, range: 1},
-  bonuses:{potion: 1, prayer:1, style: 1, other: 1}
+  bonuses:{potion: 1, prayer:1, style: 1, other: 0}
 }
 
 const reducer = (state = initialState, action) => {
