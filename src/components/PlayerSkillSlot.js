@@ -9,71 +9,32 @@ class PlayerSkillSlot extends Component{
 
     handleChange(event){
         console.log('ATK: ', event.target.value, '---');
+        const{atk, str, range, magic} = this.props.playerStats;
+        let payload = {};
         if(event.target.value !== ''){
             const input = parseInt(event.target.value);
-                const{atk, str, range, magic} = this.props.playerStats;
-                switch(this.props.slot){
-                    case 'atk_level' : if(this.props.playerStats.atk !== null){ 
-                                            this.props.dispatch({
-                                                type: 'CHANGE_PLAYER_STAT',
-                                                payload: ({atk: input, str: str, magic: magic, range: range})
-                                            })
-                                        }
-                                        else{
-                                            this.props.dispatch({
-                                                type: 'CHANGE_PLAYER_STAT',
-                                                payload: ({atk: 1, str: str, magic: magic, range: range})
-                                            })
-                                        } break;
-                    case 'str_level' : if(this.props.playerStats.str!== null){ 
-                                            this.props.dispatch({
-                                                type: 'CHANGE_PLAYER_STAT',
-                                                payload: ({atk: atk, str: input, magic: magic, range: range})
-                                            })
-                                        } break;
-                    case 'magic_level' : if(this.props.playerStats.magic !== null){ 
-                                            this.props.dispatch({
-                                                type: 'CHANGE_PLAYER_STAT',
-                                                payload: ({atk: atk, str: str, magic: input, range: range})
-                                            })
-                                        } break;
-                    case 'ranged_level' : if(this.props.playerStats.range !== null){
-                                            this.props.dispatch({
-                                                type: 'CHANGE_PLAYER_STAT',
-                                                payload: ({atk: atk, str: str, magic: magic, range: input})
-                                                })
-                                        } break;
-                    default: console.log('NO MATCH FOR PLAYER STAT');                                                                        
-                }
+            switch(this.props.slot){
+                case 'atk_level' : payload = {atk: input, str: str, magic: magic, range: range}; break;
+                case 'str_level' : payload = {atk: atk, str: input, magic: magic, range: range}; break;                  
+                case 'magic_level' : payload = {atk: atk, str: str, magic: input, range: range}; break;
+                case 'ranged_level' : payload = {atk: atk, str: str, magic: magic, range: input}; break;
+                default: console.log('NO MATCH FOR PLAYER STAT');                                                       
+            }
         }
         else{
-            const{atk, str, range, magic} = this.props.playerStats;
             switch(this.props.slot){
-                case 'atk_level' :  this.props.dispatch({
-                                            type: 'CHANGE_PLAYER_STAT',
-                                            payload: ({atk: 1, str: str, magic: magic, range: range})
-                                        })
-                                     break;
-                case 'str_level' : 
-                                        this.props.dispatch({
-                                            type: 'CHANGE_PLAYER_STAT',
-                                            payload: ({atk: atk, str: 1, magic: magic, range: range})
-                                        })
-                                 break;
-                case 'magic_level' :  
-                                        this.props.dispatch({
-                                            type: 'CHANGE_PLAYER_STAT',
-                                            payload: ({atk: atk, str: str, magic: 1, range: range})
-                                        })
-                                     break;
-                case 'ranged_level' : 
-                                        this.props.dispatch({
-                                            type: 'CHANGE_PLAYER_STAT',
-                                            payload: ({atk: atk, str: str, magic: magic, range: 1})
-                                            })
-                                     break;
+                case 'atk_level' :  payload = {atk: 1, str: str, magic: magic, range: range}; break;
+                case 'str_level' : payload ={atk: atk, str: 1, magic: magic, range: range}; break;
+                case 'magic_level' : payload = {atk: atk, str: str, magic: 1, range: range}; break;
+                case 'ranged_level' : payload = {atk: atk, str: str, magic: magic, range: 1}; break;
                 default: console.log('NO MATCH FOR PLAYER STAT');                                                                        
             }  
+        }
+        if(payload){
+            this.props.dispatch({
+                type: 'CHANGE_PLAYER_STAT',
+                payload: payload
+            });
         }
     }
 
