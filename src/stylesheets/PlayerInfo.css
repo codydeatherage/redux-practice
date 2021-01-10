@@ -77,7 +77,13 @@
     padding-left: 0;
     margin-left: 0;
     justify-content: left;
+
 }
+
+.data-output > .row > .atk-bonus{
+    height: auto;
+}
+
 .data-output{
     width: 30%;
     justify-content: space-around;
@@ -95,6 +101,7 @@
 }
 .atk-bonus-container > .equip-bonus-container > .row > .atk-bonus{
     width: calc(50% - 8px);
+    height: auto;
 }
 .monster-select{
     position: absolute;

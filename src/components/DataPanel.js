@@ -56,11 +56,30 @@ class DataPanel extends Component{
             6. Multiply by gear bonus
             7. Round down to nearest integer
         */
-       let {equippedBody, equippedHead, equippedCape,
-            equippedNeck, equippedAmmo, equippedWeapon,
-            equippedOffhand, equippedLegs, equippedHands,
-            equippedFeet, equippedRing
-        } = this.props;
+        const prayers = [//len = 16
+                {name: "Clarity of Thought", boost: 1.05, type: 'atk'},
+                {name: "Improved Reflexes", boost: 1.10, type: 'atk'},
+                {name: "Incredible Reflexes", boost: 1.15, type: 'atk'},
+                {name: "Burst of Strength", boosts: 1.05, type: 'str'},
+                {name: "Superhuman Strength", boost: 1.10, type: 'str'},
+                {name: "Ultimate Strength", boost: 1.15, type: 'str'},
+                {name: "Sharp Eye", boost: 1.05, type: 'range'},
+                {name: "Hawk Eye", boost: 1.10, type: 'range'},
+                {name: "Eagle Eye", boost: 1.15, type: 'range'},
+                {name: "Mystic Will", boost: 1.05, type: 'magic'},
+                {name: "Mystic Lore", boost: 1.10, type: 'magic'},
+                {name: "Mystic Might", boost: 1.15, type: 'magic'},
+                {name: "Chivalry", atk_boost: 1.15, str_boost: 1.18},
+                {name: "Piety", atk_boost: 1.20, str_boost: 1.23},
+                {name: "Rigour", range_atk_boost: 1.20, range_str_boost: 1.23},
+                {name: "Augury", boost: 1.25, type: 'magic'}
+        ];
+        
+        let {
+           equippedBody, equippedHead, equippedCape,equippedNeck,
+            equippedAmmo, equippedWeapon,equippedOffhand, equippedLegs, 
+            equippedHands,equippedFeet, equippedRing
+           } = this.props;
         let allEquipped = [equippedBody, equippedHead, equippedCape,
                             equippedNeck, equippedAmmo, equippedWeapon,
                             equippedOffhand, equippedLegs, equippedHands,
@@ -84,7 +103,7 @@ class DataPanel extends Component{
             <div className="card panel-card">
                 <h1>PLAYER STATS</h1>
                 <div className="row">
-                    <PlayerSkillSlot slot={'atk_level'}></PlayerSkillSlot>
+                    <PlayerSkillSlot slot={'atk_level'} value={this.props.playerStats.atk + this.props.bonuses.potion}></PlayerSkillSlot>
                     <div className="radio-potion">
                         <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
                         <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
@@ -94,7 +113,7 @@ class DataPanel extends Component{
 
                 </div>
                 <div className="row">
-                    <PlayerSkillSlot slot="str_level"></PlayerSkillSlot>
+                    <PlayerSkillSlot slot="str_level" value={this.props.playerStats.str + this.props.bonuses.potion}></PlayerSkillSlot>
                     <div className="radio-potion">
                         <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
                         <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
@@ -103,11 +122,11 @@ class DataPanel extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <PlayerSkillSlot slot="magic_level"></PlayerSkillSlot>
-                    <PlayerSkillSlot slot="ranged_level"></PlayerSkillSlot>
+                    <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
+       
                 </div>
                 <div className="row">
-                    
+                    <PlayerSkillSlot slot="ranged_level" value={this.props.playerStats.range + this.props.bonuses.potion}></PlayerSkillSlot>
                 </div>
                 <div className="row">
                     <h1>Attack Bonuses</h1>

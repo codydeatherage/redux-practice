@@ -14,18 +14,19 @@ class SingleSlot extends Component{
     filterList(event){
         console.log('SINGLE SLOT FILTER', this.props.listType);
         let currList = this.props.listAll;
-        console.log(this.props.listAll);
+        //console.log(this.props.listAll);
         let newList = [];
         for(let item of currList){
-            newList.push(item.name);
+            newList.push(item.name.toLowerCase());
         }
 
         let displayList = [];
         for(let item of newList){
             if(item.includes(event.target.value.toLowerCase())){
-                displayList.push(item);
+                displayList.push(item.charAt(0).toUpperCase() + item.slice(1));
             }
         }
+        console.log('++++', displayList);
         this.setState({displayItems: displayList});
     }
 
