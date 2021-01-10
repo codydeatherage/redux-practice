@@ -75,24 +75,11 @@ class DataPanel extends Component{
                     equipment_str += slot.stats.melee_strength;
                 } 
             }
-
-                //console.log(slot);
-            //if(slot.stats) console.log(slot); 
-/*             if(slot.stats) console.log(slot.stats);
-            if(slot.stats && slot.stats !== ""){
-                equipment_str += slot.stats.melee_strength;
-            } */
         }
-        let effective_strength = Math.floor((Math.floor(this.props.playerStats.str * prayer) + /*style*/3));
+        console.log('Equipment Strength', equipment_str);
+        let effective_strength = Math.floor(((this.props.playerStats.str) + /*style*/3));
         console.log('Effective Strength', effective_strength);
-        let maxHit = Math.floor(1.3 + (effective_strength / 10) + (equipment_str / 80) + ((effective_strength * equipment_str) / 640));
-/*         let maxHit = Math.floor(effective_strength * (equipment_str + 64));
-        maxHit += 320;
-        maxHit = Math.floor(maxHit / 640);
-        console.log("maxHit", maxHit);
-        if(this.props.bonuses.other !== "" && this.props.bonuses.other > 0){
-            maxHit = Math.floor(effective_strength * this.props.bonuses.other);
-        } */
+        let maxHit = Math.floor(1.3 + (effective_strength / 10) + (equipment_str / 80) + Math.floor((effective_strength * equipment_str) / 640));
         return(
             <div className="card panel-card">
                 <h1>PLAYER STATS</h1>
