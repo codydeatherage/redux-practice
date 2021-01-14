@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import PrayerSelect from './PrayerSelect'
 
 class PlayerSkillSlot extends Component{
     constructor(props){
@@ -27,28 +28,30 @@ class PlayerSkillSlot extends Component{
         switch(this.props.slot){
             case 'atk_level' : for(let pray of this.prayers){
                                     if(pray.type === 'atk' || pray.type === 'atk/str'){
-                                        this.prayersToDisplay.push(pray.icon);
+                                        this.prayersToDisplay.push(pray);
                                     }
                                 }; break;
             case 'str_level' : for(let pray of this.prayers){
                                     if(pray.type === 'str' || pray.type === 'atk/str'){
-                                        this.prayersToDisplay.push(pray.icon);
+                                        this.prayersToDisplay.push(pray);
                                     }
                                 }; break;                 
             case 'magic_level' : for(let pray of this.prayers){
                                     if(pray.type === 'magic'){
-                                        this.prayersToDisplay.push(pray.icon);
+                                        this.prayersToDisplay.push(pray);
                                     }
                                 }; break;
             case 'ranged_level' : for(let pray of this.prayers){
                                     if(pray.type === 'range'){
-                                        this.prayersToDisplay.push(pray.icon);
+                                        this.prayersToDisplay.push(pray);
                                     }
                                 }; break;
             default: console.log('Error displaying prayers...', this.props.slot);                                                       
         }
     }
-
+    updatePrayers(){
+        console.log(this);
+    }
     handleChange(event){
         if(event.target.value.length > 2){
             event.target.value = event.target.value.substr(0, 2);
@@ -83,19 +86,7 @@ class PlayerSkillSlot extends Component{
                     <input onChange={this.handleChange} type="text" className="player-stat-input"></input>
 
                 </div>
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </button>
-                    <div className="dropdown-menu">                       
-                        <div class="prayer-box">
-                            {this.prayersToDisplay.map( (pray, index) => {
-                                return  (
-                                    //<div className="img-container ">
-                                        <img className="prayer-img" src={pray} alt=""></img>
-                                    //</div>
-                                )
-                            })}
-                        </div> 
-                    </div>
+                <PrayerSelect prayersToDisplay={this.prayersToDisplay}></PrayerSelect>
             </div>
         )
     }

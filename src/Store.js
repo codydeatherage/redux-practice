@@ -21,12 +21,17 @@ const initialState = {
   equippedFeet: {name:"", icon:"", stats: ""},
   equippedRing: {name:"", icon:"", stats: ""},
   playerStats:{atk: 1, str: 1, magic: 1, range: 1},
+  activePrayers:[],
   bonuses:{potion: 1, prayer:1, style: 1, other: 0}
 }
 
 const reducer = (state = initialState, action) => {
     const {type, payload} = action;
     switch(type){
+      case 'UPDATE_PRAYERS': return{
+                              ...state,
+                              activePrayers: payload
+                              }
       case 'CHANGE_PLAYER_STAT' : return{
                                   ...state,
                                   playerStats: payload
