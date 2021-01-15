@@ -16,6 +16,7 @@ class PrayerSelect extends Component{
                                     icon={pray.icon}
                                     name={pray.name}
                                     type={pray.type}
+                                    slot={this.props.slot}
                                 ></PrayerSelectItem>
                             )
                         })}

@@ -86,7 +86,7 @@ class PlayerSkillSlot extends Component{
                     <input onChange={this.handleChange} type="text" className="player-stat-input"></input>
 
                 </div>
-                <PrayerSelect prayersToDisplay={this.prayersToDisplay}></PrayerSelect>
+                <PrayerSelect prayersToDisplay={this.prayersToDisplay} slot={this.props.slot}></PrayerSelect>
             </div>
         )
     }
