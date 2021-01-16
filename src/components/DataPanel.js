@@ -86,19 +86,51 @@ class DataPanel extends Component{
                             equippedFeet, equippedRing
                         ];
         
-        let equipment_str = 0;                        
+        let equipment_str = 0;
+        let equipment_atk = {slash: 0, stab: 0, crush: 0};                     
         for(let slot of allEquipped){
             if(slot !== undefined){
                 console.log(slot.stats);
                 if(slot.stats !== ""){
                     equipment_str += slot.stats.melee_strength;
+                    equipment_atk.slash += slot.stats.attack_slash;
+                    equipment_atk.stab += slot.stats.attack_stab;
+                    equipment_atk.crush += slot.stats.attack_crush;
                 } 
             }
         }
         console.log('Equipment Strength', equipment_str);
-        let effective_strength = Math.floor(((this.props.playerStats.str) + /*style*/3));
+        console.log('Equipment Atk Bonuses', equipment_atk);
+        let atkPrayerBoost = 1;
+        let strPrayerBoost = 1;
+        let magicPrayerBoost = 1;
+        let rangePrayerBoost = 1;
+        if(this.props.activePrayers.atk){
+            if(this.props.activePrayers.atk.name === "Chivalry"||this.props.activePrayers.atk.name === "Piety"){
+                atkPrayerBoost = this.props.activePrayers.atk.atk_boost;
+                strPrayerBoost = this.props.activePrayers.atk.str_boost;
+            }
+            else{
+                atkPrayerBoost = this.props.activePrayers.atk.boost;
+            }
+        }
+        if(this.props.activePrayers.str){
+            if(this.props.activePrayers.str.name === "Chivalry"||this.props.activePrayers.str.name === "Piety"){
+                atkPrayerBoost = this.props.activePrayers.str.atk_boost;
+                strPrayerBoost = this.props.activePrayers.str.str_boost;
+            }
+            else{
+                strPrayerBoost = this.props.activePrayers.str.boost;
+            }
+        }
+
+        let effective_strength = Math.floor(((this.props.playerStats.str * strPrayerBoost) + /*style*/3));
         console.log('Effective Strength', effective_strength);
         let maxHit = Math.floor(1.3 + (effective_strength / 10) + (equipment_str / 80) + Math.floor((effective_strength * equipment_str) / 640));
+        let effective_attack = Math.floor(((this.props.playerStats.atk * atkPrayerBoost) + 1));
+        console.log('Effective Attack ', effective_attack);
+        //need to modify to factor in selected atk style
+        let attackRoll = effective_attack * (equipment_atk.slash + 64);
         return(
             <div className="card panel-card">
                 <h1>PLAYER STATS</h1>
@@ -134,11 +166,11 @@ class DataPanel extends Component{
                 <div className="atk-bonus-container">
                     <div className="equip-bonus-container">
                         <div className="row">
-                            <div className="atk-bonus">STAB: </div>
-                            <div className="atk-bonus">SLASH: </div>
+                            <div className="atk-bonus">{`STAB: ${equipment_atk.stab}`}</div>
+                            <div className="atk-bonus">{`SLASH: ${equipment_atk.slash}`}</div>
                         </div>
                         <div className="row">
-                            <div className="atk-bonus">CRUSH: </div>
+                            <div className="atk-bonus">{`CRUSH: ${equipment_atk.crush}`}</div>
                             <div className="atk-bonus">{`MELEE_STR: ${equipment_str}`}</div>
                         </div>
                         <div className="row">
@@ -152,7 +184,7 @@ class DataPanel extends Component{
                     </div>
                     <div className="data-output">
                         <div className="row">
-                            <div className="atk-bonus">{`MAX HIT:${maxHit}`}</div>
+                            <div className="atk-bonus">{`MAX HIT: ${maxHit}`}</div>
                         </div>
                         <div className="row">
                             <div className="atk-bonus">ACCURACY: </div>
@@ -181,6 +213,7 @@ const mapStateToProps = state => {
         equippedRing: state.equippedRing, 
         selectedBoss: state.selectedBoss,
         playerStats: state.playerStats,
+        activePrayers: state.activePrayers,
         bonuses: state.bonuses
     }
   }
