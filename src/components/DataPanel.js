@@ -8,41 +8,6 @@ class DataPanel extends Component{
         super(props);
         const {level, potion, prayer, style, other} = this.props.bonuses;
         /*https://oldschool.runescape.wiki/w/Damage_per_second/Melee#Step_two:_Calculate_the_maximum_hit*/
-        /*From wiki
-            1. Effective strength level
-            2. Multiply by (Equipment Melee Strength + 64)
-            3. Add 320
-            4. Divide by 640
-            5. Round down to nearest integer
-            6. Multiply by gear bonus
-            7. Round down to nearest integer
-        */
-/*        const {equippedBody, equippedHead, equippedCape,
-            equippedNeck, equippedAmmo, equippedWeapon,
-            equippedOffhand, equippedLegs, equippedHands,
-            equippedFeet, equippedRing
-        } = this.props;
-        let allEquipped = [equippedBody, equippedHead, equippedCape,
-                            equippedNeck, equippedAmmo, equippedWeapon,
-                            equippedOffhand, equippedLegs, equippedHands,
-                            equippedFeet, equippedRing
-                        ];
-        
-        let equipment_str = 0;                        
-        for(let slot of allEquipped){
-            
-            if(slot) console.log(slot.stats);
-
-        }
-        let effective_strength = Math.floor((Math.floor((this.props.playerStats.str + potion) * prayer) + 3 + 8));
-
-        let maxHit = effective_strength * (equipment_str + 64);
-        maxHit += 320;
-        maxHit = Math.floor(maxHit / 640);
-        if(this.props.bonuses.other !== "" && this.props.bonuses.other > 0){
-            maxHit = Math.floor(effective_strength * this.props.bonuses.other);
-        }
-        this.maxHit = maxHit; */
     }
     render(){
         const {level, potion, prayer, style, other} = this.props.bonuses;
