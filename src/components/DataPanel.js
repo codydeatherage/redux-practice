@@ -64,8 +64,8 @@ class DataPanel extends Component{
                 } 
             }
         }
-        console.log('Equipment Strength', equipment_str);
-        console.log('Equipment Atk Bonuses', equipment_atk);
+        //console.log('Equipment Strength', equipment_str);
+        //console.log('Equipment Atk Bonuses', equipment_atk);
         let atkPrayerBoost = 1;
         let strPrayerBoost = 1;
         let magicPrayerBoost = 1;
@@ -90,10 +90,10 @@ class DataPanel extends Component{
         }
 
         let effective_strength = Math.floor(((this.props.playerStats.str * strPrayerBoost) + /*style*/3));
-        console.log('Effective Strength', effective_strength);
+       // console.log('Effective Strength', effective_strength);
         let maxHit = Math.floor(1.3 + (effective_strength / 10) + (equipment_str / 80) + Math.floor((effective_strength * equipment_str) / 640));
         let effective_attack = Math.floor(((this.props.playerStats.atk * atkPrayerBoost) + 1));
-        console.log('Effective Attack ', effective_attack);
+        //console.log('Effective Attack ', effective_attack);
         //need to modify to factor in selected atk style
         let attackRoll = effective_attack * (equipment_atk.slash + 64);
         return(

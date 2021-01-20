@@ -20,20 +20,51 @@ class PlayerInfoCard extends Component{
         super(props);
         let bossList = [];
         for(let boss of allBosses.monsters){
-            bossList.push(boss.name);
+            bossList.push(boss);
         }
         this.state = {selected: '', list: bossList}
-   
+        this.bosses = bossList;
 
         this.handleChange = this.handleChange.bind(this);
         
     }
     async handleChange(event){
         await this.setState({selected: event.target.innerText});
-        this.props.dispatch({
-            type : "SELECTED_BOSS",
-            payload: {name: event.target.innerText, id: 3213}
-        });
+        console.log(this.bosses);
+        for(let boss of this.bosses){
+            if(boss.name === event.target.innerText){
+                const {
+                    name,
+                    hitpoints, 
+                    combat_level, 
+                    id,        
+                    defence_level, 
+                    magic_level, 
+                    defence_stab,           
+                    defence_slash, 
+                    defence_crush, 
+                    defence_magic,              
+                    defence_ranged
+                } = boss;
+                this.props.dispatch({
+                    type: `SELECTED_BOSS`,
+                    payload: {                    
+                        name: name,
+                        hitpoints: hitpoints,  
+                        combat_level: combat_level, 
+                        id: id,     
+                        defence_level: defence_level, 
+                        magic_level: magic_level, 
+                        defence_stab: defence_stab,           
+                        defence_slash: defence_slash, 
+                        defence_crush: defence_crush, 
+                        defence_magic: defence_magic,              
+                        defence_ranged: defence_ranged
+                    }
+                })
+                break; 
+            }
+        }
         console.log(this.state.selected);     
     }
 
@@ -111,8 +142,8 @@ class PlayerInfoCard extends Component{
                         <button type="button" className="boss-select btn-default" data-toggle="dropdown">{this.props.selectedBoss.name}</button>
                         <ul className="dropdown-menu scrollable-menu" role="menu">
                             <input type="search" onChange={this.filterList} className="search-bar"></input>  
-                                {this.state.list.map((item, index) =>{
-                                    return(<li onClick={this.handleChange} key={index}>{item}</li>)
+                                {this.bosses.map((item, index) =>{
+                                    return(<li onClick={this.handleChange} key={index}>{item.name}</li>)
                                 }) }
                         </ul>
                  

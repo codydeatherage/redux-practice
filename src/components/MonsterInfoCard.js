@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import image from './../zulrah.png'
 import MonsterSkillSlot from './MonsterSkillSlot'
 import './../stylesheets/MonsterInfo.css'
+import allBosses from '../monsters/boss_data.json'
 
 class MonsterInfoCard extends Component{
     constructor(props){
