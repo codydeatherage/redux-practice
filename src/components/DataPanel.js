@@ -96,6 +96,10 @@ class DataPanel extends Component{
         //console.log('Effective Attack ', effective_attack);
         //need to modify to factor in selected atk style
         let attackRoll = effective_attack * (equipment_atk.slash + 64);
+        let defenceRoll = Math.floor((this.props.selectedBoss.defence_level + 9) * (this.props.selectedBoss.defence_slash + 64));
+        let hitChance = 1 - ((defenceRoll + 2) / (2 * attackRoll + 1)); 
+        let avgHit = (maxHit * hitChance) /2;
+        let dps = (avgHit/ 2.4);
         return(
             <div className="card panel-card">
                 <h1>PLAYER STATS</h1>
@@ -152,10 +156,10 @@ class DataPanel extends Component{
                             <div className="atk-bonus">{`MAX HIT: ${maxHit}`}</div>
                         </div>
                         <div className="row">
-                            <div className="atk-bonus">ACCURACY: </div>
+                            <div className="atk-bonus">{`ACCURACY: ${hitChance}`}</div>
                         </div>
                         <div className="row">
-                            <div className="atk-bonus">DPS: </div>
+                            <div className="atk-bonus">{`DPS: ${dps}`} </div>
                         </div>
                     </div>
                 </div>
