@@ -64,8 +64,6 @@ class DataPanel extends Component{
                 } 
             }
         }
-        //console.log('Equipment Strength', equipment_str);
-        //console.log('Equipment Atk Bonuses', equipment_atk);
         let atkPrayerBoost = 1;
         let strPrayerBoost = 1;
         let magicPrayerBoost = 1;
@@ -97,9 +95,16 @@ class DataPanel extends Component{
         //need to modify to factor in selected atk style
         let attackRoll = effective_attack * (equipment_atk.slash + 64);
         let defenceRoll = Math.floor((this.props.selectedBoss.defence_level + 9) * (this.props.selectedBoss.defence_slash + 64));
-        let hitChance = 1 - ((defenceRoll + 2) / (2 * attackRoll + 1)); 
-        let avgHit = (maxHit * hitChance) /2;
-        let dps = (avgHit/ 2.4);
+        let hitChance = 0;
+        if(attackRoll > defenceRoll){
+            hitChance = (1 - ((defenceRoll + 2) / (2 * attackRoll + 1)));
+        }else{
+            hitChance = (attackRoll / (2  * defenceRoll + 1));
+        }
+    
+        let avgHit = ((maxHit * hitChance) /2).toFixed(2);
+        hitChance = (hitChance * 100).toFixed(2);
+        let dps = (avgHit/ 2.4).toFixed(2);
         return(
             <div className="card panel-card">
                 <h1>PLAYER STATS</h1>
@@ -124,10 +129,12 @@ class DataPanel extends Component{
                 </div>
                 <div className="row">
                     <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
+                    <div className="options" ></div>
        
                 </div>
                 <div className="row">
                     <PlayerSkillSlot slot="ranged_level" value={this.props.playerStats.range + this.props.bonuses.potion}></PlayerSkillSlot>
+                    <div className="options" ></div>
                 </div>
                 <div className="row">
                     <h1>Attack Bonuses</h1>
