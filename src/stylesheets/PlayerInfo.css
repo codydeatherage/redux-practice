@@ -51,7 +51,7 @@
     position: relative;
     width: 35px;
     top: 15%;
-    left:10%;
+    border: 2px solid white;
     height: 37px;
 }
 
@@ -80,10 +80,15 @@
 
 }
 
+.row > .options > .form-check-input{
+    border: 2px solid greenyellow;}
+
 .options{
+    display: flex;
     height: 100%;
-    width: 40%;
-    margin-left: 5%;
+    width: 45%;
+    justify-content: space-between;
+    margin-left: 15%;
     border: 2px red solid;
 }
 .data-output > .row > .atk-bonus{
