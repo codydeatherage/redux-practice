@@ -47,12 +47,19 @@
     margin-left: 15%;
 }
 .test-box{
+    display: flex;
     width: 100%;
     height: 70%;
     background-color:  lightcoral;
 }
+
+.test-box > .container{
+    border: 1px solid white;
+    padding-right:0;
+    padding-bottom: 5px;
+}
 .test-options{
-    width: 40%;
+    width: 45%;
     margin-left: 15%;
     height: 100%;
     border: 2px solid rgba(17, 0, 248, 0.863);
@@ -67,18 +74,20 @@
 }
 .checkbox-image{
     position: relative;
-    width: 35px;
-    top: 15%;
-    border: 2px solid white;
-    height: 37px;
+    width: 80%;
+    left: 5px;
+    /* top: 15%; */
+   /*  border: 2px solid white; */
+    height: 35px;
+
 }
 
 .form-check-input{
     position: relative;
     height: 15px;
     width: 15px;
-    left: 5%;
-    top: 20%;
+ /*     left: 15%;  */
+   /*  top: 20%; */
   }
 .stat-slash{
     font-style: italic;
