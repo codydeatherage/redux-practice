@@ -143,28 +143,18 @@ class DataPanel extends Component{
                             </div>
                             <div className="container">
                                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
+                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
                             </div>
                             <div className="container">
                                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
+                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/e5/Overload_%28%2B%29%284%29.png?6b1dd" alt=""></img>
                             </div>
                             <div className="container">
                                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
+                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/f/fe/Imbued_heart.png?b33a3" alt=""></img>
                             </div>
                         </div>
                     </div>
-{/*                     <div className="options" >
-                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/f/fe/Imbued_heart.png?b33a3" alt=""></img>
-                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
-                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/e5/Overload_%28%2B%29%284%29.png?6b1dd" alt=""></img>
-                    </div> */}
                 </div>
                 <div className="row">
                     <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
@@ -205,7 +195,7 @@ class DataPanel extends Component{
                             </div>
                             <div className="container">
                                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
+                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
                             </div>
                             <div className="container">
                                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
