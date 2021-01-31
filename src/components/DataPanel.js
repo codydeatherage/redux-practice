@@ -55,7 +55,7 @@ class DataPanel extends Component{
         let equipment_atk = {slash: 0, stab: 0, crush: 0};                     
         for(let slot of allEquipped){
             if(slot !== undefined){
-                console.log(slot.stats);
+                //console.log(slot.stats);
                 if(slot.stats !== ""){
                     equipment_str += slot.stats.melee_strength;
                     equipment_atk.slash += slot.stats.attack_slash;

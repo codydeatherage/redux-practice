@@ -20,13 +20,14 @@ class DropDownList extends Component{
         await fetch(`https://api.osrsbox.com/equipment/${itemID}`)
             .then(response => response.json())
             .then(json => {
-                const {equipment, icon} = json;
+                const {equipment, icon, } = json;
+                const {stances, weapon_type} = json.weapon;
                 let dispatchType = this.props.type.toUpperCase();
                 console.log('DISPATCH: ', dispatchType);
                 this.setState({icon: icon});
                 this.props.dispatch({
                     type: `CHANGE_${dispatchType}`,
-                    payload: {name: this.state.equipped, icon: icon, stats: equipment}
+                    payload: {name: this.state.equipped, icon: icon, stats: equipment, stances: stances, weapon_type: weapon_type}
                 })
             }
         ) 
