@@ -163,7 +163,13 @@ class DataPanel extends Component{
                             Attack Style
                         </div>
                         <div className="test-box">
-                            <div className="container">
+                        <button type="button" className="btn-default" data-toggle="dropdown">Select an attack style</button>
+                        <ul className="dropdown-menu scrollable-menu" role="menu">
+                                {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
+                                    return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
+                                }) :null}
+                        </ul>
+{/*                                 <div className="container">
                                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
                                     <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
                                 </div>
@@ -178,10 +184,10 @@ class DataPanel extends Component{
                                 <div className="container">
                                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
                                     <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                                </div>
-                            </div>
+                                </div> */}
                         </div>
                     </div>
+                </div>
                 <div className="row">
                     <PlayerSkillSlot slot="ranged_level" value={this.props.playerStats.range + this.props.bonuses.potion}></PlayerSkillSlot>
                     <div className="test-options">   
