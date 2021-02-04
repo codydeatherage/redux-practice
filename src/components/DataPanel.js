@@ -158,34 +158,35 @@ class DataPanel extends Component{
                 </div>
                 <div className="row">
                     <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="test-options">   
-                        <div className="options-label">
-                            Attack Style
+                    <div className="styles-container">  
+                        <div className="test-options">
+                            <div className="options-label">
+                                Attack Style
+                            </div>
+                            <div className="test-box">
+                                <button type="button " className="btn-default" data-toggle="dropdown">
+                                    \\\</button>
+                                <ul className="dropdown-menu scrollable-menu" role="menu">
+                                        {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
+                                            return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
+                                        }) :null}
+                                </ul>
+                            </div> 
                         </div>
-                        <div className="test-box">
-                        <button type="button" className="btn-default" data-toggle="dropdown">Select an attack style</button>
+                        <div className="test-options" data-toggle="dropdown">
+                            <div className="options-label">
+                                Spell
+                            </div>
+                            <div className="test-box  spellbook-img">
+                                <img className="spellbook" src="https://oldschool.runescape.wiki/images/0/0d/Spellbook.png?78262" alt=""></img>
+        
+                            </div> 
+                        </div>
                         <ul className="dropdown-menu scrollable-menu" role="menu">
-                                {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
-                                    return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
-                                }) :null}
-                        </ul>
-{/*                                 <div className="container">
-                                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                    <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                                </div>
-                                <div className="container">
-                                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                    <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                                </div>
-                                <div className="container">
-                                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                    <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                                </div>
-                                <div className="container">
-                                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                    <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                                </div> */}
-                        </div>
+                                        {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
+                                            return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
+                                        }) :null}
+                                </ul>
                     </div>
                 </div>
                 <div className="row">
