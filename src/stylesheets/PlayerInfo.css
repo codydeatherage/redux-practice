@@ -266,6 +266,22 @@
     margin-left: 0;
     margin-right: 0;
 }
+.combat-styles{
+  /*   padding-right: 70%; */
+    left: 0;
+    padding: 4px;
+    background-color: rgba(0,0,0,0);
+  /*   border: 2px solid greenyellow; */
+}
+
+.no-bg{
+    background-color: rgba(0,0,0,0);
+    border: 2px yellow solid;
+}
+
+.attack-styles{
+    height: 100%;
+}
 .spellbook{
     padding-left: 30%;
     padding-top: 1%;

@@ -158,26 +158,25 @@ class DataPanel extends Component{
                 </div>
                 <div className="row">
                     <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="styles-container">  
-                        <div className="test-options">
+                    <div className="styles-container attack-styles">  
+                        <div className="test-options" data-toggle="dropdown">
                             <div className="options-label">
                                 Attack Style
                             </div>
-                            <div className="test-box">
-                                <button type="button " className="btn-default" data-toggle="dropdown">
-                                    \\\</button>
-                                <ul className="dropdown-menu scrollable-menu" role="menu">
+                            <div className="test-box no-bg" >
+                                <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img>
+                            </div> 
+                        </div>
+                        <ul className="dropdown-menu scrollable-menu" role="menu">
                                         {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
                                             return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
                                         }) :null}
-                                </ul>
-                            </div> 
-                        </div>
+                        </ul>
                         <div className="test-options" data-toggle="dropdown">
                             <div className="options-label">
                                 Spell
                             </div>
-                            <div className="test-box  spellbook-img">
+                            <div className="test-box  no-bg spellbook-img">
                                 <img className="spellbook" src="https://oldschool.runescape.wiki/images/0/0d/Spellbook.png?78262" alt=""></img>
         
                             </div> 
@@ -186,7 +185,7 @@ class DataPanel extends Component{
                                         {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
                                             return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
                                         }) :null}
-                                </ul>
+                        </ul>
                     </div>
                 </div>
                 <div className="row">
