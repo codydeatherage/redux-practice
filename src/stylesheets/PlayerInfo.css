@@ -34,7 +34,7 @@
     padding-top: 5px;
 }
 .options-container > .row{
-    border: 2px solid seagreen;
+    border: 2px solid rgb(176, 241, 24);
     margin-left: 0;
     margin-right: 0;
 }
@@ -63,13 +63,13 @@
 }
 
 .test-box > .container{
-    border: 1px solid white;
-    padding-right:0;
-    padding-bottom: 5px;
+    border: 1px solid rgb(245, 245, 245);
+    padding-right:0;/* 
+    padding-bottom: 5px; */
 }
 .test-options{
-    width: 45%;
-    margin-left: 15%;
+    width: 70%;
+ /*    margin-left: 15%; */
     height: 100%;
     /* border: 1px solid yellow; */
 }
@@ -260,20 +260,24 @@
 }
 
 .styles-container{
-    display: flex;
-    width: auto;
-
-    border: 2px solid white;
-    width: 45%;
-    margin-left: 15%;
+    border: 2px solid rgb(51, 71, 255);
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    left: 0;
     height: 100%;
 }
 .styles-container>.test-options{
     padding-left: 0;
     left: 0;
-    width: 50%;
+    width: 70%;
     margin-left: 0;
     margin-right: 0;
+}
+.attack-style-img{
+    width: 40%;
+    height: 40%;
+    border: 2px solid green;
 }
 .combat-styles{
   /*   padding-right: 70%; */
@@ -284,8 +288,8 @@
 }
 
 .no-bg{
-    background-color: rgba(0,0,0,0);
-    border: 2px yellow solid;
+    background-color: rgb(172, 246, 53);
+    border: 2px rgb(29, 134, 255) solid;
 }
 
 .attack-styles{
@@ -310,6 +314,18 @@
 
 }
 
+.style-select-row{
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+    height: 50%;
+    width: 100%;
+}
+
+.style-select{
+    background-color: red;
+    width: 100%;
+}
 .options-container{
     border: 2px solid blueviolet;
     width: 60%;

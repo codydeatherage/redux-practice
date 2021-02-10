@@ -124,27 +124,22 @@ class DataPanel extends Component{
                         </div>
                     </div>
                     <div className="options-container">
-                        <div className="row">
+                        <div className="row style-select-row">
                             <div className="styles-container attack-styles">
-                                <div className="test-options" data-toggle="dropdown">
+                                <div className="test-options style-select" data-toggle="dropdown">
                                     <div className="options-label">
                                         Attack Style
-                            </div>
-                                    <div className="test-box no-bg" >
-                                        <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img>
                                     </div>
-                                </div>
-                                <ul className="dropdown-menu scrollable-menu" role="menu">
-                                    {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) => {
-                                        return (<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
-                                    }) : null}
-                                </ul>
-                                <div className="test-options" data-toggle="dropdown">
-                                    <div className="options-label">
-                                        Spell
-                            </div>
-                                    <div className="test-box  no-bg spellbook-img">
-                                        <img className="spellbook" src="https://oldschool.runescape.wiki/images/0/0d/Spellbook.png?78262" alt=""></img>
+                                    <div className="test-box no-bg" >
+                                        <div className="row">
+                                            <div className="attack-style-img"></div>
+                                            <div className="attack-style-img"></div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="attack-style-img"></div>
+                                            <div className="attack-style-img"></div>
+                                        </div>
+                                        {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
                                     </div>
                                 </div>
                                 <ul className="dropdown-menu scrollable-menu" role="menu">
