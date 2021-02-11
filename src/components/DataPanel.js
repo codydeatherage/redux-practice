@@ -127,16 +127,17 @@ class DataPanel extends Component{
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
-                                    <div className="test-box">
+                                    <div className="styles-box">
                                         <div className="row">
-                                            <div className=" style-container aqua-bg">
                                                 <div className="attack-style-img">1</div>
                                                 <div className="attack-style-img">2</div>
-                                            </div>
+                                          
                                         </div>
-                                        <div className="container orange-bg">
-                                            <div className="attack-style-img">3</div>
-                                            <div className="attack-style-img">4</div>
+                                        <div className="row">
+                                           {/*  < div className="style-container "> */}
+                                                <div className="attack-style-img">3</div>
+                                                <div className="attack-style-img">4</div>
+                                       {/*      </div>  */}
                                         </div> 
                                         {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
                                     </div>
