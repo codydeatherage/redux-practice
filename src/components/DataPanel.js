@@ -126,27 +126,21 @@ class DataPanel extends Component{
                     <div className="options-container">
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
-                                <div className="test-options style-select" data-toggle="dropdown">
-                                    <div className="options-label">
-                                        Attack Style
-                                    </div>
-                                    <div className="test-box no-bg" >
+                                <div className="test-options style-select">
+                                    <div className="test-box">
                                         <div className="row">
-                                            <div className="attack-style-img"></div>
-                                            <div className="attack-style-img"></div>
+                                            <div className=" style-container aqua-bg">
+                                                <div className="attack-style-img">1</div>
+                                                <div className="attack-style-img">2</div>
+                                            </div>
                                         </div>
-                                        <div className="row">
-                                            <div className="attack-style-img"></div>
-                                            <div className="attack-style-img"></div>
-                                        </div>
+                                        <div className="container orange-bg">
+                                            <div className="attack-style-img">3</div>
+                                            <div className="attack-style-img">4</div>
+                                        </div> 
                                         {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
                                     </div>
                                 </div>
-                                <ul className="dropdown-menu scrollable-menu" role="menu">
-                                    {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) => {
-                                        return (<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
-                                    }) : null}
-                                </ul>
                             </div>
                         </div>
                         <div className="row">
