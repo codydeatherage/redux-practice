@@ -19,6 +19,14 @@ class PlayerInfoCard extends Component{
     constructor(props){
         super(props);
         let bossList = [];
+        let weapTypes = [];
+        for(let weap of allWeapons.items){
+            if(weapTypes.indexOf(weap.weapon.weapon_type) === -1){
+                weapTypes.push(weap.weapon.weapon_type);
+            }
+        
+        }
+        console.log(weapTypes);
         for(let boss of allBosses.monsters){
             bossList.push(boss);
         }
