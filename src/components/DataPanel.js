@@ -107,8 +107,93 @@ class DataPanel extends Component{
         let dps = (avgHit/ 2.4).toFixed(2);
         return(
             <div className="card panel-card">
-                <h1>PLAYER STATS</h1>
-                <div className="row">
+                {/*  <h1>PLAYER STATS</h1> */}
+                <div className="input-container">
+                    <div className="skills-container">
+                        <div className="row">
+                            <PlayerSkillSlot slot={'atk_level'} value={this.props.playerStats.atk + this.props.bonuses.potion}></PlayerSkillSlot>
+                        </div>
+                        <div className="row">
+                            <PlayerSkillSlot slot="str_level" value={this.props.playerStats.str + this.props.bonuses.potion}></PlayerSkillSlot>
+                        </div>
+                        <div className="row">
+                            <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
+                        </div>
+                        <div className="row">
+                            <PlayerSkillSlot slot="ranged_level" value={this.props.playerStats.range + this.props.bonuses.potion}></PlayerSkillSlot>
+                        </div>
+                    </div>
+                    <div className="options-container">
+                        <div className="row style-select-row">
+                            <div className="styles-container attack-styles">
+                                <div className="test-options style-select">
+                                    <div className="styles-box">
+                                        <div className="row">
+                                                <div className="attack-style-img">1</div>
+                                                <div className="attack-style-img">2</div>
+                                          
+                                        </div>
+                                        <div className="row">
+                                           {/*  < div className="style-container "> */}
+                                                <div className="attack-style-img">3</div>
+                                                <div className="attack-style-img">4</div>
+                                       {/*      </div>  */}
+                                        </div> 
+                                        {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="test-options">
+                                <div className="options-label">
+                                    Stat-Reducing Specs
+                                </div>
+                                <div className="test-box">
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/ea/Dragon_warhammer.png?27308" alt=""></img>
+                                    </div>
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6c/Bandos_godsword.png?0f871" alt=""></img>
+                                    </div>
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/1/16/Arclight.png?3d34e" alt=""></img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="test-options">
+                                <div className="options-label">
+                                    Potion Boosts
+                                </div>
+                                <div className="test-box">
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
+                                    </div>
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
+                                    </div>
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/e5/Overload_%28%2B%29%284%29.png?6b1dd" alt=""></img>
+                                    </div>
+                                    <div className="container">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/f/fe/Imbued_heart.png?b33a3" alt=""></img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {/* <div className="row">
                     <PlayerSkillSlot slot={'atk_level'} value={this.props.playerStats.atk + this.props.bonuses.potion}></PlayerSkillSlot>
                     <div className="test-options">   
                         <div className="options-label">
@@ -217,7 +302,7 @@ class DataPanel extends Component{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="row">
                     <h1>Attack Bonuses</h1>
                 </div>
