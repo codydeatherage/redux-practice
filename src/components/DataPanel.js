@@ -129,13 +129,13 @@ class DataPanel extends Component{
                                 <div className="test-options style-select">
                                     <div className="styles-box">
                                         <div className="row">
-                                                <div className="attack-style-img">1</div>
+                                                <div className="attack-style-img mr-1">1</div>
                                                 <div className="attack-style-img">2</div>
                                           
                                         </div>
                                         <div className="row">
                                            {/*  < div className="style-container "> */}
-                                                <div className="attack-style-img">3</div>
+                                                <div className="attack-style-img mr-1">3</div>
                                                 <div className="attack-style-img">4</div>
                                        {/*      </div>  */}
                                         </div> 
