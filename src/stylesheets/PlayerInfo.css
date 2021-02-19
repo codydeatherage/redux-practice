@@ -64,7 +64,7 @@
 
 .styles-box > .row{
     padding-top: 1%;
-    background-color: aqua;
+    background-color: rgb(27, 27, 27);
     height: 70%;
     margin-left: 0;
     margin-bottom: 0;
@@ -90,7 +90,7 @@
 }
 
 .row > .attack-style-img{
-    width: 40%;
+    width: 30%;
     height: 100%;
 }
 
@@ -312,6 +312,9 @@
     width: 20%;
     height: 70%;
     margin-left: 0;
+    outline: 3px solid rgba(255, 217, 0, 0.5);
+    outline-offset: -4px;
+  /*   border: 5px solid rgb(238, 255, 0); */
     /* border: 2px solid green; */
 }
 .test-box > .row{
@@ -374,9 +377,12 @@
 }
 
 .attack-style-img{   
+    padding-right: 0;
+    padding-left: 5%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('./../assets/attackStyles/style-plate_blank_t.png');
+    /* border: 2px solid rgb(255, 253, 131); */
+    background-size: contain;
+    background-image: url('./../assets/attackStyles/axes/axe_hack_crop.png'); 
 }
 
 #ranged_level{
