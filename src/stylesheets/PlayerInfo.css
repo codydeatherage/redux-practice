@@ -66,6 +66,7 @@
     padding-top: 1%;
     background-color: rgb(27, 27, 27);
     height: 70%;
+    text-align: left;
     margin-left: 0;
     margin-bottom: 0;
     margin-top: 0;
@@ -75,7 +76,7 @@
 .styles-box{
     width: 100%;
     height: 70%;
-    background-color:  lightcoral;
+    background-color:  rgb(255, 0, 0);
 }
 
 .test-box > .container{
@@ -90,7 +91,7 @@
 }
 
 .row > .attack-style-img{
-    width: 30%;
+    width: 40%;
     height: 100%;
 }
 
@@ -277,11 +278,6 @@
 .prayer-img:hover{
     background-color: rgb(202, 206, 148);
 }
-/* .img-container{
-    height: auto;
-    width: auto;
-    background-color: red;
-} */
 
 .prayer-box{
     display: flex;
@@ -293,8 +289,9 @@
 }
 
 .styles-container{
-    border: 2px dotted rgb(255, 255, 255);
+    /* border: 2px dotted rgb(255, 255, 255); */
     width: 100%;
+    padding-top: 1%;
     padding-left: 0;
     margin-left: 0;
     left: 0;
@@ -309,11 +306,13 @@
 }
 .attack-style-img{
     position: relative;
-    width: 20%;
+    width: 100px;
     height: 70%;
     margin-left: 0;
-    outline: 3px solid rgba(255, 217, 0, 0.5);
-    outline-offset: -4px;
+    padding-left: 0;
+    /* border: 2px solid green; */
+/*     outline: 3px solid rgba(255, 217, 3, 0.739);
+    outline-offset: -4px; */
   /*   border: 5px solid rgb(238, 255, 0); */
     /* border: 2px solid green; */
 }
@@ -366,10 +365,6 @@
     width: 100%;
 }
 
-/* .style-select{
-    background-color: red;
-    width: 100%;
-} */
 .options-container{
     border: 2px solid blueviolet;
     width: 60%;
@@ -380,9 +375,10 @@
     padding-right: 0;
     padding-left: 5%;
     background-repeat: no-repeat;
+    max-width: 95px;
     /* border: 2px solid rgb(255, 253, 131); */
-    background-size: contain;
-    background-image: url('./../assets/attackStyles/axes/axe_hack_crop.png'); 
+/*     background-size: cover;
+    background-image: url('./../assets/attackStyles/axe/axe_hack_crop.png');  */
 }
 
 #ranged_level{
