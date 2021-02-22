@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PlayerSkillSlot from './PlayerSkillSlot'
 import './../stylesheets/PlayerInfo.css'
+import img1 from './../assets/attackStyles/axe/axe_hack_crop.png'
+import img2 from './../assets/attackStyles/axe/axe_chop_crop.png'
+import img3 from './../assets/attackStyles/axe/axe_smash_sel_crop.png'
+import img4 from './../assets/attackStyles/axe/axe_block_crop.png'
 
 class DataPanel extends Component{
     constructor(props){
@@ -129,14 +133,18 @@ class DataPanel extends Component{
                                 <div className="test-options style-select">
                                     <div className="styles-box">
                                         <div className="row">
-                                                <div className="attack-style-img">1</div>
-                                                <div className="attack-style-img">2</div>
+                                                <img src={img2} className="attack-style-img mr-0.5" alt=""></img>
+                                                {/* <div className="attack-style-img mr-1">1</div> */}
+                                                <img src={img1} className="attack-style-img " alt=""></img>
+                                                {/* <div className="attack-style-img">2</div> */}
                                           
                                         </div>
                                         <div className="row">
                                            {/*  < div className="style-container "> */}
-                                                <div className="attack-style-img">3</div>
-                                                <div className="attack-style-img">4</div>
+                                           <img src={img3} className="attack-style-img mr-0.2" alt=""></img>
+                                           <img src={img4} className="attack-style-img " alt=""></img>
+                                           {/*      <div className="attack-style-img mr-1">3</div>
+                                                <div className="attack-style-img">4</div> */}
                                        {/*      </div>  */}
                                         </div> 
                                         {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
