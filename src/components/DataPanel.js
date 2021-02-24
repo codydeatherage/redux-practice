@@ -11,7 +11,16 @@ class DataPanel extends Component{
     constructor(props){
         super(props);
         const {level, potion, prayer, style, other} = this.props.bonuses;
+        this.state = {
+            style: ''
+        }
+
+
         /*https://oldschool.runescape.wiki/w/Damage_per_second/Melee#Step_two:_Calculate_the_maximum_hit*/
+    }
+
+    changeStyle = () => {
+        console.log()
     }
     render(){
         const {level, potion, prayer, style, other} = this.props.bonuses;
@@ -134,20 +143,12 @@ class DataPanel extends Component{
                                     <div className="styles-box">
                                         <div className="row">
                                                 <img src={img2} className="attack-style-img mr-0.5" alt=""></img>
-                                                {/* <div className="attack-style-img mr-1">1</div> */}
                                                 <img src={img1} className="attack-style-img " alt=""></img>
-                                                {/* <div className="attack-style-img">2</div> */}
-                                          
                                         </div>
                                         <div className="row">
-                                           {/*  < div className="style-container "> */}
                                            <img src={img3} className="attack-style-img mr-0.2" alt=""></img>
                                            <img src={img4} className="attack-style-img " alt=""></img>
-                                           {/*      <div className="attack-style-img mr-1">3</div>
-                                                <div className="attack-style-img">4</div> */}
-                                       {/*      </div>  */}
                                         </div> 
-                                        {/* <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img> */}
                                     </div>
                                 </div>
                             </div>
