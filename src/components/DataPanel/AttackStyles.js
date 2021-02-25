@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import img1 from './../../assets/attackStyles/axe/axe_hack_crop.png'
+import img2 from './../../assets/attackStyles/axe/axe_chop_crop.png'
+import img3 from './../../assets/attackStyles/axe/axe_smash_sel_crop.png'
+import img4 from './../../assets/attackStyles/axe/axe_block_crop.png'
 
 class AttackStyles extends Component {
+
     render() {
+        let styles = [];
+        for(let style of this.props.equippedWeapon.stances){
+            styles.push(style.combat_style);
+        }
+        console.log('Styles', styles);
         return (
             <div className="styles-box">
                 <div className="row">
@@ -17,4 +28,12 @@ class AttackStyles extends Component {
     }
 }
 
-export default AttackStyles
+const mapStateToProps = state => {
+    return {
+        equippedWeapon: state.equippedWeapon
+    }
+  }
+  
+  export default connect(
+    mapStateToProps
+  )(AttackStyles)
