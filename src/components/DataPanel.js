@@ -119,6 +119,27 @@ class DataPanel extends Component{
         let avgHit = ((maxHit * hitChance) /2).toFixed(2);
         hitChance = (hitChance * 100).toFixed(2);
         let dps = (avgHit/ 2.4).toFixed(2);
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+        let styles = [];
+        const {stances, weapon_type} = this.props.equippedWeapon;
+        for(let style of stances){
+            styles.push(style.combat_style);
+        }
+
+        console.log('Styles', styles);
+        let images = [];
+        let defaultPath = `./../../assets/attackStyles/`;
+        let path = '';
+        for(let style of styles){
+            path = `${weapon_type}/${weapon_type}_${style}_crop.png`;
+            images.push(defaultPath + path);
+        }
+
+
+
+
         return(
             <div className="card panel-card">
                 {/*  <h1>PLAYER STATS</h1> */}
@@ -141,7 +162,7 @@ class DataPanel extends Component{
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
-                                    <AttackStyles></AttackStyles>
+                                    <AttackStyles images={images}></AttackStyles>
                    {/*                  <div className="styles-box">
                                         <div className="row">
                                                 <img src={img2} className="attack-style-img mr-0.5" alt=""></img>

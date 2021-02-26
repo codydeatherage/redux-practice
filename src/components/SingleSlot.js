@@ -26,7 +26,7 @@ class SingleSlot extends Component{
                 displayList.push(item.charAt(0).toUpperCase() + item.slice(1));
             }
         }
-        console.log('++++', displayList);
+        //console.log('++++', displayList);
         this.setState({displayItems: displayList});
     }
 

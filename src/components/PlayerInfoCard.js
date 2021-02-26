@@ -73,7 +73,7 @@ class PlayerInfoCard extends Component{
                 break; 
             }
         }
-        console.log(this.state.selected);     
+        //console.log(this.state.selected);     
     }
 
     render(){
