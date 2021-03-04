@@ -32,7 +32,32 @@ const initialState = {
   equippedCape: {name:"", icon:"", stats: ""},
   equippedNeck: {name:"", icon:"", stats: ""},
   equippedAmmo: {name:"", icon:"", stats: ""},
-  equippedWeapon: {name:"", icon:"", stats: "", stances:"", weapon_type:""},
+  equippedWeapon: {name:"", icon:"", stats: "", stances:[
+    {
+        "combat_style": "punch",
+        "attack_type": "blunt",
+        "attack_style": "accurate",
+        "experience": "attack",
+        "boosts": null
+    },
+    {
+      "combat_style": "kick",
+      "attack_type": "blunt",
+      "attack_style": "aggressive",
+      "experience": "strength",
+      "boosts": null
+  },
+  {
+    "combat_style": "block",
+    "attack_type": "blunt",
+    "attack_style": "defensive",
+    "experience": "defence",
+    "boosts": null
+},
+  
+  ]
+  
+  , weapon_type:"unarmed"},
   equippedOffhand: {name:"", icon:"", stats: ""},
   equippedLegs: {name:"", icon:"", stats: ""},
   equippedHands: {name:"", icon:"", stats: ""},

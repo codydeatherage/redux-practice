@@ -141,7 +141,7 @@ class DataPanel extends Component{
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
-                                    <AttackStyles></AttackStyles>
+                                    <AttackStyles weaponType={this.props.equippedWeapon.weapon_type}></AttackStyles>
                    {/*                  <div className="styles-box">
                                         <div className="row">
                                                 <img src={img2} className="attack-style-img mr-0.5" alt=""></img>
