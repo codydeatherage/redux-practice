@@ -7,10 +7,14 @@ import {Provider} from 'react-redux';
 import store from './Store';
 window.store = store;
 document.body.style.backgroundColor = '#2c2f33';
+function importAll(r) {
+  return r.keys().map(r);
+}
 
+const images = importAll(require.context('./assets/attackStyles/2h_sword', false, /\.(png|jpe?g|svg)$/));
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App  images={images}/>
   </Provider>,
   document.getElementById('root')
 );
