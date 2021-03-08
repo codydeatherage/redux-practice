@@ -39,7 +39,7 @@ class AttackStyles extends Component {
         }
         let styleImages = [];
         for(let state of weapState){
-            let path = `./assets/attackStyles/${this.props.weaponType}/${this.props.weaponType}_${state.style}`;
+            let path = `/assets/attackStyles/${this.props.weaponType}/${this.props.weaponType}_${state.style}`;
             if(state.selected === true){
                 path += '_sel_crop.png';
             }
@@ -57,10 +57,16 @@ class AttackStyles extends Component {
                         <AttackStyleItem img={styleImages[1].img} selected={false}></AttackStyleItem>
                         
                     </div>
-                    <div className="row">
-                        <img onClick={this.handleSelect}  src="./assets/attackStyles/whip/whip_deflect_crop.png"className="attack-style-img mr-0.2" alt=""></img>
-                        <img onClick={this.handleSelect} src="./../../assets/attackStyles/unarmed/unarmed_block_crop.png" className="attack-style-img " alt=""></img>
-                    </div> 
+                    {styleImages.length >= 3 ? 
+                        <div className="row">
+                            <AttackStyleItem img={styleImages[2].img} selected={false}></AttackStyleItem>
+                           
+                            {styleImages.length === 4 ?
+                             <AttackStyleItem img={styleImages[3].img} selected={false}></AttackStyleItem>
+                             :
+                             <div className="attack-style-img"></div>
+                            }
+                        </div> : null} 
                 </div>
             )
         

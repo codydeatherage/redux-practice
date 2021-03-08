@@ -1,13 +1,18 @@
 import React, {useState} from 'react'
 
 const AttackStyleItem = (props) => {
-    const [selected, setSelection] = useState({selected: false})
+    const [item, setSelection] = useState({selected: false})
     const handleSelect = () =>{
-
+        setSelection({selected: !item.selected});
     }
     return (
-        <>
-            <img onClick={handleSelect} src={props.img} className="attack-style-img mr-0.5" alt=""></img>
+        <>  
+            {item.selected ? 
+                <img onClick={handleSelect} src={props.img} className="attack-style-img mr-0.5" alt=""></img>
+            :
+                <img onClick={handleSelect} src={props.img} className="attack-style-img mr-0.5" alt=""></img>
+            }
+            
         </>
     )
 }
