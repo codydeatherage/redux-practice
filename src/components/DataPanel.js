@@ -13,7 +13,7 @@ class DataPanel extends Component{
         super(props);
         const {level, potion, prayer, style, other} = this.props.bonuses;
    
-            this.changeStyle = this.changeStyle.bind(this);
+          /*   this.changeStyle = this.changeStyle.bind(this);
     
             let styles = [];
             for(let style of this.props.equippedWeapon.stances){
@@ -31,7 +31,7 @@ class DataPanel extends Component{
                 styleImages.push({style: state.style, selected: false, weaponType: this.props.weaponType}); 
             } 
     
-            this.state = { data: styleImages }
+            this.state = { data: styleImages } */
         
 
 
@@ -137,6 +137,30 @@ class DataPanel extends Component{
         let avgHit = ((maxHit * hitChance) /2).toFixed(2);
         hitChance = (hitChance * 100).toFixed(2);
         let dps = (avgHit/ 2.4).toFixed(2);
+
+
+        //this.changeStyle = this.changeStyle.bind(this);
+    
+        let styles = [];
+        for(let style of this.props.equippedWeapon.stances){
+            styles.push(style.combat_style);
+        }
+        console.log('Styles', styles, this.props.equippedWeapon.weapon_type);
+
+        let weapState= [];
+        for(let i = 0; i < styles.length; i++){
+            weapState.push({style: styles[i], selected: false})
+        }
+        const {weapon_type} = this.props.equippedWeapon;
+        let styleImages = [];
+        for(let state of weapState){
+            let path = `/assets/attackStyles/${weapon_type}/${weapon_type}_${state.style}_crop.png`;
+            styleImages.push({style: state.style, img: path, selected: false, weaponType: this.props.equippedWeapon.weapon_type}); 
+        } 
+        if(styleImages.length < 4){
+            styleImages.push({style: '', img: '', selected: false, weaponType: weapon_type})
+        }
+        
         return(
             <div className="card panel-card">
                 {/*  <h1>PLAYER STATS</h1> */}
@@ -159,7 +183,7 @@ class DataPanel extends Component{
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
-                                    <AttackStyles equipped={this.props.equippedWeapon} weaponType={this.props.equippedWeapon.weapon_type} ></AttackStyles>
+                                    <AttackStyles data={styleImages} equipped={this.props.equippedWeapon} weaponType={this.props.equippedWeapon.weapon_type} ></AttackStyles>
                    {/*                  <div className="styles-box">
                                         <div className="row">
                                                 <img src={img2} className="attack-style-img mr-0.5" alt=""></img>
