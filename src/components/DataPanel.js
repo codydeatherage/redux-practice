@@ -12,9 +12,27 @@ class DataPanel extends Component{
     constructor(props){
         super(props);
         const {level, potion, prayer, style, other} = this.props.bonuses;
-        this.state = {
-            style: ''
-        }
+   
+            this.changeStyle = this.changeStyle.bind(this);
+    
+            let styles = [];
+            for(let style of this.props.equippedWeapon.stances){
+                styles.push(style.combat_style);
+            }
+            console.log('Styles', styles);
+    
+            let weapState= [];
+            for(let i = 0; i < styles.length; i++){
+                weapState.push({style: styles[i], selected: false})
+            }
+    
+            let styleImages = [];
+            for(let state of weapState){
+                styleImages.push({style: state.style, selected: false, weaponType: this.props.weaponType}); 
+            } 
+    
+            this.state = { data: styleImages }
+        
 
 
         /*https://oldschool.runescape.wiki/w/Damage_per_second/Melee#Step_two:_Calculate_the_maximum_hit*/
@@ -141,7 +159,7 @@ class DataPanel extends Component{
                         <div className="row style-select-row">
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
-                                    <AttackStyles weaponType={this.props.equippedWeapon.weapon_type} ></AttackStyles>
+                                    <AttackStyles equipped={this.props.equippedWeapon} weaponType={this.props.equippedWeapon.weapon_type} ></AttackStyles>
                    {/*                  <div className="styles-box">
                                         <div className="row">
                                                 <img src={img2} className="attack-style-img mr-0.5" alt=""></img>
