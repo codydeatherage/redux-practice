@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const AttackStyleItem = (props) => {
-    console.log('+++item', props.data);
+    
     const handleSelect = async () => {
         if(props.data.selected){
             props.onSelectStyle(parseInt(props.id));

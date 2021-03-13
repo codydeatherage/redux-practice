@@ -9,7 +9,7 @@ const AttackStyles = (props) => {
         changeStyleInfo({data: props.data});
     }, [props.data])
 
-    console.log('ATTACKSTYLES', props.data[0].weaponType);
+    //console.log('ATTACKSTYLES', props.data[0].weaponType);
 
     const handleSelect = (index) =>{
         let tempCopy = props.data;
@@ -20,12 +20,7 @@ const AttackStyles = (props) => {
                 tempCopy[i].selected = false;
             }
         }
-        
-        for(let i = 0; i < props.data.length; i++){
-            if(i !== index){
-                tempCopy[i].selected = false;
-            }
-        }
+    
         for(let i = 0; i < props.data.length; i++){
             let path = `/assets/attackStyles/${props.data[i].weaponType}/${props.data[i].weaponType}_${props.data[i].style}`;
             if(tempCopy[i].selected){
@@ -52,7 +47,7 @@ const AttackStyles = (props) => {
         temp[i].img = path;
     }
     changeStyleInfo({data: temp}); */
-    console.log('---```--- Info', styleInfo.data);
+    //console.log('---```--- Info', styleInfo.data);
     return (
         <div className="styles-box">
             <div className="row">
@@ -63,8 +58,8 @@ const AttackStyles = (props) => {
                 <div className="row">
                     <AttackStyleItem onSelectStyle={handleSelect} data={styleInfo.data[2]} id="2"></AttackStyleItem>
                     {console.log('werwerasdfasdfasdfawef', props.data.length)}
-                    {props.data.length === 4 ?
-                        
+                    {props.data.length === 4 && props.data[3].style !== '' ?
+                         
                         <AttackStyleItem onSelectStyle={handleSelect} data={styleInfo.data[3]} id="3"></AttackStyleItem>
                         :
                         <div className="attack-style-img"></div>
