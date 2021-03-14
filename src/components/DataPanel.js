@@ -2,40 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PlayerSkillSlot from './PlayerSkillSlot'
 import './../stylesheets/PlayerInfo.css'
-import AttackStyles from './DataPanel/AttackStyles'/* 
-import img1 from './../assets/attackStyles/axe/axe_hack_crop.png'
-import img2 from './../assets/attackStyles/axe/axe_chop_crop.png'
-import img3 from './../assets/attackStyles/axe/axe_smash_sel_crop.png'
-import img4 from './../assets/attackStyles/axe/axe_block_crop.png' */
+import AttackStyles from './DataPanel/AttackStyles'
 
 class DataPanel extends Component {
     constructor(props) {
         super(props);
         const { level, potion, prayer, style, other } = this.props.bonuses;
-
-        /*   this.changeStyle = this.changeStyle.bind(this);
-  
-          let styles = [];
-          for(let style of this.props.equippedWeapon.stances){
-              styles.push(style.combat_style);
-          }
-          console.log('Styles', styles);
-  
-          let weapState= [];
-          for(let i = 0; i < styles.length; i++){
-              weapState.push({style: styles[i], selected: false})
-          }
-  
-          let styleImages = [];
-          for(let state of weapState){
-              styleImages.push({style: state.style, selected: false, weaponType: this.props.weaponType}); 
-          } 
-  
-          this.state = { data: styleImages } */
-
-
-
-        /*https://oldschool.runescape.wiki/w/Damage_per_second/Melee#Step_two:_Calculate_the_maximum_hit*/
     }
 
     changeStyle = () => {
@@ -138,9 +110,6 @@ class DataPanel extends Component {
         hitChance = (hitChance * 100).toFixed(2);
         let dps = (avgHit / 2.4).toFixed(2);
 
-
-        //this.changeStyle = this.changeStyle.bind(this);
-
         let styles = [];
         for (let style of this.props.equippedWeapon.stances) {
             styles.push(style.combat_style);
@@ -163,7 +132,6 @@ class DataPanel extends Component {
 
         return (
             <div className="card panel-card">
-                {/*  <h1>PLAYER STATS</h1> */}
                 <div className="input-container">
                     <div className="skills-container">
                         <div className="row">
@@ -184,7 +152,6 @@ class DataPanel extends Component {
                             <div className="styles-container attack-styles">
                                 <div className="test-options style-select">
                                     <AttackStyles data={styleImages} equipped={this.props.equippedWeapon} weaponType={this.props.equippedWeapon.weapon_type} ></AttackStyles>
-
                                 </div>
                             </div>
                         </div>
@@ -193,8 +160,7 @@ class DataPanel extends Component {
                                 <div className="options-label">
                                     Stat-Reducing Specs
                                 </div>
-                                <div className="test-box ">
-                                  
+                                <div className="test-box ">                                 
                                         <div className="spec-input-container ">
                                             <input className="spec-input" type="number" step="1"></input>
                                             <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/ea/Dragon_warhammer.png?27308" alt=""></img>
@@ -206,8 +172,7 @@ class DataPanel extends Component {
                                         <div className="spec-input-container">
                                             <input className="spec-input" type="number" step="1"></input>
                                             <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/1/16/Arclight.png?3d34e" alt=""></img>
-                                        </div>
-                                    
+                                        </div>  
                                 </div>
                             </div>
                         </div>
