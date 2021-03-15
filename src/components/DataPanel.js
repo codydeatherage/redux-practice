@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PlayerSkillSlot from './PlayerSkillSlot'
 import './../stylesheets/PlayerInfo.css'
 import AttackStyles from './DataPanel/AttackStyles'
+import PrayerSelect from './PrayerSelect'
 
 class DataPanel extends Component {
     constructor(props) {
@@ -12,6 +13,56 @@ class DataPanel extends Component {
 
     changeStyle = () => {
         console.log()
+    }
+
+    getPrayersToDisplay = () => {
+        const prayers = [//len = 16
+            { name: "Clarity of Thought", boost: 1.05, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/e/e1/Clarity_of_Thought.png?8d584' },
+            { name: "Improved Reflexes", boost: 1.10, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/7/7e/Improved_Reflexes.png?e38b5' },
+            { name: "Incredible Reflexes", boost: 1.15, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/8/85/Incredible_Reflexes.png?ecf9c' },
+            { name: "Burst of Strength", boosts: 1.05, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/7/7b/Burst_of_Strength.png?18c47' },
+            { name: "Superhuman Strength", boost: 1.10, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/0/08/Superhuman_Strength.png?d2621' },
+            { name: "Ultimate Strength", boost: 1.15, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/3/3d/Ultimate_Strength.png?510a8' },
+            { name: "Sharp Eye", boost: 1.05, type: 'range', icon: 'https://oldschool.runescape.wiki/images/a/a3/Sharp_Eye.png?18c47' },
+            { name: "Hawk Eye", boost: 1.10, type: 'range', icon: 'https://oldschool.runescape.wiki/images/8/8b/Hawk_Eye.png?54ee9' },
+            { name: "Eagle Eye", boost: 1.15, type: 'range', icon: 'https://oldschool.runescape.wiki/images/d/d5/Eagle_Eye.png?4a200' },
+            { name: "Mystic Will", boost: 1.05, type: 'magic', icon: 'https://oldschool.runescape.wiki/images/2/23/Mystic_Will.png?20461' },
+            { name: "Mystic Lore", boost: 1.10, type: 'magic', icon: 'https://oldschool.runescape.wiki/images/d/d1/Mystic_Lore.png?097d2' },
+            { name: "Mystic Might", boost: 1.15, type: 'magic', icon: 'https://oldschool.runescape.wiki/images/0/03/Mystic_Might.png?b0218' },
+            { name: "Chivalry", atk_boost: 1.15, str_boost: 1.18, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/1/16/Chivalry.png?58bc5' },
+            { name: "Piety", atk_boost: 1.20, str_boost: 1.23, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/a/a2/Piety.png?58239' },
+            { name: "Rigour", range_atk_boost: 1.20, range_str_boost: 1.23, type: 'range', icon: 'https://oldschool.runescape.wiki/images/5/5b/Rigour.png?159e1' },
+            { name: "Augury", boost: 1.25, type: 'magic', icon: 'https://oldschool.runescape.wiki/images/9/93/Augury.png?f234e' }
+        ];
+        let prayersToDisplay = [];
+        let attackType = '';
+        switch (this.props.equippedWeapon.weapon_type) {
+            case '2h_sword':
+            case 'axe':
+            case 'bladed_stave':
+            case 'blunt':
+            case 'claw':
+            case 'pickaxe':
+            case 'polearm':
+            case 'polestave':
+            case 'scythe':
+            case 'slashing_sword':
+            case 'spear':
+            case 'spiked_weapon':
+            case 'stave':
+            case 'unarmed':
+            case 'whip': attackType = 'melee'; break;
+            case 'bow':
+            case 'crossbow':
+            case 'thrown': attackType = 'range'; break;
+            case 'trident': attackType = 'magic'; break;
+        }
+        for (let prayer of prayers) {
+            if (prayer.type === attackType) {
+                prayersToDisplay.push(prayer);
+            }
+        }
+        return prayersToDisplay;
     }
     render() {
         const { level, potion, prayer, style, other } = this.props.bonuses;
@@ -25,25 +76,6 @@ class DataPanel extends Component {
             6. Multiply by gear bonus
             7. Round down to nearest integer
         */
-        const prayers = [//len = 16
-            { name: "Clarity of Thought", boost: 1.05, type: 'atk' },
-            { name: "Improved Reflexes", boost: 1.10, type: 'atk' },
-            { name: "Incredible Reflexes", boost: 1.15, type: 'atk' },
-            { name: "Burst of Strength", boosts: 1.05, type: 'str' },
-            { name: "Superhuman Strength", boost: 1.10, type: 'str' },
-            { name: "Ultimate Strength", boost: 1.15, type: 'str' },
-            { name: "Sharp Eye", boost: 1.05, type: 'range' },
-            { name: "Hawk Eye", boost: 1.10, type: 'range' },
-            { name: "Eagle Eye", boost: 1.15, type: 'range' },
-            { name: "Mystic Will", boost: 1.05, type: 'magic' },
-            { name: "Mystic Lore", boost: 1.10, type: 'magic' },
-            { name: "Mystic Might", boost: 1.15, type: 'magic' },
-            { name: "Chivalry", atk_boost: 1.15, str_boost: 1.18 },
-            { name: "Piety", atk_boost: 1.20, str_boost: 1.23 },
-            { name: "Rigour", range_atk_boost: 1.20, range_str_boost: 1.23 },
-            { name: "Augury", boost: 1.25, type: 'magic' }
-        ];
-
         let {
             equippedBody, equippedHead, equippedCape, equippedNeck,
             equippedAmmo, equippedWeapon, equippedOffhand, equippedLegs,
@@ -130,6 +162,7 @@ class DataPanel extends Component {
             styleImages.push({ style: '', img: '', selected: false, weaponType: weapon_type })
         }
 
+        let prayersToDisplay = this.getPrayersToDisplay();
         return (
             <div className="card panel-card">
                 <div className="input-container">
@@ -160,19 +193,19 @@ class DataPanel extends Component {
                                 <div className="options-label">
                                     Stat-Reducing Specs
                                 </div>
-                                <div className="test-box ">                                 
-                                        <div className="spec-input-container ">
-                                            <input className="spec-input" type="number" step="1"></input>
-                                            <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/ea/Dragon_warhammer.png?27308" alt=""></img>
-                                        </div>
-                                        <div className="spec-input-container">
-                                            <input className="spec-input" type="text" ></input>
-                                            <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6c/Bandos_godsword.png?0f871" alt=""></img>
-                                        </div>
-                                        <div className="spec-input-container">
-                                            <input className="spec-input" type="number" step="1"></input>
-                                            <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/1/16/Arclight.png?3d34e" alt=""></img>
-                                        </div>  
+                                <div className="test-box ">
+                                    <div className="spec-input-container ">
+                                        <input className="spec-input" type="number" step="1" min="0"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/ea/Dragon_warhammer.png?27308" alt=""></img>
+                                    </div>
+                                    <div className="spec-input-container">
+                                        <input className="spec-input" type="text" ></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6c/Bandos_godsword.png?0f871" alt=""></img>
+                                    </div>
+                                    <div className="spec-input-container">
+                                        <input className="spec-input" type="number" step="1"></input>
+                                        <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/1/16/Arclight.png?3d34e" alt=""></img>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -201,119 +234,18 @@ class DataPanel extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="test-options">
+                                <div className="options-label">
+                                    Prayers
+                                </div>
+                                <PrayerSelect prayersToDisplay={prayersToDisplay}></PrayerSelect>
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>
-                {/* <div className="row">
-                    <PlayerSkillSlot slot={'atk_level'} value={this.props.playerStats.atk + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="test-options">   
-                        <div className="options-label">
-                        Stat-Reducing Specs
-                        </div>
-                        <div className="test-box">
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/ea/Dragon_warhammer.png?27308" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6c/Bandos_godsword.png?0f871" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/1/16/Arclight.png?3d34e" alt=""></img>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <PlayerSkillSlot slot="str_level" value={this.props.playerStats.str + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="test-options">   
-                        <div className="options-label">
-                            Potion Boosts
-                        </div>
-                        <div className="test-box">
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/e/e5/Overload_%28%2B%29%284%29.png?6b1dd" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/f/fe/Imbued_heart.png?b33a3" alt=""></img>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <PlayerSkillSlot slot="magic_level" value={this.props.playerStats.magic + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="styles-container attack-styles">  
-                        <div className="test-options" data-toggle="dropdown">
-                            <div className="options-label">
-                                Attack Style
-                            </div>
-                            <div className="test-box no-bg" >
-                                <img className="combat-styles" src="https://oldschool.runescape.wiki/images/8/8f/Combat_icon.png?93d63" alt=""></img>
-                            </div> 
-                        </div>
-                        <ul className="dropdown-menu scrollable-menu" role="menu">
-                                        {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
-                                            return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
-                                        }) :null}
-                        </ul>
-                        <div className="test-options" data-toggle="dropdown">
-                            <div className="options-label">
-                                Spell
-                            </div>
-                            <div className="test-box  no-bg spellbook-img">
-                                <img className="spellbook" src="https://oldschool.runescape.wiki/images/0/0d/Spellbook.png?78262" alt=""></img>
-        
-                            </div> 
-                        </div>
-                        <ul className="dropdown-menu scrollable-menu" role="menu">
-                                        {this.props.equippedWeapon.stances ? this.props.equippedWeapon.stances.map((item, index) =>{
-                                            return(<li onClick={console.log('click')} key={index}>{`${item.combat_style} --${item.attack_style}`}</li>)
-                                        }) :null}
-                        </ul>
-                    </div>
-                </div>
-                <div className="row">
-                    <PlayerSkillSlot slot="ranged_level" value={this.props.playerStats.range + this.props.bonuses.potion}></PlayerSkillSlot>
-                    <div className="test-options">   
-                        <div className="options-label">
-                            Prayer
-                        </div>
-                        <div className="test-box">
-                        <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/8/82/Super_combat_potion%284%29.png?dc66c" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                            </div>
-                            <div className="container">
-                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="scb-image" value="option2"></input>
-                                <img className="checkbox-image" src="https://oldschool.runescape.wiki/images/6/6f/Ranging_potion%284%29.png?71375" alt=""></img>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="row">
                     <h1>Attack Bonuses</h1>
                 </div>

@@ -292,8 +292,8 @@
 
 .prayer-box{
     display: flex;
-    height: 100%;
-    width: auto;
+    height: 30px;
+    width: 30px;
    /*  border: 2px solid rgb(5, 255, 5); */
     text-align: center;
      justify-content: space-between; 
