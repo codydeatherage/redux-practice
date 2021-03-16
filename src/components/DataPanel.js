@@ -11,10 +11,6 @@ class DataPanel extends Component {
         const { level, potion, prayer, style, other } = this.props.bonuses;
     }
 
-    changeStyle = () => {
-        console.log()
-    }
-
     getPrayersToDisplay = () => {
         const prayers = [//len = 16
             { name: "Clarity of Thought", boost: 1.05, type: 'melee', icon: 'https://oldschool.runescape.wiki/images/e/e1/Clarity_of_Thought.png?8d584' },
@@ -64,6 +60,7 @@ class DataPanel extends Component {
         }
         return prayersToDisplay;
     }
+
     render() {
         const { level, potion, prayer, style, other } = this.props.bonuses;
         /*https://oldschool.runescape.wiki/w/Damage_per_second/Melee#Step_two:_Calculate_the_maximum_hit*/

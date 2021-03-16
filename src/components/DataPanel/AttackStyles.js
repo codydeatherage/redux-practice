@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import {connect} from 'react-redux'
 import AttackStyleItem from './AttackStyleItem'
 
 const AttackStyles = (props) => {
@@ -8,8 +7,6 @@ const AttackStyles = (props) => {
     useEffect(()=>{
         changeStyleInfo({data: props.data});
     }, [props.data])
-
-    //console.log('ATTACKSTYLES', props.data[0].weaponType);
 
     const handleSelect = (index) =>{
         let tempCopy = props.data;
@@ -31,23 +28,9 @@ const AttackStyles = (props) => {
             }
             tempCopy[i].img = path;
         }
-
         changeStyleInfo({data: tempCopy});
     }
 
-/*     let temp = props.data;
-    for(let i = 0; i < props.data.length; i++){
-        let path = `/assets/attackStyles/${props.data[i].weaponType}/${props.data[i].weaponType}_${props.data[i].style}`;
-        if(temp[i].selected){
-            path += '_sel_crop.png';
-        }
-        else{
-            path += '_crop.png';
-        }
-        temp[i].img = path;
-    }
-    changeStyleInfo({data: temp}); */
-    //console.log('---```--- Info', styleInfo.data);
     return (
         <div className="styles-box">
             <div className="row">
@@ -66,9 +49,7 @@ const AttackStyles = (props) => {
                     }
                 </div> : null}
         </div>
-    )
-        
-    
+    )  
 }
 
   export default AttackStyles
