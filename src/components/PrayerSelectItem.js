@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-class PrayerSelectItem extends Component {
-    constructor(props) {
-        super(props);
-        this.updatePrayers = this.updatePrayers.bind(this);
-    }
+const PrayerSelectItem = (props) => {
+    const activePrayers = useSelector(state => state.activePrayers);
+    const dispatch = useDispatch();
 
-    updatePrayers() {
-        let payload = this.props.activePrayers;
-        const { name } = this.props;
+    const updatePrayers = () => {
+        let payload = activePrayers;
+        const { name } = props;
         switch (name) {
             case 'Clarity of Thought':
             case 'Improved Reflexes':
@@ -33,32 +30,15 @@ class PrayerSelectItem extends Component {
             case 'Piety': payload = { atk: name, str: name, range: '', magic: '' };
                 break;
         }
-        this.props.dispatch({
+        dispatch({
             type: 'UPDATE_PRAYERS',
             payload: payload
         })
     }
 
-    render() {
-        return (
-            <img onClick={this.updatePrayers} className="prayer-img" src={this.props.icon} alt=""></img>
-        )
-    }
+    return (
+        <img onClick={updatePrayers} className="prayer-img" src={props.icon} alt=""></img>
+    )
 }
 
-const mapStateToProps = state => {
-    return {
-        activePrayers: state.activePrayers
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        dispatch
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PrayerSelectItem)
+export default PrayerSelectItem
