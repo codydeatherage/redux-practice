@@ -1,12 +1,25 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import allHelms from '../items/head_data.json'
+import allCapes from '../items/cape_data.json'
+import allNecks from '../items/neck_data.json'
+import allAmmo from '../items/ammo_data.json'
+import allWeapons from '../items/weapon_data.json'
+import allBodies from '../items/body_data.json'
+import allOffhands from '../items/shield_data.json'
+import allLegs from '../items/legs_data.json'
+import allHands from '../items/hands_data.json'
+import allFeet from '../items/feet_data.json'
+import allRings from '../items/ring_data.json'
 
 const DropDownList = props => {
-    const [currList, setDisplayList] = useState({ items: ['one', 'two', 'three'] });
+    const [currList, setDisplayList] = useState({ items: [''] });
+    const dispatch = useDispatch();
     const filterList = (event) => {
         console.log('DropDown FILTER', props.listType);
-        /*      let currList = props.listAll;
+            let curr = props.items;
              let newList = [];
-             for (let item of currList) {
+             for (let item of curr) {
                  newList.push(item.name.toLowerCase());
              }
      
@@ -15,16 +28,16 @@ const DropDownList = props => {
                  if (item.includes(event.target.value.toLowerCase())) {
                      displayList.push(item.charAt(0).toUpperCase() + item.slice(1));
                  }
-             } */
-        /*  setDisplayList({ items: displayList }); */
+             } 
+          setDisplayList({ items: displayList }); 
     }
 
-    const handleChange = (event) => {
-        /*         let itemList = this.props.listAll;
+    const handleChange = async (event) => {
+                let itemList = props.items;
                 const itemID = itemList.find(item => item.name === event.target.innerText).id;
-                await this.setState({equipped: event.target.innerText});
-                console.log('NEW ITEM SELECTED:', this.state.equipped, itemID);
-                await fetch(`https://api.osrsbox.com/equipment/${itemID}`)
+                console.log(event.target.innerText);
+                
+                /* await fetch(`https://api.osrsbox.com/equipment/${itemID}`)
                     .then(response => response.json())
                     .then(json => {
                         const {equipment, icon, } = json;
@@ -43,7 +56,7 @@ const DropDownList = props => {
                         })
                     }
                     }
-                )  */
+                )  */ 
     }
 
 
@@ -52,7 +65,7 @@ const DropDownList = props => {
             <input type="search" onChange={filterList} className="search-bar"></input>
             {
                 currList.items.map((item, index) => {
-                    return (<li key={index}>{item}</li>)
+                    return (<li onClick={handleChange} key={index}>{item}</li>)
                 })}
         </>
     )
