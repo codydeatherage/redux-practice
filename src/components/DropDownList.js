@@ -20,7 +20,7 @@ const DropDownList = props => {
         setDisplayList({ items: displayList });
     }
 
-    const handleChange = async (event) => {
+    const handleChange = (event) => {
         const item = props.items.find(item => item.name === event.target.innerText);
         console.log(item);
         dispatch({

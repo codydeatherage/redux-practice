@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const AttackStyleItem = (props) => {
     
-    const handleSelect = async () => {
+    const handleSelect = () => {
         if(props.data.selected){
             props.onSelectStyle(parseInt(props.id));
         }
@@ -18,7 +18,6 @@ const AttackStyleItem = (props) => {
             :
                 <img onClick={handleSelect} src={props.data.img} className="attack-style-img mr-0.5" alt=""></img>
             }
-
         </>
     )
 }

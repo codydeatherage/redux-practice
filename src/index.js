@@ -11,10 +11,10 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-const images = importAll(require.context('./assets/attackStyles/2h_sword', false, /\.(png|jpe?g|svg)$/));
+/* const images = importAll(require.context('./assets/attackStyles/2h_sword', false, /\.(png|jpe?g|svg)$/)); */
 ReactDOM.render(
   <Provider store={store}>
-    <App  images={images}/>
+    <App  /* images={images} *//>
   </Provider>,
   document.getElementById('root')
 );

@@ -41,8 +41,7 @@ const AttackStyles = (props) => {
                 <div className="row">
                     <AttackStyleItem onSelectStyle={handleSelect} data={styleInfo.data[2]} id="2"></AttackStyleItem>
                     {console.log('werwerasdfasdfasdfawef', props.data.length)}
-                    {props.data.length === 4 && props.data[3].style !== '' ?
-                         
+                    {props.data.length === 4 && props.data[3].style !== '' ?   
                         <AttackStyleItem onSelectStyle={handleSelect} data={styleInfo.data[3]} id="3"></AttackStyleItem>
                         :
                         <div className="attack-style-img"></div>
