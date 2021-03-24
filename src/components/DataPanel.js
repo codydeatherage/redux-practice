@@ -232,20 +232,24 @@ class DataPanel extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="test-options">
+                            <div className="prayers">
                                 <div className="options-label">
                                     Prayers
                                 </div>
-                                <PrayerSelect prayersToDisplay={prayersToDisplay}></PrayerSelect>
+                                <PrayerSelect 
+                                    prayersToDisplay={prayersToDisplay}
+                                    type={prayersToDisplay[0].type}
+                                ></PrayerSelect>
                             </div>
 
                         </div>
 
                     </div>
                 </div>
-                <div className="row">
+{/*                 <div className="row">
                     <h1>Attack Bonuses</h1>
-                </div>
+                </div> */}
+                
                 <div className="atk-bonus-container">
                     <div className="equip-bonus-container">
                         <div className="row">
